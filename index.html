@@ -849,7 +849,12 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   const mola = { type: 'spring', visualDuration: .7, bounce: .18 };
   const surge = { duration: .5, ease: [.22, 1, .36, 1] };
   // ao terminar, devolve o elemento ao CSS (hover e estados voltam a funcionar)
-  const solta = els => (els.length !== undefined ? els : [els]).forEach(e => { e.style.opacity = ''; e.style.transform = '' });
+  // espera a última mola de cada elemento terminar (a de transform dura mais que a de opacity)
+  const solta = els => {
+    const arr = els.length !== undefined ? [...els] : [els];
+    Promise.all(arr.flatMap(e => e.getAnimations().map(a => a.finished.catch(() => {}))))
+      .then(() => requestAnimationFrame(() => arr.forEach(e => { e.style.opacity = ''; e.style.transform = '' })));
+  };
 
   /* ---------- Cabeçalho ganha fundo depois do topo ---------- */
   const top = $('top');
@@ -919,15 +924,18 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     if (M) {
       // a página some de leve e volta com mola já no ramo novo; troca atropelada por outra é ignorada
       const tok = ++hTok;
-      M.animate(hvPage, { opacity: 0, y: 8, scale: .985 }, { duration: .24, ease: 'easeIn' }).then(() => {
+      M.animate(hvPage, { opacity: 0, transform: 'translateY(8px) scale(.985)' }, { duration: .24, ease: 'easeIn' }).then(() => {
         if (tok !== hTok) return;
-        apply(); M.animate(hvPage, { opacity: 1, y: 0, scale: 1 }, { ...mola, opacity: surge });
+        apply(); M.animate(hvPage, { opacity: [0, 1], transform: ['translateY(8px) scale(.985)', 'translateY(0px) scale(1)'] }, { ...mola, opacity: surge });
       });
       return;
     }
     hvPage.classList.add('swap'); setTimeout(apply, 280);
   }
-  const heroNext = () => { if (!hAuto || hHover || document.hidden) return; hk = (hk + 1) % HKEYS.length; heroShow(HKEYS[hk]) };
+  // fora da tela o exemplo do topo para de trocar: nada anima onde ninguém vê
+  let hVis = true;
+  new IntersectionObserver(es => hVis = es[0].isIntersecting).observe(hvPage);
+  const heroNext = () => { if (!hAuto || hHover || !hVis || document.hidden) return; hk = (hk + 1) % HKEYS.length; heroShow(HKEYS[hk]) };
   const heroLoop = () => { clearInterval(hTimer); if (!RM.matches) hTimer = setInterval(heroNext, 4200) };
   hvBtns.forEach(b => b.addEventListener('click', () => { hAuto = false; clearInterval(hTimer); hk = HKEYS.indexOf(b.dataset.h); heroShow(b.dataset.h) }));
   const hv = document.querySelector('.hv');
@@ -1099,7 +1107,7 @@ void main(){
     if (M) {
       // as partes do mini site entram em sequência, cada uma com mola
       const mps = msite.querySelectorAll('.mp');
-      M.animate(mps, { opacity: [0, 1], y: [22, 0] }, { ...mola, delay: M.stagger(.07), opacity: surge })
+      M.animate(mps, { opacity: [0, 1], transform: ['translateY(22px)', 'translateY(0px)'] }, { ...mola, delay: M.stagger(.07), opacity: surge })
         .then(() => { msite.classList.add('on'); solta(mps) });
     } else requestAnimationFrame(() => requestAnimationFrame(() => msite.classList.add('on')));
     const v = msite.querySelector('video'); if (v) queueMicrotask(() => vio.observe(v));   // vio nasce mais abaixo no script
@@ -1188,7 +1196,7 @@ void main(){
     // cada bloco sobe com mola ao entrar na tela, respeitando a ordem marcada em --d
     M.inView('.rv', el => {
       const d = parseFloat(el.style.getPropertyValue('--d')) || 0;
-      M.animate(el, { opacity: [0, 1], y: [16, 0] }, { ...mola, delay: d * .08, opacity: surge })
+      M.animate(el, { opacity: [0, 1], transform: ['translateY(16px)', 'translateY(0px)'] }, { ...mola, delay: d * .08, opacity: surge })
         .then(() => { el.classList.add('in'); solta(el) });
     }, { amount: .15 });
   } else {
@@ -1202,14 +1210,14 @@ void main(){
     // balões estouram do canto de onde saem, um depois do outro, como no WhatsApp
     M.inView(phone, () => {
       const ms = phone.querySelectorAll('.ph-day, .msg');
-      M.animate(ms, { opacity: [0, 1], y: [12, 0], scale: [.9, 1] }, { type: 'spring', visualDuration: .5, bounce: .3, delay: M.stagger(.42), opacity: { duration: .3 } })
+      M.animate(ms, { opacity: [0, 1], transform: ['translateY(12px) scale(.9)', 'translateY(0px) scale(1)'] }, { type: 'spring', visualDuration: .5, bounce: .3, delay: M.stagger(.42), opacity: { duration: .3 } })
         .then(() => { phone.classList.add('in'); solta(ms) });
     }, { amount: .35 });
   } else new IntersectionObserver((es, ob) => es.forEach(e => { if (e.isIntersecting) { phone.classList.add('in'); ob.disconnect() } }), { threshold: .35 }).observe(phone);
   // dúvidas: a resposta desliza ao abrir
   if (M) document.querySelectorAll('.faq details').forEach(dt => dt.addEventListener('toggle', () => {
     const p = dt.querySelector('p'); if (!dt.open || !p) return;
-    M.animate(p, { opacity: [0, 1], y: [-6, 0] }, { duration: .35, ease: [.22, 1, .36, 1] }).then(() => solta(p));
+    M.animate(p, { opacity: [0, 1], transform: ['translateY(-6px)', 'translateY(0px)'] }, { duration: .35, ease: [.22, 1, .36, 1] }).then(() => solta(p));
   }));
   // botão flutuante do WhatsApp só depois do topo
   const fab = document.querySelector('.fab');
