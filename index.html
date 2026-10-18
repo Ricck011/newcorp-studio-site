@@ -541,6 +541,11 @@ footer{margin-top:clamp(64px,10vh,120px);padding:clamp(48px,8vh,80px) var(--m) 2
   .js .top{opacity:0;animation:fade-up 700ms var(--ease-out) 200ms forwards}
   .js .rv{opacity:0;transform:translateY(12px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out);transition-delay:calc(var(--d,0) * 80ms)}
   .js .rv.in{opacity:1;transform:none}
+  /* com o Motion carregado, ele conduz as entradas com efeito de mola; o CSS só guarda o estado escondido */
+  .mo .rv:not(.in),.mo .ph-body .msg,.mo .ph-body .ph-day,.mo .mp{transform:none;transition:none}
+  .mo .hv-page{transition:background .4s var(--ease-out),color .4s var(--ease-out)}
+  .mo .ph-body .msg.in{transform-origin:0 100%}
+  .mo .ph-body .msg.out{transform-origin:100% 100%}
 }
 @keyframes fade-up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes rise{from{opacity:0;transform:translateY(40px) scale(.97)}to{opacity:1;transform:none}}
@@ -824,8 +829,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 
 <a class="fab wa" href="https://wa.me/5511988681657?text=Oi%21%20Vim%20pelo%20site%20e%20quero%20tirar%20uma%20d%C3%BAvida." data-msg="Oi! Vim pelo site e quero tirar uma dúvida." aria-label="Falar no WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/motion@13.5.1/dist/motion.js"></script>
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 (() => {
@@ -837,6 +841,15 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   const RM = matchMedia('(prefers-reduced-motion: reduce)');
   const $ = id => document.getElementById(id);
   const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+  /* ---------- Motion (motion.dev): conduz as entradas e trocas do site todo ---------- */
+  // sem Motion (falha no carregamento) ou com movimento reduzido, o CSS assume como antes
+  const M = !RM.matches && window.Motion ? Motion : null;
+  if (M) document.documentElement.classList.add('mo');
+  const mola = { type: 'spring', visualDuration: .7, bounce: .18 };
+  const surge = { duration: .5, ease: [.22, 1, .36, 1] };
+  // ao terminar, devolve o elemento ao CSS (hover e estados voltam a funcionar)
+  const solta = els => (els.length !== undefined ? els : [els]).forEach(e => { e.style.opacity = ''; e.style.transform = '' });
 
   /* ---------- Cabeçalho ganha fundo depois do topo ---------- */
   const top = $('top');
@@ -888,7 +901,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   const HKEYS = Object.keys(RAMOS);
   const hvPage = $('hvPage'), hvMsg = $('hvMsg'), hvBtns = [...document.querySelectorAll('.hv-pick button')];
   HKEYS.forEach(k => { const im = new Image(); im.src = RAMOS[k].poster || RAMOS[k].img });   // fotos leves, já prontas para a troca
-  let hk = 0, hTimer = null, hAuto = true, hHover = false;
+  let hk = 0, hTimer = null, hAuto = true, hHover = false, hTok = 0;
   function heroShow(k) {
     const d = RAMOS[k];
     hvBtns.forEach(b => b.setAttribute('aria-pressed', b.dataset.h === k));
@@ -903,6 +916,15 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       hvPage.classList.remove('swap');
     };
     if (RM.matches) { apply(); return }
+    if (M) {
+      // a página some de leve e volta com mola já no ramo novo; troca atropelada por outra é ignorada
+      const tok = ++hTok;
+      M.animate(hvPage, { opacity: 0, y: 8, scale: .985 }, { duration: .24, ease: 'easeIn' }).then(() => {
+        if (tok !== hTok) return;
+        apply(); M.animate(hvPage, { opacity: 1, y: 0, scale: 1 }, { ...mola, opacity: surge });
+      });
+      return;
+    }
     hvPage.classList.add('swap'); setTimeout(apply, 280);
   }
   const heroNext = () => { if (!hAuto || hHover || document.hidden) return; hk = (hk + 1) % HKEYS.length; heroShow(HKEYS[hk]) };
@@ -1002,13 +1024,13 @@ void main(){
     }
   }
 
-  /* ---------- GSAP + ScrollTrigger + Lenis: profundidade ao rolar ---------- */
+  /* ---------- Motion (motion.dev) + Lenis: profundidade ao rolar ---------- */
   // profundidade ao rolar só no computador; no celular a rolagem fica nativa e leve
-  if (window.gsap && window.ScrollTrigger && !RM.matches && matchMedia('(pointer: fine)').matches) {
-    gsap.registerPlugin(ScrollTrigger);
+  if (window.Motion && !RM.matches && matchMedia('(pointer: fine)').matches) {
+    const { animate, scroll, frame } = Motion;
     // rolagem macia só com mouse; no toque fica a rolagem nativa do celular
-    if (window.Lenis && matchMedia('(pointer: fine)').matches) {
-      const lenis = new Lenis({ lerp: .1 });
+    if (window.Lenis) {
+      const lenis = new Lenis({ lerp: .1, autoRaf: false });
       // links internos rolam macio até a seção, descontando o menu fixo
       document.addEventListener('click', e => {
         const a = e.target.closest('a[href^="#"]'); if (!a) return;
@@ -1016,22 +1038,29 @@ void main(){
         e.preventDefault(); lenis.scrollTo(el || 0, { offset: el ? -88 : 0, duration: 1.2 });
         if (el) history.replaceState(null, '', id);
       });
-      window.lenis = lenis; lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+      window.lenis = lenis;
+      // o laço de quadros do Motion move o Lenis antes de medir a rolagem, tudo no mesmo quadro
+      frame.setup(({ timestamp }) => lenis.raf(timestamp), true);
     }
-    const ex = { ease: 'none' };
+    // liga uma animação à rolagem; transform e opacity rodam na placa de vídeo quando o navegador deixa
+    const ligar = (alvo, quadros, target, offset) => {
+      const el = typeof alvo === 'string' ? document.querySelector(alvo) : alvo;
+      const tr = typeof target === 'string' ? document.querySelector(target) : target;
+      if (el && tr) scroll(animate(el, quadros, { ease: 'linear' }), { target: tr, offset });
+    };
+    const saindo = ['start start', 'end start'];
     // topo: o exemplo e o texto se afastam em ritmos diferentes ao sair
-    gsap.to('.hv-browser', { yPercent: -10, scale: .96, ...ex, scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .6 } });
-    gsap.to('.hv-phone', { yPercent: -45, ...ex, scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .6 } });
-    gsap.to('.hero .copy', { y: -60, opacity: .25, ...ex, scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .6 } });
+    ligar('.hv-browser', { transform: ['translateY(0%) scale(1)', 'translateY(-10%) scale(.96)'] }, '.hero', saindo);
+    ligar('.hv-phone', { transform: ['translateY(0%)', 'translateY(-45%)'] }, '.hero', saindo);
+    ligar('.hero .copy', { transform: ['translateY(0px)', 'translateY(-60px)'], opacity: [1, .25] }, '.hero', saindo);
     // celular sobe devagar enquanto a conversa aparece
-    gsap.fromTo('#phone', { y: 60 }, { y: -30, ...ex, scrollTrigger: { trigger: '.chat', start: 'top bottom', end: 'bottom top', scrub: .8 } });
+    ligar('#phone', { transform: ['translateY(60px)', 'translateY(-30px)'] }, '.chat', ['start end', 'end start']);
     // planos chegam em camadas
-    gsap.utils.toArray('.plans, .addon').forEach((el, i) => gsap.fromTo(el, { y: 70 + i * 30 }, { y: 0, ...ex, scrollTrigger: { trigger: el, start: 'top bottom', end: 'top 55%', scrub: .7 } }));
+    document.querySelectorAll('.plans, .addon').forEach((el, i) =>
+      ligar(el, { transform: [`translateY(${70 + i * 30}px)`, 'translateY(0px)'] }, el, ['start end', 'start 0.55']));
     // faixa final cresce até o tamanho real
-    gsap.fromTo('.cta-band', { scale: .92, y: 40 }, { scale: 1, y: 0, ...ex, scrollTrigger: { trigger: '.cta-band', start: 'top bottom', end: 'top 60%', scrub: .7 } });
-    gsap.fromTo('footer .f-top', { y: 60 }, { y: 0, ...ex, scrollTrigger: { trigger: 'footer', start: 'top bottom', end: 'top 50%', scrub: .7 } });
-    document.fonts && document.fonts.ready.then(() => ScrollTrigger.refresh());
+    ligar('.cta-band', { transform: ['translateY(40px) scale(.92)', 'translateY(0px) scale(1)'] }, '.cta-band', ['start end', 'start 0.6']);
+    ligar('footer .f-top', { transform: ['translateY(60px)', 'translateY(0px)'] }, 'footer', ['start end', 'start 0.5']);
   }
 
   /* ---------- Monte o seu: mini site por ramo, com o nome do visitante ---------- */
@@ -1067,7 +1096,12 @@ void main(){
       <span class="m-bubble">${WA_ICON}</span>`;
     msite.scrollTop = 0;
     paintName();
-    requestAnimationFrame(() => requestAnimationFrame(() => msite.classList.add('on')));
+    if (M) {
+      // as partes do mini site entram em sequência, cada uma com mola
+      const mps = msite.querySelectorAll('.mp');
+      M.animate(mps, { opacity: [0, 1], y: [22, 0] }, { ...mola, delay: M.stagger(.07), opacity: surge })
+        .then(() => { msite.classList.add('on'); solta(mps) });
+    } else requestAnimationFrame(() => requestAnimationFrame(() => msite.classList.add('on')));
     const v = msite.querySelector('video'); if (v) queueMicrotask(() => vio.observe(v));   // vio nasce mais abaixo no script
   }
   document.querySelectorAll('.ramos button').forEach(b => b.addEventListener('click', () => {
@@ -1088,6 +1122,18 @@ void main(){
     const mags = document.querySelectorAll('.hero .btn, .settle-cta .btn, .plan .btn, .inv .btn, .cta-band .btn');
     mags.forEach(el => {
       el.classList.add('mag');
+      if (M) {
+        // mola do Motion: o botão segue o mouse e, ao sair, volta com um pequeno balanço
+        const pos = { x: 0, y: 0 }, lim = 10, strength = 0.25;
+        const to = (x, y) => M.animate(pos, { x, y }, { type: 'spring', stiffness: 320, damping: 18, mass: .5,
+          onUpdate: () => el.style.translate = pos.x.toFixed(2) + 'px ' + pos.y.toFixed(2) + 'px' });
+        el.addEventListener('pointermove', e => {
+          const r = el.getBoundingClientRect();
+          to(clamp((e.clientX - (r.left + r.width / 2)) * strength, -lim, lim), clamp((e.clientY - (r.top + r.height / 2)) * strength, -lim, lim));
+        });
+        el.addEventListener('pointerleave', () => to(0, 0));
+        return;
+      }
       let tx = 0, ty = 0, x = 0, y = 0, raf = null;
       const big = false, strength = 0.25;
       const step = () => {
@@ -1138,12 +1184,33 @@ void main(){
   }), { threshold: .35 }).observe(flow);
 
   /* ---------- Entradas, vídeos dos exemplos, rua ---------- */
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } }), { threshold: 0.15 });
-  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+  if (M) {
+    // cada bloco sobe com mola ao entrar na tela, respeitando a ordem marcada em --d
+    M.inView('.rv', el => {
+      const d = parseFloat(el.style.getPropertyValue('--d')) || 0;
+      M.animate(el, { opacity: [0, 1], y: [16, 0] }, { ...mola, delay: d * .08, opacity: surge })
+        .then(() => { el.classList.add('in'); solta(el) });
+    }, { amount: .15 });
+  } else {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } }), { threshold: 0.15 });
+    document.querySelectorAll('.rv').forEach(el => io.observe(el));
+  }
   const vio = new IntersectionObserver(es => es.forEach(e => { if (RM.matches) return; e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause() }), { threshold: 0.3 });
   // a conversa aparece mensagem por mensagem quando o celular entra na tela
   const phone = $('phone');
-  new IntersectionObserver((es, ob) => es.forEach(e => { if (e.isIntersecting) { phone.classList.add('in'); ob.disconnect() } }), { threshold: .35 }).observe(phone);
+  if (M) {
+    // balões estouram do canto de onde saem, um depois do outro, como no WhatsApp
+    M.inView(phone, () => {
+      const ms = phone.querySelectorAll('.ph-day, .msg');
+      M.animate(ms, { opacity: [0, 1], y: [12, 0], scale: [.9, 1] }, { type: 'spring', visualDuration: .5, bounce: .3, delay: M.stagger(.42), opacity: { duration: .3 } })
+        .then(() => { phone.classList.add('in'); solta(ms) });
+    }, { amount: .35 });
+  } else new IntersectionObserver((es, ob) => es.forEach(e => { if (e.isIntersecting) { phone.classList.add('in'); ob.disconnect() } }), { threshold: .35 }).observe(phone);
+  // dúvidas: a resposta desliza ao abrir
+  if (M) document.querySelectorAll('.faq details').forEach(dt => dt.addEventListener('toggle', () => {
+    const p = dt.querySelector('p'); if (!dt.open || !p) return;
+    M.animate(p, { opacity: [0, 1], y: [-6, 0] }, { duration: .35, ease: [.22, 1, .36, 1] }).then(() => solta(p));
+  }));
   // botão flutuante do WhatsApp só depois do topo
   const fab = document.querySelector('.fab');
   const onFab = () => fab.classList.toggle('on', scrollY > innerHeight * .8);
