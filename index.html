@@ -127,7 +127,7 @@ main,footer{position:relative;z-index:1}
 :root:not([data-theme=light]) .msg,:root:not([data-theme=light]) .bub{color:#E9EDEF}
 :root:not([data-theme=light]) .msg.in,:root:not([data-theme=light]) .bub,:root:not([data-theme=light]) .dots{background:#202C33}
 :root:not([data-theme=light]) .msg.out,:root:not([data-theme=light]) .bub.me{background:#005C4B}
-:root:not([data-theme=light]) .msg time,:root:not([data-theme=light]) .bub small{color:#AEBAC1}
+:root:not([data-theme=light]) .msg time,:root:not([data-theme=light]) .bub small{color:#D3DEE3}
 :root:not([data-theme=light]) .wa-chat{background:#0B141A}
 :root:not([data-theme=light]) .phone{box-shadow:0 0 0 1px rgba(255,255,255,.08),0 50px 90px -40px rgba(0,0,0,.8)}
 :root:not([data-theme=light]) .mini-row span,:root:not([data-theme=light]) .chips span{color:inherit}
@@ -163,7 +163,7 @@ footer .mark{--sym-1:#121212;--sym-2:#121212;--sym-3:#121212}
 .trust li{display:flex;align-items:center;gap:8px}
 .trust svg{width:18px;height:18px;flex:none;fill:none;stroke:var(--acc-line);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
 
-.hv{position:relative;grid-column:7/13;padding:0 0 96px}
+.hv{position:relative;grid-column:7/13;padding:0 0 150px}
 .hv-browser{position:relative;border-radius:var(--r);overflow:hidden;background:var(--chrome);box-shadow:inset 0 0 0 1px var(--line),0 0 0 6px var(--bez-1),0 0 0 7px var(--bez-2),0 40px 80px -48px rgba(0,0,0,.9)}
 .bar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:var(--chrome-bar)}
 .bar i{width:10px;height:10px;border-radius:50%;background:var(--chrome-dot)}
@@ -210,7 +210,7 @@ footer .mark{--sym-1:#121212;--sym-2:#121212;--sym-3:#121212}
   .hero .lede{font-size:17px}
   .acts{width:100%}.acts .btn{flex:1 1 auto}
   .hv{padding-bottom:0}
-  .hv-phone{position:relative;left:auto;bottom:auto;width:84%;margin:-36px -4px 0 auto;padding:12px}
+  .hv-phone{position:relative;left:auto;bottom:auto;width:84%;margin:14px -4px 0 auto;padding:12px}
   .hv-bub{font-size:13px}
   .hv-items{display:none}
 }
@@ -691,7 +691,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
             <div class="mini-pg">
               <div class="mini-nav"><b class="fill" style="--t:.8s">Padaria Trigo Bom</b><span class="mpill fill" style="--t:1s">WhatsApp</span></div>
               <div class="mini-hero">
-                <div><h5 class="fill" style="--t:1.3s">Pão quentinho desde as 6h.</h5><p class="fill" style="--t:1.6s">Bolo sob encomenda na Mooca. Peça pelo WhatsApp e retire sem fila.</p><span class="mpill fill" style="--t:1.9s">Encomendar bolo</span></div>
+                <div><h5 role="presentation" class="fill" style="--t:1.3s">Pão quentinho desde as 6h.</h5><p class="fill" style="--t:1.6s">Bolo sob encomenda na Mooca. Peça pelo WhatsApp e retire sem fila.</p><span class="mpill fill" style="--t:1.9s">Encomendar bolo</span></div>
                 <div class="mph fill" style="--t:2.2s"></div>
               </div>
               <div class="mini-row"><span class="fill" style="--t:2.5s">Pão de fermentação natural<b>R$ 18,90</b></span><span class="fill" style="--t:2.7s">Bolo de chocolate<b>R$ 65</b></span></div>
@@ -808,9 +808,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   <div class="f-top">
     <div class="inv">
       <span class="mark"><svg class="sym" aria-hidden="true"><use href="#i-logo"/></svg>NEW CORP</span>
-      <h2>Vamos montar o seu?</h2>
-      <p>Amostra grátis do seu site. Você só paga se gostar.</p>
-      <a class="btn dark wa" href="https://wa.me/5511988681657?text=Oi%21%20Vamos%20montar%20o%20meu%20site%3F%20Quero%20a%20amostra%20gr%C3%A1tis." data-msg="Oi! Vamos montar o meu site? Quero a amostra grátis."><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Quero minha amostra grátis</a>
+      <p>Sites para padaria, clínica, oficina, salão e restaurante de São Paulo.</p>
     </div>
     <nav class="links" aria-label="Rodapé">
       <b>Contato e páginas</b>
@@ -1060,11 +1058,11 @@ void main(){
     msite.querySelectorAll('video').forEach(o => vio.unobserve(o));
     msite.innerHTML = `
       <header class="m-nav mp" ${J()}><b data-name></b><nav><span>Início</span><span>${esc(d.nav)}</span><span>Contato</span></nav><span class="m-btn">${WA_ICON.replace('<svg', '<svg width="16" height="16" fill="currentColor"')} WhatsApp</span></header>
-      <section class="m-hero"><div class="mp" ${J()}><h3>${esc(d.title)}</h3><p>${esc(d.lede)}</p><span class="m-btn big">${esc(d.cta)}</span><small>Nota 4,9 no Google · exemplo</small></div><div class="m-media mp" ${J()}>${media}</div></section>
-      <section class="m-serv mp" ${J()}><h4>${esc(d.servTitle)}</h4><ul>${d.items.map(([a, b]) => `<li><span>${esc(a)}</span><span>${esc(b)}</span></li>`).join('')}</ul></section>
-      <section class="m-split mp" ${J()}><img src="${d.img2}" alt="" width="1200" height="900" loading="lazy"><div><h4>${esc(d.aboutTitle)}</h4><p>${esc(d.about)}</p></div></section>
-      <section class="m-info mp" ${J()}><div><h4>Horário</h4><p>${esc(d.hours)}</p></div><div><h4>Onde fica</h4><p>Rua de exemplo, 123 · São Paulo</p></div><div><h4>Fale com a gente</h4><p>Resposta rápida pelo WhatsApp</p></div></section>
-      <section class="m-rev mp" ${J()}><h4>Quem já veio</h4><div class="qs">${d.rev.map(([q, a]) => `<blockquote>“${esc(q)}”<cite>${esc(a)}, depoimento de exemplo</cite></blockquote>`).join('')}</div></section>
+      <section class="m-hero"><div class="mp" ${J()}><h3 role="presentation">${esc(d.title)}</h3><p>${esc(d.lede)}</p><span class="m-btn big">${esc(d.cta)}</span><small>Nota 4,9 no Google · exemplo</small></div><div class="m-media mp" ${J()}>${media}</div></section>
+      <section class="m-serv mp" ${J()}><h4 role="presentation">${esc(d.servTitle)}</h4><ul>${d.items.map(([a, b]) => `<li><span>${esc(a)}</span><span>${esc(b)}</span></li>`).join('')}</ul></section>
+      <section class="m-split mp" ${J()}><img src="${d.img2}" alt="" width="1200" height="900" loading="lazy"><div><h4 role="presentation">${esc(d.aboutTitle)}</h4><p>${esc(d.about)}</p></div></section>
+      <section class="m-info mp" ${J()}><div><h4 role="presentation">Horário</h4><p>${esc(d.hours)}</p></div><div><h4 role="presentation">Onde fica</h4><p>Rua de exemplo, 123 · São Paulo</p></div><div><h4 role="presentation">Fale com a gente</h4><p>Resposta rápida pelo WhatsApp</p></div></section>
+      <section class="m-rev mp" ${J()}><h4 role="presentation">Quem já veio</h4><div class="qs">${d.rev.map(([q, a]) => `<blockquote>“${esc(q)}”<cite>${esc(a)}, depoimento de exemplo</cite></blockquote>`).join('')}</div></section>
       <footer class="m-foot"><span><b data-name></b> · São Paulo</span><span>Site feito pela NEW CORP STUDIO</span></footer>
       <span class="m-bubble">${WA_ICON}</span>`;
     msite.scrollTop = 0;
