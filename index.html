@@ -359,6 +359,7 @@ footer .mark{--sym-1:#121212;--sym-2:#121212;--sym-3:#121212}
 @keyframes skel{to{opacity:0}}
 @keyframes type{to{clip-path:inset(0 0 0 0)}}
 @keyframes blink{50%{opacity:0}}
+@media (pointer:coarse){.top.scrolled{-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--surface)}}
 @media (max-width:820px){
   .flow{grid-template-columns:1fr}
   .f-stage{order:-1;min-height:490px}
@@ -944,7 +945,7 @@ void main(){
         gl.uniform1f(uL, isLight() ? 1 : 0); glFrame(performance.now(), true);
       };
       // resolução reduzida: o fundo é suave, e assim custa pouco no celular
-      const coarse = matchMedia('(pointer: coarse)').matches, SCALE = coarse ? .35 : .5;
+      const coarse = matchMedia('(pointer: coarse)').matches, SCALE = coarse ? .25 : .5;
       const size = () => { cv.width = Math.max(2, Math.round(innerWidth * SCALE)); cv.height = Math.max(2, Math.round(innerHeight * SCALE)); gl.viewport(0, 0, cv.width, cv.height); gl.uniform2f(uR, cv.width, cv.height) };
       size(); addEventListener('resize', () => { size(); glFrame(performance.now(), true) });
       let sTarget = 0, sNow = 0, vNow = 0, vel = 0, mx = .5, my = .5, mxN = .5, myN = .5, lastY = scrollY, lastT = performance.now(), running = false, t0 = performance.now();
@@ -963,7 +964,10 @@ void main(){
         gl.drawArrays(gl.TRIANGLES, 0, 3);
         if (!once && running) requestAnimationFrame(glFrame);
       };
-      const glStart = () => { if (running || RM.matches || document.hidden) return; running = true; requestAnimationFrame(glFrame) };
+      // no celular o fundo não anima a cada quadro (é o que travava a rolagem): desenha parado e só atualiza quando a rolagem para
+      let idle = 0;
+      if (coarse) addEventListener('scroll', () => { clearTimeout(idle); idle = setTimeout(() => { sNow = sTarget; vNow = 0; glFrame(performance.now(), true) }, 180) }, { passive: true });
+      const glStart = () => { if (coarse) { glFrame(performance.now(), true); return } if (running || RM.matches || document.hidden) return; running = true; requestAnimationFrame(glFrame) };
       const glStop = () => { running = false };
       document.addEventListener('visibilitychange', () => document.hidden ? glStop() : glStart());
       RM.addEventListener('change', () => RM.matches ? (glStop(), glFrame(performance.now(), true)) : glStart());
@@ -972,7 +976,8 @@ void main(){
   }
 
   /* ---------- GSAP + ScrollTrigger + Lenis: profundidade ao rolar ---------- */
-  if (window.gsap && window.ScrollTrigger && !RM.matches) {
+  // profundidade ao rolar só no computador; no celular a rolagem fica nativa e leve
+  if (window.gsap && window.ScrollTrigger && !RM.matches && matchMedia('(pointer: fine)').matches) {
     gsap.registerPlugin(ScrollTrigger);
     // rolagem macia só com mouse; no toque fica a rolagem nativa do celular
     if (window.Lenis && matchMedia('(pointer: fine)').matches) {
