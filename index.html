@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NEW CORP STUDIO | Sites para negócios locais</title>
 <meta name="description" content="Sites para padaria, clínica, oficina, salão e restaurante de São Paulo. Você vê uma amostra grátis do seu site e só paga se gostar. O cliente chama direto no seu WhatsApp.">
-<meta name="theme-color" content="#F4F3EF">
+<meta name="theme-color" content="#111213">
 <meta property="og:title" content="NEW CORP STUDIO | Seu site pronto antes de você pagar">
 <meta property="og:description" content="Você vê uma amostra grátis do seu site e só paga se gostar.">
 <meta property="og:type" content="website">
@@ -18,7 +18,7 @@
 <link rel="icon" href="assets/marca/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/marca/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="assets/marca/apple-touch-icon.png">
-<script>(function(){var d=document.documentElement,t='';try{t=new URLSearchParams(location.search).get('tema')||''}catch(e){}if(t!=='escuro')d.setAttribute('data-theme','light')})()</script>
+<script>(function(){var d=document.documentElement,t='';try{t=new URLSearchParams(location.search).get('tema')||localStorage.getItem('nc-tema')||''}catch(e){}if(t==='claro')d.setAttribute('data-theme','light')})()</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -118,6 +118,20 @@ main,footer{position:relative;z-index:1}
 .theme-t svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 .theme-t .moon{display:none}:root[data-theme=light] .theme-t .sun{display:none}:root[data-theme=light] .theme-t .moon{display:block}
 
+:root:not([data-theme=light]) .ph-scr,:root:not([data-theme=light]) .ph-body{background-color:#0B141A}
+:root:not([data-theme=light]) .ph-body{background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1.2px)}
+:root:not([data-theme=light]) .ph-top,:root:not([data-theme=light]) .wa-hd{background:#202C33;color:#E9EDEF;border-color:rgba(255,255,255,.06)}
+:root:not([data-theme=light]) .ph-top .av{background:#3B4A54;color:#E9EDEF}
+:root:not([data-theme=light]) .ph-top small,:root:not([data-theme=light]) .wa-hd small{color:#8696A0}
+:root:not([data-theme=light]) .ph-day{background:#182229;color:#8696A0}
+:root:not([data-theme=light]) .msg,:root:not([data-theme=light]) .bub{color:#E9EDEF}
+:root:not([data-theme=light]) .msg.in,:root:not([data-theme=light]) .bub,:root:not([data-theme=light]) .dots{background:#202C33}
+:root:not([data-theme=light]) .msg.out,:root:not([data-theme=light]) .bub.me{background:#005C4B}
+:root:not([data-theme=light]) .msg time,:root:not([data-theme=light]) .bub small{color:#AEBAC1}
+:root:not([data-theme=light]) .wa-chat{background:#0B141A}
+:root:not([data-theme=light]) .phone{box-shadow:0 0 0 1px rgba(255,255,255,.08),0 50px 90px -40px rgba(0,0,0,.8)}
+:root:not([data-theme=light]) .mini-row span,:root:not([data-theme=light]) .chips span{color:inherit}
+
 /* ===== Cabeçalho fixo ===== */
 .top{position:fixed;top:12px;left:var(--m);right:var(--m);z-index:50;display:flex;align-items:center;gap:24px;padding:8px 8px 8px 20px;border-radius:999px;
   transition:background .3s var(--ease-out),box-shadow .3s var(--ease-out),backdrop-filter .3s}
@@ -130,7 +144,9 @@ footer .mark{--sym-1:#121212;--sym-2:#121212;--sym-3:#121212}
 .top nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;font-size:15px;font-weight:500;color:var(--ink-2);transition:color .2s,background .2s}
 .top nav a:hover{color:var(--ink);background:var(--fill)}
 @media (max-width:900px){.top nav{display:none}.top{top:8px;padding-left:16px;gap:10px}}
-@media (max-width:420px){.top .btn.sm{padding:0 14px;font-size:14px}.theme-t{width:40px;height:40px}}
+.theme-t{flex:none}
+@media (max-width:420px){.top{gap:6px;padding-left:12px}.mark{font-size:16px;gap:7px}.mark .sym{width:24px;height:24px}.top .btn.sm{padding:0 12px;font-size:14px;gap:6px}.top .btn.sm .ic{width:16px;height:16px}.theme-t{width:38px;height:38px}}
+@media (max-width:350px){.top .btn.sm .ic{display:none}}
 
 /* ===== 1. Hero: a prova na primeira tela ===== */
 .hero{position:relative;min-height:100svh;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center;padding:120px var(--m) 56px;overflow:hidden}
@@ -555,6 +571,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     <a href="#precos">Preços</a>
     <a href="#duvidas">Dúvidas</a>
   </nav>
+  <button class="theme-t" id="themeT" type="button" aria-label="Mudar para a versão clara"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
   <a class="btn sm wa" href="https://wa.me/5511988681657?text=Oi!%20Quero%20a%20amostra%20gr%C3%A1tis%20do%20meu%20site."><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Amostra grátis</a>
 </header>
 
@@ -899,7 +916,18 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 
   const isLight = () => document.documentElement.getAttribute('data-theme') === 'light';
   const metaTheme = document.querySelector('meta[name=theme-color]');
-  metaTheme.setAttribute('content', getComputedStyle(document.documentElement).getPropertyValue('--bg').trim());
+  const syncTheme = () => {
+    metaTheme.setAttribute('content', getComputedStyle(document.documentElement).getPropertyValue('--bg').trim());
+    $('themeT').setAttribute('aria-label', isLight() ? 'Mudar para a versão escura' : 'Mudar para a versão clara');
+  };
+  syncTheme();
+  // botão claro/escuro: guarda a escolha neste aparelho
+  $('themeT').addEventListener('click', () => {
+    const light = !isLight();
+    light ? document.documentElement.setAttribute('data-theme', 'light') : document.documentElement.removeAttribute('data-theme');
+    try { localStorage.setItem('nc-tema', light ? 'claro' : 'escuro') } catch (e) {}
+    syncTheme(); glColors();
+  });
 
   /* ---------- Fundo WebGL: aço líquido que corre com a rolagem ---------- */
   const cv = $('gl');
