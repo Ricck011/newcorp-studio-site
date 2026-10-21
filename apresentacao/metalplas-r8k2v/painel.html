@@ -7,8 +7,9 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="estilo.css">
+<link rel="icon" href="assets/icon-192.png">
 <style>
   body { background: #eef0f1; }
   .app { display: grid; grid-template-columns: 250px 1fr; min-height: calc(100vh - 33px); }
@@ -21,7 +22,7 @@
   }
   .menu button svg { width: 19px; height: 19px; flex: none; }
   .menu button:hover { background: var(--grafite-2); color: #fff; }
-  .menu button.ativo { background: var(--acento); color: #fff; }
+  .menu button.ativo { background: var(--acento); color: var(--ink); }
   .lado .rep { margin-top: auto; border: 1px solid var(--linha-escura); border-radius: 12px; padding: 14px; font-size: 13px; }
   .lado .rep b { color: #fff; display: block; font-size: 14px; }
   .lado .sair { color: var(--aco); font-size: 14px; padding: 0 12px; }
@@ -39,7 +40,7 @@
   .grade { display: grid; grid-template-columns: 1.6fr 1fr; gap: 14px; }
   .bloco { background: #fff; border-radius: 14px; border: 1px solid var(--linha); padding: 22px; min-width: 0; }
   .bloco h2 { font-size: 18px; margin: 0 0 16px; display: flex; justify-content: space-between; align-items: center; }
-  .bloco h2 a { font-size: 13px; color: var(--acento); font-weight: 600; letter-spacing: 0; }
+  .bloco h2 a { font-size: 13px; color: var(--ink); text-decoration: underline; font-weight: 600; letter-spacing: 0; }
   .tabela { width: 100%; border-collapse: collapse; font-size: 14px; }
   .tabela th { text-align: left; font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--texto-suave); padding: 0 10px 10px; border-bottom: 1px solid var(--linha); }
   .tabela td { padding: 13px 10px; border-bottom: 1px solid var(--linha); }
@@ -58,16 +59,16 @@
   .busca-produto input, .busca-produto select { height: 44px; border-radius: 10px; border: 1px solid var(--linha); padding: 0 14px; background: #fff; flex: 1; min-width: 180px; }
   .qtd { width: 70px; height: 36px; border: 1px solid var(--linha); border-radius: 8px; text-align: center; }
   .add { background: var(--ink); color: #fff; border: 0; border-radius: 8px; height: 36px; padding: 0 14px; cursor: pointer; font-size: 13px; }
-  .add:hover { background: var(--acento); }
+  .add:hover { background: var(--acento); color: var(--ink); }
   .docs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .doc { background: #fff; border: 1px solid var(--linha); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
   .doc svg { width: 28px; height: 28px; color: var(--acento); }
   .doc span { font-size: 13px; color: var(--texto-suave); }
-  .doc a { font-size: 14px; font-weight: 600; color: var(--acento); margin-top: auto; }
+  .doc a { font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: underline; margin-top: auto; }
   .aba { display: none; animation: entra .35s both; }
   .aba.ativa { display: block; }
   .carrinho { position: fixed; right: 24px; bottom: 24px; background: var(--ink); color: #fff; border-radius: 999px; padding: 12px 20px; font-size: 14px; display: none; gap: 10px; align-items: center; box-shadow: 0 20px 40px -14px rgba(0,0,0,.5); }
-  .carrinho b { background: var(--acento); border-radius: 999px; padding: 2px 9px; }
+  .carrinho b { background: var(--acento); color: var(--ink); border-radius: 999px; padding: 2px 9px; }
   .menu-mob { display: none; }
   @media (max-width: 1000px) {
     .app { grid-template-columns: 1fr; }
@@ -83,13 +84,13 @@
 </head>
 <body>
 
-<div class="demo-bar"><span>Protótipo do painel · dados fictícios para demonstração</span></div>
+<div class="demo-bar"><span>Protótipo do painel com dados fictícios.</span></div>
 
 <div class="app">
   <aside class="lado">
     <a href="index.html" class="marca">
-      <svg class="marca-icone" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#e02b20"/><circle cx="20" cy="20" r="13" fill="none" stroke="#fff" stroke-width="2"/><path d="M13 26V14l7 8 7-8v12" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></svg>
-      <span>METALPLAS<small>ÁREA DO CLIENTE</small></span>
+      <svg class="marca-icone" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="#fff" stroke-width="2.5"/><circle cx="20" cy="20" r="11" fill="#F2B705"/><path d="M15 24v-8l5 5 5-5v8" fill="none" stroke="#101214" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span>METALPLAS<small>Área do cliente</small></span>
     </a>
     <nav class="menu" id="menu">
       <button class="ativo" data-aba="inicio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7v9H4z"/></svg>Início</button>
@@ -106,7 +107,7 @@
     <div class="topo-app">
       <div>
         <h1>Olá, Auto Center Exemplo</h1>
-        <p>CNPJ 00.000.000/0001-00 · Cliente desde 2023</p>
+        <p>CNPJ 00.000.000/0001-00, cliente desde 2023</p>
       </div>
       <button class="btn btn-acento" data-ir="precos">Novo pedido</button>
     </div>
@@ -167,7 +168,7 @@
     <!-- Tabela de preços -->
     <section class="aba" id="aba-precos" style="padding:0">
       <div class="bloco">
-        <h2>Tabela de preços · outubro/2026</h2>
+        <h2>Tabela de preços de outubro de 2026</h2>
         <div class="busca-produto">
           <input id="filtro" placeholder="Buscar por código, peça ou veículo">
           <select id="filtro-linha"><option value="">Todas as linhas</option><option>Calota</option><option>Anel</option><option>Capa</option><option>Espaçador</option></select>
@@ -189,10 +190,10 @@
           <table class="tabela">
             <thead><tr><th>Documento</th><th>Pedido</th><th>Vencimento</th><th>Valor</th><th>Status</th><th></th></tr></thead>
             <tbody>
-              <tr><td>Boleto 3/3</td><td>#10482</td><td>28/10/2026</td><td>R$ 1.303,33</td><td><span class="status s-aberto">Em aberto</span></td><td><a href="#" style="color:var(--acento);font-weight:600">Segunda via</a></td></tr>
-              <tr><td>NF-e 45.812</td><td>#10482</td><td>—</td><td>R$ 3.910,00</td><td><span class="status s-ok">Emitida</span></td><td><a href="#" style="color:var(--acento);font-weight:600">Baixar PDF</a></td></tr>
+              <tr><td>Boleto 3/3</td><td>#10482</td><td>28/10/2026</td><td>R$ 1.303,33</td><td><span class="status s-aberto">Em aberto</span></td><td><a href="#" style="color:var(--ink);font-weight:600;text-decoration:underline">Segunda via</a></td></tr>
+              <tr><td>NF-e 45.812</td><td>#10482</td><td>—</td><td>R$ 3.910,00</td><td><span class="status s-ok">Emitida</span></td><td><a href="#" style="color:var(--ink);font-weight:600;text-decoration:underline">Baixar PDF</a></td></tr>
               <tr><td>Boleto 2/3</td><td>#10482</td><td>18/10/2026</td><td>R$ 1.303,33</td><td><span class="status s-ok">Pago</span></td><td>—</td></tr>
-              <tr><td>NF-e 45.660</td><td>#10441</td><td>—</td><td>R$ 1.210,00</td><td><span class="status s-ok">Emitida</span></td><td><a href="#" style="color:var(--acento);font-weight:600">Baixar PDF</a></td></tr>
+              <tr><td>NF-e 45.660</td><td>#10441</td><td>—</td><td>R$ 1.210,00</td><td><span class="status s-ok">Emitida</span></td><td><a href="#" style="color:var(--ink);font-weight:600;text-decoration:underline">Baixar PDF</a></td></tr>
             </tbody>
           </table>
         </div>

@@ -1,22 +1,22 @@
 /* Metalplas — protótipo visual (NEW CORP, out/2026) */
 :root {
-  --ink: #0d1013;
-  --grafite: #161b20;
-  --grafite-2: #1f262d;
+  --ink: #101214;
+  --grafite: #171a1d;
+  --grafite-2: #1f2327;
   --aco: #8a949e;
   --aco-claro: #c9cfd4;
   --linha: #e3e6e8;
-  --linha-escura: #2a323a;
+  --linha-escura: #2a2f34;
   --papel: #f5f6f4;
   --branco: #ffffff;
   --texto: #1b2127;
   --texto-suave: #5b656f;
-  --acento: #e02b20;
-  --acento-escuro: #b81f16;
+  --acento: #f2b705;
+  --acento-escuro: #d9a300;
   --raio: 14px;
   --max: 1200px;
-  --sans: "Archivo", system-ui, sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, monospace;
+  --sans: "Barlow", system-ui, sans-serif;
+  --mono: "Barlow Condensed", "Arial Narrow", sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -64,12 +64,12 @@ h3 { font-size: 20px; letter-spacing: -.01em; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   height: 50px; padding: 0 24px;
-  border-radius: 999px; border: 1px solid transparent;
+  border-radius: 10px; border: 1px solid transparent;
   font-weight: 600; font-size: 15px; cursor: pointer; white-space: nowrap;
   transition: background .2s, color .2s, border-color .2s, transform .2s;
 }
 .btn:hover { transform: translateY(-1px); }
-.btn-acento { background: var(--acento); color: #fff; }
+.btn-acento { background: var(--acento); color: var(--ink); }
 .btn-acento:hover { background: var(--acento-escuro); }
 .btn-linha { border-color: currentColor; }
 .btn-linha:hover { background: rgba(255,255,255,.08); }
@@ -80,7 +80,7 @@ h3 { font-size: 20px; letter-spacing: -.01em; }
 /* Faixa de demonstração */
 .demo-bar {
   background: var(--ink); color: var(--aco-claro);
-  font-family: var(--mono); font-size: 12px;
+  font-family: var(--sans); font-size: 13px;
   text-align: center; padding: 8px 16px;
   display: flex; gap: 14px; justify-content: center; align-items: center; flex-wrap: wrap;
 }
@@ -371,3 +371,6 @@ section { padding: 120px 0; }
   .tela-corpo { grid-template-columns: 1fr; }
   .tela-lado { display: none; }
 }
+
+/* títulos no padrão do site */
+h1, h2, h3 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; letter-spacing: .005em; }
