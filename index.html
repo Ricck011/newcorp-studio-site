@@ -3,1229 +3,504 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Site para negócio local em São Paulo | NEW CORP STUDIO</title>
-<meta name="description" content="Sites para padaria, clínica, oficina, salão e restaurante de São Paulo. Você vê uma amostra grátis do seu site e só paga se gostar. O cliente chama direto no seu WhatsApp.">
-<meta name="theme-color" content="#111213">
-<meta property="og:title" content="NEW CORP STUDIO | Seu site pronto antes de você pagar">
-<meta property="og:description" content="Você vê uma amostra grátis do seu site e só paga se gostar.">
-<meta property="og:type" content="website">
+<title>Pedro Henrique · NEW CORP · Sites e sistemas para negócios locais</title>
+<meta name="description" content="Sou o Pedro, dono da NEW CORP. Faço sites que trazem cliente e sistemas que poupam seu tempo. A primeira tela fica pronta em até 72 horas e você vê antes de pagar.">
+<meta name="theme-color" content="#111311">
 <link rel="canonical" href="https://studio.corpstorehub.com/">
-<meta property="og:url" content="https://studio.corpstorehub.com/">
-<meta property="og:image" content="https://studio.corpstorehub.com/assets/marca/previa-link-1200x630.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-6 -6 112 112'%3E%3Cpath d='M4 96 56 4 44 62Z' fill='%23E6E9EC'/%3E%3Cpath d='M60 22 58.28 63.24 75.55 51.45Z' fill='%238A9097'/%3E%3Cpath d='M98 94 79.67 59.27 64.41 73.84Z' fill='%238A9097'/%3E%3Cpath d='M12 98 94 42 50 84Z' fill='%23C6FF3D'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:title" content="Pedro Henrique · NEW CORP">
+<meta property="og:description" content="Sites e sistemas para negócios locais. Você vê a primeira tela antes de pagar.">
+<meta property="og:image" content="https://studio.corpstorehub.com/assets/og-card.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pedro Henrique, da NEW CORP: sites que trazem cliente. Primeira tela grátis.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Pedro Henrique · NEW CORP">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="assets/marca/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="assets/marca/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="assets/marca/apple-touch-icon.png">
-<script>(function(){var d=document.documentElement,t='';try{t=new URLSearchParams(location.search).get('tema')||localStorage.getItem('nc-tema')||''}catch(e){}if(t==='claro')d.setAttribute('data-theme','light')})()</script>
+<meta property="og:url" content="https://studio.corpstorehub.com/">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/padaria.jpg">
-<style>
-/* ===== Tokens: marca NEW CORP (preto, aço, laranja). v5: cantos arredondados, profundidade leve ===== */
-:root{
-  --bg:#111213;
-  --surface:#1A1B1D;
-  --surface-2:#232427;
-  --surface-3:#2E3033;
-  --line:rgba(255,255,255,.09);
-  --line-2:rgba(255,255,255,.16);
-  --steel:#C9CDD2;
-  --steel-2:#9EA3A9;
-  --steel-3:#6E7378;
-  --accent:#C6FF3D;
-  --accent-2:#B4F01F;
-  --accent-dark:#7FB800;
-  --ink:#F1F2F3;
-  --ink-2:#C4C7CB;
-  --ink-dark:#121212;
-  --paper:#F5F4F1;
-  --ink-3:#9EA3A9;
-  --fill:rgba(255,255,255,.05); --fill-2:rgba(255,255,255,.1);
-  --mq-dim:#8A8F95; --mq-link:#C9CDD2;
-  --hdr:rgba(22,23,25,.78);
-  --bez-1:rgba(255,255,255,.03); --bez-2:rgba(255,255,255,.08);
-  --chrome:#1C1D20; --chrome-bar:#232427; --chrome-dot:#45474B; --chrome-url:#2E3033; --chrome-url-ink:#A9ADB2;
-  --ok:#4ADE80; --link:#C6FF3D; --on-accent:#121212; --acc-line:#C6FF3D;
-  --sym-1:#E6E9EC; --sym-2:#8A9097; --sym-3:#C6FF3D;
-  --gl-base:#0F110E; --gl-steel:#C9CDD2; --gl-acc:#C6FF3D;
-  --wa:#25D366;
-  --r-sm:10px; --r:16px; --r-lg:20px; --r-xl:24px;
-  --ease-out:cubic-bezier(.16,1,.3,1);
-  --ease-io:cubic-bezier(.65,0,.35,1);
-  --m:clamp(16px,3vw,40px);
-  --t-sm:14px; --t-body:17px; --t-md:22px; --t-lg:clamp(28px,2.8vw,40px); --t-xl:clamp(34px,3.8vw,54px);
-  --font:'Onest',system-ui,sans-serif;
-}
-:root[data-theme=light]{
-  --bg:#F4F3EF; --surface:#FFFFFF; --surface-2:#EDECE8; --surface-3:#E4E2DD;
-  --line:rgba(17,18,19,.09); --line-2:rgba(17,18,19,.18);
-  --ink:#141516; --ink-2:#4F5257; --ink-3:#6A6D72;
-  --fill:rgba(17,18,19,.04); --fill-2:rgba(17,18,19,.08);
-  --mq-dim:#6A6D72; --mq-link:#141516; --link:#4A7300; --acc-line:#5E9400;
-  --sym-1:#2A2D31; --sym-2:#6B7178; --sym-3:#7FB800;
-  --hdr:rgba(255,255,255,.82);
-  --bez-1:rgba(17,18,19,.03); --bez-2:rgba(17,18,19,.1);
-  --chrome:#FFFFFF; --chrome-bar:#F1F0EC; --chrome-dot:#D3D2CD; --chrome-url:#FFFFFF; --chrome-url-ink:#6A6D72;
-  --ok:#15803D;
-  --gl-base:#F4F3EF; --gl-steel:#7E848B; --gl-acc:#9BD400;
-}
-:root[data-theme=light] .bg video,:root[data-theme=light] .bg .veil{display:none}
-:root[data-theme=light] .top.scrolled{box-shadow:inset 0 0 0 1px var(--line),0 20px 40px -24px rgba(17,18,19,.25)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{overflow-x:hidden;overflow-x:clip;background:var(--bg);scroll-padding-top:88px}
-body{overflow-x:hidden;overflow-x:clip;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:var(--t-body);line-height:1.55;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-img,video{display:block;max-width:100%}
-:focus-visible{outline:3px solid var(--acc-line);outline-offset:3px;border-radius:6px}
-.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--on-accent);padding:10px 16px;z-index:100;border-radius:999px}
-.skip:focus{left:16px}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-h1,h2,h3{font-weight:700;letter-spacing:-.025em;line-height:1.12}
-.ic{width:20px;height:20px;flex:none;fill:currentColor}
-
-/* botões: pílula, ícone, profundidade leve */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:999px;font:700 16px/1 var(--font);letter-spacing:-.01em;
-  background:var(--accent);color:var(--on-accent);border:0;cursor:pointer;white-space:nowrap;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.22);
-  transition:background .2s var(--ease-out),transform .2s var(--ease-out),box-shadow .2s var(--ease-out),color .2s var(--ease-out)}
-.btn:hover{background:var(--accent-2);transform:translateY(-1px)}
-.btn:active{transform:translateY(0) scale(.98)}
-.btn .arr{transition:transform .2s var(--ease-out)}
-.btn:hover .arr{transform:translateX(3px)}
-.btn.ghost{background:var(--fill);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line-2)}
-.btn.ghost:hover{background:var(--fill-2)}
-.btn.dark{background:var(--ink-dark);color:#fff;box-shadow:none}
-.btn.dark:hover{background:#000}
-.btn.sm{min-height:44px;padding:0 18px;font-size:15px}
-.chip{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px var(--line);font-size:14px;font-weight:500;color:var(--ink-2)}
-.chip i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
-.sec{padding:clamp(96px,14vh,160px) var(--m)}
-.sec-head{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end;margin-bottom:clamp(36px,6vh,64px)}
-.sec-head h2{grid-column:1/7;font-size:var(--t-lg)}
-.sec-head p{grid-column:8/13;color:var(--ink-2)}
-@media (max-width:820px){.sec-head{grid-template-columns:1fr}.sec-head h2,.sec-head p{grid-column:auto}.sec-head h2{font-size:clamp(26px,7vw,32px)}}
-
-/* ===== Fundo vivo: WebGL atrás de tudo, reage à rolagem ===== */
-#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block}
-main,footer{position:relative;z-index:1}
-.lenis.lenis-smooth{scroll-behavior:auto!important}
-.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
-.theme-t{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;border:0;background:var(--fill);box-shadow:inset 0 0 0 1px var(--line);color:var(--ink);cursor:pointer}
-.theme-t:hover{background:var(--fill-2)}
-.theme-t svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
-.theme-t .moon{display:none}:root[data-theme=light] .theme-t .sun{display:none}:root[data-theme=light] .theme-t .moon{display:block}
-
-:root:not([data-theme=light]) .ph-scr,:root:not([data-theme=light]) .ph-body{background-color:#0B141A}
-:root:not([data-theme=light]) .ph-body{background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1.2px)}
-:root:not([data-theme=light]) .ph-top,:root:not([data-theme=light]) .wa-hd{background:#202C33;color:#E9EDEF;border-color:rgba(255,255,255,.06)}
-:root:not([data-theme=light]) .ph-top .av{background:#3B4A54;color:#E9EDEF}
-:root:not([data-theme=light]) .ph-top small,:root:not([data-theme=light]) .wa-hd small{color:#8696A0}
-:root:not([data-theme=light]) .ph-day{background:#182229;color:#8696A0}
-:root:not([data-theme=light]) .msg,:root:not([data-theme=light]) .bub{color:#E9EDEF}
-:root:not([data-theme=light]) .msg.in,:root:not([data-theme=light]) .bub,:root:not([data-theme=light]) .dots{background:#202C33}
-:root:not([data-theme=light]) .msg.out,:root:not([data-theme=light]) .bub.me{background:#005C4B}
-:root:not([data-theme=light]) .msg time,:root:not([data-theme=light]) .bub small{color:#D3DEE3}
-:root:not([data-theme=light]) .wa-chat{background:#0B141A}
-:root:not([data-theme=light]) .phone{box-shadow:0 0 0 1px rgba(255,255,255,.08),0 50px 90px -40px rgba(0,0,0,.8)}
-:root:not([data-theme=light]) .mini-row span,:root:not([data-theme=light]) .chips span{color:inherit}
-
-/* ===== Cabeçalho fixo ===== */
-.top{position:fixed;top:12px;left:var(--m);right:var(--m);z-index:50;display:flex;align-items:center;gap:24px;padding:8px 8px 8px 20px;border-radius:999px;
-  transition:background .3s var(--ease-out),box-shadow .3s var(--ease-out),backdrop-filter .3s}
-.top.scrolled{background:var(--hdr);box-shadow:inset 0 0 0 1px var(--line),0 20px 40px -20px rgba(0,0,0,.7);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4)}
-.mark{font-weight:800;font-size:18px;letter-spacing:-.02em;white-space:nowrap;margin-right:auto;display:inline-flex;align-items:center;min-height:44px}
-.mark{gap:10px}
-.mark .sym{width:28px;height:28px;flex:none}
-footer .mark{--sym-1:#121212;--sym-2:#121212;--sym-3:#121212}
-.top nav{display:flex;gap:4px}
-.top nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;font-size:15px;font-weight:500;color:var(--ink-2);transition:color .2s,background .2s}
-.top nav a:hover{color:var(--ink);background:var(--fill)}
-@media (max-width:900px){.top nav{display:none}.top{top:8px;padding-left:16px;gap:10px}}
-.theme-t{flex:none}
-@media (max-width:420px){.top{gap:6px;padding-left:12px}.mark{font-size:16px;gap:7px}.mark .sym{width:24px;height:24px}.top .btn.sm{padding:0 12px;font-size:14px;gap:6px}.top .btn.sm .ic{width:16px;height:16px}.theme-t{width:38px;height:38px}}
-@media (max-width:350px){.top .btn.sm .ic{display:none}}
-
-/* ===== 1. Hero: a prova na primeira tela ===== */
-.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center;padding:120px var(--m) 56px;overflow:hidden}
-.hero::before{content:"";position:absolute;right:-10%;top:10%;width:70vw;height:70vw;max-width:1000px;max-height:1000px;border-radius:50%;
-  background:radial-gradient(closest-side,color-mix(in srgb,var(--accent) 8%,transparent),transparent);pointer-events:none}
-.hero .copy,.hv{min-width:0}
-.hero .copy{position:relative;grid-column:1/7;display:flex;flex-direction:column;align-items:flex-start;gap:24px}
-.hero h1{font-size:var(--t-xl);max-width:16ch}
-.hero h1 em{font-style:normal}
-.hero .lede{font-size:18px;color:var(--ink-2);max-width:40ch}
-.hero .lede b{color:var(--ink);font-weight:600}
-.acts{display:flex;flex-wrap:wrap;gap:12px}
-.trust{list-style:none;display:flex;flex-wrap:wrap;gap:10px 22px;font-size:15px;color:var(--ink-2)}
-.trust li{display:flex;align-items:center;gap:8px}
-.trust svg{width:18px;height:18px;flex:none;fill:none;stroke:var(--acc-line);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
-
-.hv{position:relative;grid-column:7/13;padding:0 0 150px}
-.hv-browser{position:relative;border-radius:var(--r);overflow:hidden;background:var(--chrome);box-shadow:inset 0 0 0 1px var(--line),0 0 0 6px var(--bez-1),0 0 0 7px var(--bez-2),0 40px 80px -48px rgba(0,0,0,.9)}
-.bar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:var(--chrome-bar)}
-.bar i{width:10px;height:10px;border-radius:50%;background:var(--chrome-dot)}
-.url{margin-left:10px;flex:1;max-width:300px;height:24px;border-radius:999px;background:var(--chrome-url);font:500 12px/24px var(--font);color:var(--chrome-url-ink);box-shadow:inset 0 0 0 1px var(--line);padding:0 12px;overflow:hidden;white-space:nowrap}
-.hv-page{--mbg:#F3EEE7;--mink:#2B1D12;--msurf:#E9E1D5;--macc:#B5541C;--macc-ink:#fff;background:var(--mbg);color:var(--mink);padding:clamp(16px,2vw,28px);display:grid;gap:clamp(12px,1.6vw,20px);
-  transition:opacity .3s var(--ease-out),transform .3s var(--ease-out),background .4s var(--ease-out),color .4s var(--ease-out)}
-.hv-page.swap{opacity:0;transform:translateY(8px)}
-.hv-nav{display:flex;justify-content:space-between;align-items:center;font-size:clamp(12px,1vw,15px)}
-.hv-nav b{font-weight:800;letter-spacing:-.02em}
-.hv-pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:7px 14px;background:var(--macc);color:var(--macc-ink);font-weight:700;font-size:clamp(11px,.85vw,13px);white-space:nowrap}
-.hv-pill svg{width:14px;height:14px;fill:currentColor}
-.hv-main{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(12px,1.6vw,22px);align-items:center}
-.hv-main .ht{font-size:clamp(18px,1.7vw,26px);line-height:1.1;letter-spacing:-.02em;font-weight:800;margin-bottom:10px}
-.hv-main p{font-size:clamp(11px,.95vw,14px);line-height:1.45;margin-bottom:14px;opacity:.85}
-.hv-main .hv-pill{padding:10px 16px}
-.hv-main small{display:block;margin-top:10px;font-size:clamp(10px,.8vw,12px);opacity:.65}
-.hv-photo{border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:var(--msurf)}
-.hv-photo img{width:100%;height:100%;object-fit:cover}
-.hv-items{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.hv-items span{display:flex;justify-content:space-between;gap:8px;padding:10px 12px;border-radius:10px;background:var(--msurf);font-size:clamp(11px,.85vw,13px);font-weight:500}
-.hv-items b{font-weight:800;white-space:nowrap}
-.hv-phone{position:absolute;left:-36px;bottom:0;width:min(290px,48%);padding:14px;border-radius:24px;background:#0B141A;color:#E9EDEF;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 40px 80px -24px rgba(0,0,0,.95);
-  transition:transform .4s var(--ease-out)}
-.hv-ph-top{display:flex;align-items:center;gap:10px;padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid rgba(255,255,255,.08)}
-.hv-ph-top .av{width:34px;height:34px;border-radius:50%;background:var(--wa);display:grid;place-items:center;flex:none}
-.hv-ph-top .av svg{width:18px;height:18px;fill:#fff}
-.hv-ph-top b{display:block;font-size:14px;font-weight:600}
-.hv-ph-top small{display:block;font-size:12px;color:#8696A0}
-.hv-bub{position:relative;background:#202C33;border-radius:4px 14px 14px 14px;padding:10px 12px;font-size:14px;line-height:1.4;transition:opacity .3s}
-.hv-time{display:block;text-align:right;font-size:11px;color:#8696A0;margin-top:6px}
-.hv-pick{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:8px;margin-bottom:16px}
-.hv-pick span{font-size:14px;color:var(--ink-3);margin-right:4px}
-.hv-pick button{min-height:44px;padding:0 14px;border-radius:999px;border:0;background:var(--fill);box-shadow:inset 0 0 0 1px var(--line);color:var(--ink-2);font:600 14px var(--font);cursor:pointer;transition:background .2s,color .2s,box-shadow .2s}
-.hv-pick button:hover{background:var(--fill-2);color:var(--ink)}
-.hv-pick button[aria-pressed=true]{background:var(--ink);color:var(--bg);box-shadow:none}
-@media (max-width:1100px){.hv-phone{left:-16px}}
-@media (max-width:900px){.hv{display:flex;flex-direction:column}.hv-pick{order:3;justify-content:flex-start;margin:20px 0 0;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--m) * -1);padding-inline:var(--m)}.hv-pick span{display:none}.hv-pick button{flex:none}.acts .btn.ghost{display:none}}
-@media (max-width:900px){
-  .hero{grid-template-columns:1fr;padding-top:96px;gap:32px;align-items:start}
-  .hero .copy{gap:18px}
-  .hero .copy,.hv{grid-column:auto}
-  .hero h1{font-size:clamp(32px,8.6vw,40px)}
-  .hero .lede{font-size:17px}
-  .acts{width:100%}.acts .btn{flex:1 1 auto}
-  .hv{padding-bottom:0}
-  .hv-phone{position:relative;left:auto;bottom:auto;width:84%;margin:14px -4px 0 auto;padding:12px}
-  .hv-bub{font-size:13px}
-  .hv-items{display:none}
-}
-@media (max-width:520px){.hv-main{grid-template-columns:1fr 1fr}.hv-main p{display:none}.hv-nav .hv-pill{display:none}}
-
-/* ===== Para quem: ramos atendidos, parados ===== */
-.who-for{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:28px var(--m);border-block:1px solid var(--line)}
-.who-for > span{font-size:15px;color:var(--ink-2);margin-right:6px}
-.who-for a,.who-for i{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:999px;font-style:normal;font-size:15px;font-weight:600;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
-.who-for a{color:var(--ink);transition:box-shadow .2s,color .2s}
-.who-for a:hover{box-shadow:inset 0 0 0 1.5px var(--acc-line);color:var(--link)}
-.who-for i{color:var(--ink-2);font-weight:500}
-.mag{will-change:translate}
-
-/* ===== 3. O que chega no WhatsApp: uma conversa de verdade, no celular ===== */
-.chat{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center}
-.chat .txt{grid-column:1/6;display:flex;flex-direction:column;gap:18px}
-.chat .txt h2{font-size:var(--t-lg)}
-.chat .txt p{color:var(--ink-2);max-width:42ch}
-.chat .txt .big{font-size:clamp(18px,1.5vw,21px);color:var(--ink);font-weight:500;line-height:1.45}
-.facts{list-style:none;display:grid;gap:12px;margin-top:6px}
-.facts li{display:flex;gap:12px;align-items:flex-start}
-.facts b{display:block;font-size:16px}
-.facts span{font-size:15px;color:var(--ink-2)}
-.facts svg{width:22px;height:22px;flex:none;margin-top:1px;fill:none;stroke:var(--acc-line);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.ph-wrap{grid-column:7/12;justify-self:center;width:min(380px,100%)}
-.phone{width:100%;border-radius:44px;padding:12px;background:#121314;box-shadow:0 0 0 1px rgba(0,0,0,.2),0 50px 90px -40px rgba(17,18,19,.55)}
-.ph-scr{border-radius:34px;overflow:hidden;background:#EFEAE2;display:flex;flex-direction:column;min-height:560px}
-.ph-top{display:flex;align-items:center;gap:10px;padding:14px 16px;background:#F7F5F2;border-bottom:1px solid rgba(0,0,0,.06);color:#111B21}
-.ph-top .av{width:38px;height:38px;border-radius:50%;background:#D9DDE1;display:grid;place-items:center;font-size:14px;font-weight:700;color:#3B4A54;flex:none}
-.ph-top b{display:block;font-size:15px;font-weight:600}
-.ph-top small{display:block;font-size:12px;color:#54656F}
-.ph-body{flex:1;display:flex;flex-direction:column;gap:6px;padding:16px 12px 18px;background:#EFEAE2 radial-gradient(rgba(0,0,0,.035) 1px,transparent 1.2px) 0 0/14px 14px}
-.ph-day{align-self:center;margin-bottom:6px;padding:4px 12px;border-radius:8px;background:#FFFFFF;font-size:12px;color:#54656F;box-shadow:0 1px .5px rgba(11,20,26,.13)}
-.msg{position:relative;max-width:82%;padding:7px 10px 18px;border-radius:10px;font-size:14.5px;line-height:1.38;color:#111B21;box-shadow:0 1px .5px rgba(11,20,26,.13)}
-.msg time{position:absolute;right:9px;bottom:4px;font-size:11px;color:#667781;display:inline-flex;align-items:center;gap:3px}
-.msg.in{align-self:flex-start;background:#FFFFFF;border-top-left-radius:2px}
-.msg.out{align-self:flex-end;background:#D9FDD3;border-top-right-radius:2px}
-.msg.out time svg{width:16px;height:11px;fill:none;stroke:#53BDEB;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.msg + .msg.in,.msg + .msg.out{margin-top:0}
-.msg.in + .msg.out,.msg.out + .msg.in{margin-top:8px}
-.ph-cap{margin-top:28px;text-align:center;font-size:13px;color:var(--ink-3)}
-@media (prefers-reduced-motion:no-preference){
-  .js .ph-body .msg,.js .ph-body .ph-day{opacity:0;transform:translateY(10px) scale(.98);transition:opacity .45s var(--ease-out),transform .45s var(--ease-out);transition-delay:calc(var(--k,0) * 420ms)}
-  .js .phone.in .msg,.js .phone.in .ph-day{opacity:1;transform:none}
-}
-@media (max-width:900px){
-  .chat{grid-template-columns:1fr}
-  .chat .txt,.ph-wrap{grid-column:auto}
-  .chat .txt h2{font-size:clamp(26px,7vw,32px)}
-  .ph-scr{min-height:500px}
-}
-
-/* ===== Quem faz ===== */
-.who{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(28px,4vw,64px);align-items:center;padding:clamp(28px,4vw,56px);border-radius:var(--r-xl);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
-.who-ph{aspect-ratio:4/5;border-radius:var(--r-lg);background:linear-gradient(160deg,#E7E9EB,#C9CDD2);display:grid;place-items:center;overflow:hidden;position:relative}
-.who-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-.who h2{font-size:var(--t-lg);margin-bottom:18px}
-.who blockquote{font-size:clamp(19px,1.7vw,24px);line-height:1.4;font-weight:500;letter-spacing:-.01em;max-width:34ch}
-.who .sig{margin:16px 0 22px;color:var(--ink-2)}
-.who .sig b{color:var(--ink)}
-.who ul{list-style:none;display:grid;gap:10px;margin-bottom:26px}
-.who li{display:flex;gap:10px;align-items:center;font-size:16px}
-.who li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--acc-line);flex:none}
-@media (max-width:900px){.who{grid-template-columns:1fr}.who-ph{aspect-ratio:1/1;max-width:260px}.who h2{font-size:clamp(26px,7vw,32px)}.who .btn{width:100%}}
-
-/* ===== 4. Como funciona ===== */
-.flow{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(20px,3vw,40px);align-items:stretch}
-.f-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-.f-step{display:grid;grid-template-columns:40px 1fr;column-gap:16px;width:100%;text-align:left;font:inherit;color:inherit;background:transparent;border:0;border-radius:var(--r-lg);padding:20px 22px;cursor:pointer;transition:background .25s,box-shadow .25s}
-.f-step:hover{background:var(--fill)}
-.f-step[aria-current=step]{background:var(--surface);box-shadow:inset 0 0 0 1px var(--line),0 18px 40px -28px rgba(17,18,19,.35);cursor:default}
-.f-step .num{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--fill-2);transition:background .25s,color .25s}
-.f-step[aria-current=step] .num{background:var(--accent);color:var(--on-accent)}
-.f-t{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:40px}
-.f-t b{font-size:20px;font-weight:700;letter-spacing:-.015em}
-.f-t em{font-style:normal;font-size:13px;font-weight:600;color:var(--ink-2);background:var(--fill-2);padding:4px 10px;border-radius:999px;white-space:nowrap}
-.f-step[aria-current=step] .f-t em{background:rgba(127,184,0,.16);color:var(--link)}
-.f-d{grid-column:2;display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease-out)}
-.f-d>span{overflow:hidden;min-height:0;color:var(--ink-2);font-size:16px;line-height:1.5}
-.f-step[aria-current=step] .f-d{grid-template-rows:1fr}
-.f-bar{grid-column:2;height:3px;border-radius:3px;background:var(--fill-2);margin-top:14px;overflow:hidden;visibility:hidden}
-.f-step[aria-current=step] .f-bar{visibility:visible}
-.f-bar i{display:block;height:100%;background:var(--acc-line);transform-origin:left;transform:scaleX(0)}
-.flow.paused .f-bar i{animation-play-state:paused!important}
-@keyframes fbar{to{transform:scaleX(1)}}
-.f-stage{position:relative;min-height:500px;border-radius:var(--r-xl);background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}
-.f-cap{position:absolute;right:20px;top:14px;font-size:12px;color:var(--ink-3)}
-.sc{position:absolute;inset:0;display:grid;place-items:center;padding:44px clamp(16px,3vw,40px) 28px;opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s}
-.sc.on{opacity:1;visibility:visible;transition:opacity .45s}
-.sc-in{width:min(100%,500px);display:flex;flex-direction:column;gap:14px;position:relative}
-/* cena 1: conversa + anotações */
-.wa-chat{background:#EFEAE2;border-radius:20px;overflow:hidden;box-shadow:0 24px 50px -30px rgba(17,18,19,.45)}
-.wa-hd{display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fff;color:#111B21;font-size:14px;line-height:1.25}
-.wa-hd .av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#3B4A54;color:#fff;font-weight:700;font-size:12px}
-.wa-hd small{display:block;color:#54656F;font-size:12px}
-.wa-bd{position:relative;display:flex;flex-direction:column;gap:6px;padding:12px 14px 40px}
-.bub{align-self:flex-start;max-width:86%;margin:0;padding:9px 12px 6px;border-radius:12px;border-top-left-radius:4px;background:#fff;color:#111B21;font-size:14.5px;line-height:1.4;box-shadow:0 1px 1px rgba(0,0,0,.08)}
-.bub.me{align-self:flex-end;background:#D9FDD3;border-radius:12px;border-top-right-radius:4px}
-.bub small{display:block;text-align:right;font-size:11px;color:#5E6B73;margin-top:2px}
-.dots{position:absolute;left:14px;top:12px;display:flex;gap:4px;padding:12px 14px;border-radius:12px;background:#fff}
-.dots i{width:7px;height:7px;border-radius:50%;background:#8696A0}
-.anot{align-self:flex-end;position:relative;margin-top:-30px;width:min(92%,380px);background:var(--surface);border-radius:18px;padding:16px 18px;box-shadow:inset 0 0 0 1px var(--line),0 24px 50px -30px rgba(17,18,19,.4)}
-.note-h{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;margin-bottom:10px}
-.note-h svg,.okb svg{width:16px;height:16px;fill:none;stroke:var(--acc-line);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chips span{font-size:13px;font-weight:600;padding:6px 11px;border-radius:999px;background:var(--fill-2)}
-/* cena 2: o site se monta */
-.mini{border-radius:16px;overflow:hidden;background:var(--chrome);box-shadow:0 0 0 6px var(--bez-1),0 0 0 7px var(--bez-2),0 30px 60px -34px rgba(17,18,19,.5)}
-.mini-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;background:var(--chrome-bar);font-size:11px;color:var(--chrome-url-ink)}
-.mini-bar i{width:8px;height:8px;border-radius:50%;background:var(--chrome-dot)}
-.mini-bar span{margin-left:8px;padding:3px 10px;border-radius:999px;background:var(--chrome-url)}
-.mini-pg{background:#F3EEE7;color:#2B1D12;padding:16px;display:grid;gap:14px}
-.mini-nav{display:flex;justify-content:space-between;align-items:center;font-size:13px}
-.mini-hero{display:grid;grid-template-columns:1.1fr 1fr;gap:14px;align-items:center}
-.mini-hero h5{margin:0 0 6px;font-size:19px;line-height:1.15;letter-spacing:-.02em}
-.mini-hero p{margin:0 0 10px;font-size:12.5px;line-height:1.4;color:#5A4636}
-.mpill{display:inline-block;padding:6px 12px;border-radius:999px;background:#A64A15;color:#fff;font-weight:700;font-size:11.5px}
-.mph{aspect-ratio:4/3;border-radius:10px;background:#E9E1D5 url(assets/padaria.jpg) center/cover}
-.mini-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11.5px}
-.mini-row span{display:flex;justify-content:space-between;gap:6px;padding:8px 10px;border-radius:8px;background:#E9E1D5}
-.fill{position:relative;border-radius:6px}
-.ok-row{display:flex;justify-content:flex-end}
-.okb{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--link);background:rgba(127,184,0,.16);padding:6px 12px;border-radius:999px}
-/* cena 3: no ar, achado no Google */
-.gs{background:#fff;color:#202124;border-radius:20px;padding:18px 20px;box-shadow:0 24px 50px -30px rgba(17,18,19,.45);display:flex;flex-direction:column;gap:12px}
-.gbar{display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;box-shadow:inset 0 0 0 1px #dfe1e5;font-size:15px}
-.gbar svg{width:18px;height:18px;fill:none;stroke:#5f6368;stroke-width:2.2;stroke-linecap:round}
-.typed{white-space:nowrap}
-.caret{width:2px;height:18px;background:#1a73e8;margin-left:-8px}
-.gres{display:flex;flex-direction:column;gap:4px;font-size:13.5px;line-height:1.4;padding-top:4px}
-.gres .gu{color:#4d5156;font-size:12.5px}
-.gres b{color:#1a0dab;font-size:18px;font-weight:600;letter-spacing:-.01em}
-.gres .g5{color:#4d5156}
-.gres .g5 i{font-style:normal;color:#B45F00;letter-spacing:1px}
-.gbtns{display:flex;gap:8px;margin-top:8px}
-.gbtns span{padding:7px 14px;border-radius:999px;font-weight:600;font-size:13px;box-shadow:inset 0 0 0 1px #dadce0;color:#1a73e8}
-.gbtns span:first-child{background:#167A42;color:#fff;box-shadow:none}
-.ntf{align-self:flex-end;display:grid;grid-template-columns:38px 1fr auto;gap:12px;align-items:center;width:min(100%,380px);padding:12px 14px;border-radius:18px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line),0 24px 50px -24px rgba(17,18,19,.45);font-size:13.5px;line-height:1.35}
-.ntf .wic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:var(--wa)}
-.ntf .wic svg{width:22px;height:22px;fill:#fff}
-.ntf small{display:block;color:var(--ink-2)}
-.ntf time{align-self:start;font-size:12px;color:var(--ink-3)}
-/* movimento: cada peça entra no seu tempo (--t) quando a cena abre */
-@media (prefers-reduced-motion:no-preference){
-  .flow.live .f-step[aria-current=step] .f-bar i{animation:fbar var(--dur,7.5s) linear forwards}
-  .sc .x{opacity:0}
-  .sc.on .x{animation:xin .55s var(--ease-out) var(--t,0s) both}
-  .sc.on .dots{animation:xin .3s var(--ease-out) .5s both,dout .25s 1.25s forwards}
-  .sc.on .dots i{animation:dot 1s ease-in-out infinite}
-  .sc.on .dots i:nth-child(2){animation-delay:.15s}.sc.on .dots i:nth-child(3){animation-delay:.3s}
-  .sc .fill::after{content:"";position:absolute;inset:-2px;border-radius:inherit;background:#E4DED5}
-  .sc.on .fill::after{animation:skel .45s var(--ease-out) var(--t,0s) forwards}
-  .sc .typed{clip-path:inset(0 100% 0 0)}
-  .sc.on .typed{animation:type 1.1s steps(16) .6s forwards}
-  .sc.on .caret{animation:blink 1s steps(1) infinite}
-}
-@media (prefers-reduced-motion:reduce){.f-bar,.dots{display:none}}
-@keyframes xin{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
-@keyframes dout{to{opacity:0}}
-@keyframes dot{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-3px);opacity:1}}
-@keyframes skel{to{opacity:0}}
-@keyframes type{to{clip-path:inset(0 0 0 0)}}
-@keyframes blink{50%{opacity:0}}
-@media (pointer:coarse){.top.scrolled{-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--surface)}}
-@media (max-width:820px){
-  .flow{grid-template-columns:1fr}
-  .f-stage{order:-1;min-height:490px}
-  .f-step{padding:16px}
-  .mini-hero h5{font-size:16px}
-  .mini-row{display:none}
-}
-@media (max-width:420px){.mini-hero{grid-template-columns:1fr}.mph{display:none}}
-
-/* ===== 5. Monte o seu ===== */
-.build{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
-.ctrl{grid-column:1/5;position:sticky;top:104px;display:flex;flex-direction:column;gap:18px}
-.ctrl h2{font-size:var(--t-lg);max-width:12ch}
-.ctrl > p{color:var(--ink-2)}
-.ramos{display:flex;flex-wrap:wrap;gap:8px}
-.ramos button{min-height:46px;padding:0 18px;border:0;border-radius:999px;background:var(--fill);box-shadow:inset 0 0 0 1px var(--line);color:var(--ink);font:600 15px var(--font);cursor:pointer;transition:background .2s var(--ease-out),color .2s var(--ease-out),box-shadow .2s}
-.ramos button:hover{background:var(--fill-2)}
-.ramos button[aria-checked=true]{background:var(--accent);color:var(--on-accent);box-shadow:none}
-.ctrl label{font-size:15px;font-weight:600;margin-top:6px;color:var(--ink-2)}
-.ctrl input{min-height:54px;padding:0 18px;border-radius:14px;background:var(--surface);color:var(--ink);border:0;box-shadow:inset 0 0 0 1.5px var(--line-2);font:500 18px var(--font);transition:box-shadow .2s var(--ease-out)}
-.ctrl input:focus{outline:none;box-shadow:inset 0 0 0 2px var(--acc-line)}
-.ctrl input::placeholder{color:var(--steel-3)}
-.ctrl .btn{align-self:flex-start}
-.fine{font-size:var(--t-sm);color:var(--ink-3);max-width:40ch}
-.device{grid-column:5/13;border-radius:var(--r);overflow:hidden;background:var(--chrome);box-shadow:inset 0 0 0 1px var(--line),0 0 0 6px var(--bez-1),0 0 0 7px var(--bez-2),0 40px 80px -48px rgba(0,0,0,.9)}
-.device .url{max-width:320px}
-@media (max-width:900px){
-  .build{grid-template-columns:1fr}
-  .ctrl,.device{grid-column:auto}
-  .ctrl{position:static}
-  .ctrl h2{font-size:clamp(26px,7vw,32px);max-width:none}
-  .ctrl .btn{width:100%}
-}
-.msite{--mbg:#F3EEE7;--mink:#2B1D12;--msurf:#E9E1D5;--macc:#B5541C;--macc-ink:#fff;
-  position:relative;height:min(78vh,760px);overflow-y:auto;overscroll-behavior:contain;background:var(--mbg);color:var(--mink);font-size:15px;line-height:1.5;scroll-behavior:smooth}
-.msite:focus-visible{outline:3px solid var(--acc-line);outline-offset:-3px}
-.mp{opacity:0;transform:translateY(22px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out);transition-delay:calc(var(--j,0) * 70ms)}
-.msite.on .mp{opacity:1;transform:none}
-.m-nav{position:sticky;top:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;background:var(--mbg)}
-.m-nav b{font-size:17px;letter-spacing:-.02em;font-weight:900}
-.m-nav nav{display:flex;gap:18px;font-size:14px;opacity:.75}
-.m-btn{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;background:var(--macc);color:var(--macc-ink);font-weight:700;font-size:14px;white-space:nowrap}
-.m-btn.big{min-height:48px;padding:0 24px;font-size:15px}
-.m-hero,.m-split,.m-info,.m-foot{background:var(--mbg)}
-.m-hero{display:grid;grid-template-columns:1fr 1.1fr;gap:24px;align-items:center;padding:24px 24px 40px}
-.m-hero h3{font-size:clamp(24px,2.4vw,34px);line-height:1.1;letter-spacing:-.025em;font-weight:800;margin-bottom:14px}
-.m-hero p{font-size:16px;max-width:34ch;margin-bottom:20px}
-.m-hero small{display:block;margin-top:14px;font-size:13px;opacity:.7}
-.m-media{border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:var(--msurf)}
-.m-media img,.m-media video{width:100%;height:100%;object-fit:cover}
-.m-serv{padding:40px 24px;background:var(--msurf)}
-.m-serv h4,.m-split h4,.m-info h4,.m-rev h4{font-size:19px;letter-spacing:-.02em;font-weight:800;margin-bottom:16px}
-.m-serv ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.m-serv li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 16px;border-radius:12px;background:var(--mbg);font-weight:500}
-.m-serv li span:last-child{font-weight:900;white-space:nowrap;font-variant-numeric:tabular-nums}
-.m-split{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;padding:40px 24px}
-.m-split img{border-radius:16px;aspect-ratio:4/3;object-fit:cover;width:100%;height:auto}
-.m-split p{max-width:38ch}
-.m-info{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0 24px 40px}
-.m-info > div{padding:18px;border-radius:12px;background:var(--msurf)}
-.m-info h4{font-size:17px;margin-bottom:6px}
-.m-rev{padding:40px 24px;background:var(--mink);color:var(--mbg)}
-.m-rev .qs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.m-rev blockquote{font-size:17px;line-height:1.4;font-weight:500}
-.m-rev cite{display:block;margin-top:8px;font-style:normal;font-size:13px;opacity:.7}
-.m-foot{padding:22px 24px 80px;font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;opacity:.8}
-.m-bubble{position:sticky;bottom:16px;margin:-64px 16px 16px auto;width:52px;height:52px;border-radius:50%;background:var(--wa);display:grid;place-items:center;z-index:4;box-shadow:0 12px 30px -8px rgba(0,0,0,.4)}
-.m-bubble svg{width:26px;height:26px;fill:#fff}
-@media (max-width:640px){
-  .msite{height:72svh}
-  .m-nav nav{display:none}
-  .m-hero,.m-split{grid-template-columns:1fr}
-  .m-serv ul,.m-rev .qs,.m-info{grid-template-columns:1fr}
-}
-@media (prefers-reduced-motion:reduce){.mp{opacity:1;transform:none}}
-
-/* ===== 6. Preços ===== */
-.plans{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.plan{position:relative;display:flex;flex-direction:column;gap:20px;padding:clamp(24px,3vw,40px);border-radius:var(--r-lg);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
-.plan h3{font-size:var(--t-md);letter-spacing:-.02em}
-.plan .for{color:var(--ink-2);max-width:36ch;margin-top:-10px}
-.plan .v{font-size:clamp(34px,3vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
-.plan .v small{display:block;font-size:15px;font-weight:500;letter-spacing:0;margin-top:8px;color:var(--ink-2)}
-.ck{list-style:none;display:grid;gap:12px;flex:1;align-content:start;padding-top:20px;border-top:1px solid var(--line)}
-.ck li{position:relative;display:flex;gap:12px;align-items:flex-start;font-size:16px}
-.ck li::before{content:"";flex:none;width:22px;height:22px;margin-top:2px;border-radius:50%;background:color-mix(in srgb,var(--accent) 15%,transparent)}
-.ck li::after{content:"";position:absolute;left:8px;top:7px;width:6px;height:11px;border:solid var(--acc-line);border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
-.plan .btn{align-self:stretch}
-.plan.hot{box-shadow:inset 0 0 0 1.5px var(--acc-line)}
-.flag{position:absolute;right:clamp(20px,3vw,36px);top:clamp(20px,3vw,36px);padding:5px 12px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--link);font-size:13px;font-weight:600}
-.addon{display:grid;grid-template-columns:1fr auto auto;gap:24px 40px;align-items:center;margin-top:16px;padding:clamp(22px,2.6vw,32px) clamp(24px,3vw,40px);border-radius:var(--r-lg);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
-.addon h3{font-size:19px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.addon h3 span{font-size:13px;font-weight:600;letter-spacing:0;padding:4px 10px;border-radius:999px;background:var(--fill-2);color:var(--ink-2)}
-.addon p{color:var(--ink-2);margin-top:6px;max-width:56ch}
-.addon .v{font-size:30px;font-weight:800;letter-spacing:-.03em;white-space:nowrap}
-.addon .v small{font-size:16px;font-weight:500;letter-spacing:0;color:var(--ink-2)}
-.note{margin-top:20px;color:var(--ink-2);font-size:16px}
-@media (max-width:900px){
-  .plans{grid-template-columns:1fr}
-  .plan.hot{order:-1}
-  .addon{grid-template-columns:1fr}
-  .addon .btn{width:100%}
-}
-
-/* ===== 7. Dúvidas ===== */
-.faq{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
-.faq h2{grid-column:1/5;font-size:var(--t-lg);position:sticky;top:110px;align-self:start;max-width:10ch}
-.faq .list{grid-column:5/13;display:grid;gap:10px}
-.faq .list{gap:0!important;border-top:1px solid var(--line)}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;min-height:72px;padding:0 4px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:17px;font-weight:600;border-radius:var(--r)}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary:hover{color:var(--link)}
-.plus{position:relative;flex:none;width:36px;height:36px;border-radius:50%;background:var(--fill-2);transition:background .25s,transform .3s var(--ease-out)}
-.plus::before,.plus::after{content:"";position:absolute;left:11px;top:16.5px;width:14px;height:3px;border-radius:2px;background:currentColor;transition:transform .3s var(--ease-out)}
-.plus::after{transform:rotate(90deg)}
-details[open] .plus{background:var(--accent);color:var(--on-accent)}
-details[open] .plus::after{transform:rotate(0)}
-.faq details p{padding:0 4px 24px;max-width:56ch;font-size:17px;color:var(--ink-2)}
-@media (max-width:820px){
-  .faq{grid-template-columns:1fr}.faq h2,.faq .list{grid-column:auto}
-  .faq h2{position:static;font-size:clamp(26px,7vw,32px);max-width:none}
-  .faq summary{font-size:16px;min-height:64px;padding:12px 0}
-  .faq details p{font-size:16px;padding:0 0 20px}
-}
-
-/* ===== 8. Faixa de ação ===== */
-.cta-band{margin:0 var(--m);padding:clamp(28px,4vw,56px);border-radius:var(--r-xl);background:var(--surface);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line);display:flex;align-items:center;justify-content:space-between;gap:24px 40px;flex-wrap:wrap}
-.cta-band h2{font-size:var(--t-lg);max-width:20ch}
-.cta-band p{margin-top:10px;font-size:17px;color:var(--ink-2);max-width:46ch}
-@media (max-width:720px){.cta-band{border-radius:var(--r-lg)}.cta-band h2{font-size:26px}.cta-band .btn{width:100%}}
-
-/* ===== 9. Rodapé ===== */
-footer{margin-top:clamp(64px,10vh,120px);padding:clamp(48px,8vh,80px) var(--m) 28px;background:var(--steel);color:var(--ink-dark);border-radius:var(--r-xl) var(--r-xl) 0 0}
-.f-top{display:grid;grid-template-columns:repeat(12,1fr);gap:32px 24px}
-.inv{grid-column:1/7;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
-.inv .mark{color:var(--ink-dark);min-height:0}
-.inv h2{font-size:var(--t-lg);max-width:16ch}
-.inv p{color:rgba(18,18,18,.8);font-size:16px;margin-bottom:6px}
-.links{grid-column:9/13;display:grid;gap:2px;align-content:start;font-size:15px;font-weight:500}
-.links b{font-size:13px;font-weight:600;color:rgba(18,18,18,.78);margin-bottom:4px}
-.links a{display:inline-flex;align-items:center;min-height:40px}
-.links a:hover{color:#3D5F00}
-.legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:56px;padding-top:20px;border-top:1px solid rgba(18,18,18,.14);font-size:13px;color:rgba(18,18,18,.8)}
-@media (max-width:820px){
-  footer{border-radius:var(--r-lg) var(--r-lg) 0 0;padding-bottom:96px}
-  .inv,.links{grid-column:1/-1}
-  .inv h2{font-size:26px}
-  .inv .btn{width:100%}
-}
-
-.fab{position:fixed;right:16px;bottom:16px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);display:none;place-items:center;box-shadow:0 14px 40px -10px rgba(0,0,0,.6);transition:transform .2s var(--ease-out)}
-.fab{opacity:0;pointer-events:none;translate:0 12px;transition:opacity .3s var(--ease-out),translate .3s var(--ease-out),transform .2s var(--ease-out)}
-.fab.on{opacity:1;pointer-events:auto;translate:0 0}
-.fab:active{transform:scale(.94)}
-.fab svg{width:28px;height:28px;fill:#fff}
-@media (max-width:820px){.fab{display:grid}}
-
-/* ===== Movimento ===== */
-@media (prefers-reduced-motion:no-preference){
-  .js .hero .copy > *{opacity:0;animation:fade-up 800ms var(--ease-out) forwards;animation-delay:calc(var(--i,0) * 90ms + 100ms)}
-  .js .hv{opacity:0;animation:rise 1000ms var(--ease-out) 300ms forwards}
-  .js .top{opacity:0;animation:fade-up 700ms var(--ease-out) 200ms forwards}
-  .js .rv{opacity:0;transform:translateY(12px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out);transition-delay:calc(var(--d,0) * 80ms)}
-  .js .rv.in{opacity:1;transform:none}
-  /* com o Motion carregado, ele conduz as entradas com efeito de mola; o CSS só guarda o estado escondido */
-  .mo .rv:not(.in),.mo .ph-body .msg,.mo .ph-body .ph-day,.mo .mp{transform:none;transition:none}
-  .mo .hv-page{transition:background .4s var(--ease-out),color .4s var(--ease-out)}
-  .mo .ph-body .msg.in{transform-origin:0 100%}
-  .mo .ph-body .msg.out{transform-origin:100% 100%}
-}
-@keyframes fade-up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-@keyframes rise{from{opacity:0;transform:translateY(40px) scale(.97)}to{opacity:1;transform:none}}
-body.paused *,body.paused *::before,body.paused *::after{animation-play-state:paused!important}
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-}
-</style>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ProfessionalService","@id":"https://studio.corpstorehub.com/#negocio","name":"NEW CORP STUDIO","legalName":"69.461.424 PEDRO HENRIQUE CARVALHO DA SILVA","taxID":"69.461.424/0001-50","description":"Site para padaria, clínica, oficina, salão e restaurante de São Paulo. Amostra da página inicial grátis em 2 dias; site no ar em até 10 dias corridos, com botão de WhatsApp e cadastro no Google.","url":"https://studio.corpstorehub.com/","logo":"https://studio.corpstorehub.com/assets/marca/icon-512.png","image":"https://studio.corpstorehub.com/assets/marca/previa-link-1200x630.png","telephone":"+55-11-98868-1657","priceRange":"R$ 400 a R$ 1.300","address":{"@type":"PostalAddress","addressLocality":"Cajamar","addressRegion":"SP","addressCountry":"BR"},"areaServed":[{"@type":"City","name":"São Paulo"},{"@type":"City","name":"Cajamar"},{"@type":"AdministrativeArea","name":"Grande São Paulo"}],"founder":{"@type":"Person","name":"Pedro Henrique Carvalho da Silva","image":"https://studio.corpstorehub.com/assets/pedro.jpg"},"knowsLanguage":"pt-BR","contactPoint":{"@type":"ContactPoint","telephone":"+55-11-98868-1657","contactType":"vendas","availableLanguage":"pt-BR","url":"https://wa.me/5511988681657"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Planos","itemListElement":[{"@type":"Offer","name":"Essencial","description":"Site de uma página, botão de WhatsApp, cadastro no Google, funciona no celular e no computador.","price":"400","priceCurrency":"BRL"},{"@type":"Offer","name":"Premium","description":"Até cinco páginas, textos escritos para vender, fotos e vídeos do negócio, botão de WhatsApp em cada página.","price":"1300","priceCurrency":"BRL"},{"@type":"Offer","name":"Manutenção","description":"Troca de texto e foto, site sempre no ar e ajuda pelo WhatsApp.","price":"99","priceCurrency":"BRL","priceSpecification":{"@type":"UnitPriceSpecification","price":"99","priceCurrency":"BRL","unitText":"mês"}}]}},{"@type":"WebSite","@id":"https://studio.corpstorehub.com/#site","url":"https://studio.corpstorehub.com/","name":"NEW CORP STUDIO","inLanguage":"pt-BR","publisher":{"@id":"https://studio.corpstorehub.com/#negocio"}},{"@type":"FAQPage","@id":"https://studio.corpstorehub.com/#duvidas","mainEntity":[{"@type":"Question","name":"E se eu não gostar da amostra?","acceptedAnswer":{"@type":"Answer","text":"Você não paga nada. A amostra é grátis e não te prende a nada."}},{"@type":"Question","name":"Preciso entender de site?","acceptedAnswer":{"@type":"Answer","text":"Não. Você conta como é o seu negócio pelo WhatsApp. O resto é com a gente."}},{"@type":"Question","name":"Quanto tempo leva?","acceptedAnswer":{"@type":"Answer","text":"A amostra da sua página inicial fica pronta em 2 dias, de graça. Aprovou, o site completo entra no ar em até 10 dias corridos. Você acompanha cada etapa pelo WhatsApp."}},{"@type":"Question","name":"Tem mensalidade?","acceptedAnswer":{"@type":"Answer","text":"Só se você quiser a Manutenção, de R$ 99 por mês. Sem ela, você paga uma vez."}},{"@type":"Question","name":"Já tenho Instagram. Preciso de site?","acceptedAnswer":{"@type":"Answer","text":"O Instagram fala com quem já te segue. O site aparece para quem procura no Google e ainda não te conhece."}},{"@type":"Question","name":"Já paguei site que nunca ficou pronto.","acceptedAnswer":{"@type":"Answer","text":"É a reclamação mais comum de quem contrata site. Por isso aqui você vê a página inicial pronta antes de pagar qualquer coisa."}}]}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600&family=Sedgwick+Ave+Display&family=Funnel+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ProfessionalService","@id":"https://studio.corpstorehub.com/#negocio","name":"Pedro Henrique, da NEW CORP","description":"Sites e sistemas para comércio e prestador de serviço. A primeira tela fica pronta em até 72 horas e o cliente vê antes de pagar.","url":"https://studio.corpstorehub.com/","image":"https://studio.corpstorehub.com/assets/og-card.jpg","telephone":"+55 11 98868-1657","email":"contato.newcorpst@gmail.com","priceRange":"R$ 400 a R$ 1.300","address":{"@type":"PostalAddress","addressLocality":"Cajamar","addressRegion":"SP","addressCountry":"BR"},"areaServed":[{"@type":"City","name":"Cajamar"},{"@type":"State","name":"São Paulo"},{"@type":"Country","name":"Brasil"}],"founder":{"@type":"Person","name":"Pedro Henrique"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Planos","itemListElement":[{"@type":"Offer","name":"Essencial","price":"400","priceCurrency":"BRL","description":"Site de uma página, feito primeiro para celular, com botão de WhatsApp."},{"@type":"Offer","name":"Premium","price":"1300","priceCurrency":"BRL","description":"Visual exclusivo, texto de venda e animações."},{"@type":"Offer","name":"Manutenção","price":"99","priceCurrency":"BRL","description":"Ajustes e suporte mensal, opcional."}]},"sameAs":["https://www.instagram.com/orickksilv__/"],"paymentAccepted":"Pix","currenciesAccepted":"BRL"},{"@type":"WebSite","@id":"https://studio.corpstorehub.com/#site","url":"https://studio.corpstorehub.com/","name":"Pedro Henrique · NEW CORP","inLanguage":"pt-BR","publisher":{"@id":"https://studio.corpstorehub.com/#negocio"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"A primeira tela é mesmo sem custo?","acceptedAnswer":{"@type":"Answer","text":"É. Você me conta do negócio, eu monto a primeira tela e te mando o link. Se não gostar, a conversa termina ali e você não deve nada."}},{"@type":"Question","name":"Quanto tempo leva para ficar pronto?","acceptedAnswer":{"@type":"Answer","text":"A primeira tela sai em até 72 horas. O site completo fica no ar em até 10 dias úteis contados do primeiro papo, desde que textos e fotos cheguem no prazo combinado."}},{"@type":"Question","name":"Tem mensalidade?","acceptedAnswer":{"@type":"Answer","text":"Não é obrigatória. Essencial e Premium são pagamento único. A manutenção de R$ 99 por mês é opcional, para quem prefere que eu cuide das alterações."}},{"@type":"Question","name":"Como eu pago?","acceptedAnswer":{"@type":"Answer","text":"Por Pix. Você só paga depois de ver e aprovar a primeira tela. Se precisar de outra forma, a gente combina no WhatsApp."}},{"@type":"Question","name":"Quem paga o domínio e a hospedagem?","acceptedAnswer":{"@type":"Answer","text":"O domínio fica no seu nome e é pago direto por você, uma vez por ano. Eu te ajudo a registrar e configuro tudo."}},{"@type":"Question","name":"Não tenho fotos boas nem texto pronto. Dá para fazer?","acceptedAnswer":{"@type":"Answer","text":"Dá. No Premium eu escrevo o texto de venda. Para fotos, te passo um roteiro simples para fazer com o celular."}},{"@type":"Question","name":"Já tenho Instagram ou um site antigo. Serve?","acceptedAnswer":{"@type":"Answer","text":"Serve como ponto de partida. Eu olho o que você tem e digo com franqueza se vale refazer ou só melhorar."}},{"@type":"Question","name":"E o sistema, funciona para o meu negócio?","acceptedAnswer":{"@type":"Answer","text":"Se você repete a mesma tarefa todo dia (anotar pedido, marcar horário, passar para planilha), provavelmente dá para automatizar. Me conta a rotina e eu digo o que dá."}}]}]}</script>
 </head>
-<body>
-<script>document.documentElement.classList.add('js');document.body.classList.add('js')</script>
+<body class="loading">
 <a class="skip" href="#main">Pular para o conteúdo</a>
-<canvas id="gl" aria-hidden="true"></canvas>
+<div class="ambient" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="r-tesoura" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></symbol><symbol id="r-estetoscopio" viewBox="0 0 24 24"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></symbol><symbol id="r-camiseta" viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></symbol><symbol id="r-rolo" viewBox="0 0 24 24"><rect width="16" height="6" x="2" y="2" rx="2"/><path d="M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect width="4" height="6" x="8" y="16" rx="1"/></symbol><symbol id="r-remedio" viewBox="0 0 24 24"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></symbol><symbol id="r-talheres" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol><symbol id="r-brilho" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol><symbol id="r-chave" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol></defs></svg>
+<div class="progress" aria-hidden="true"><i id="progress"></i></div>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 5 5.1-1.3A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20Zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></symbol>
-  <symbol id="i-arr" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="i-logo" viewBox="-6 -6 112 112"><path d="M4 96 56 4 44 62Z" style="fill:var(--sym-1)"/><path d="M60 22 58.28 63.24 75.55 51.45Z" style="fill:var(--sym-2)"/><path d="M98 94 79.67 59.27 64.41 73.84Z" style="fill:var(--sym-2)"/><path d="M12 98 94 42 50 84Z" style="fill:var(--sym-3)"/></symbol>
-  <symbol id="i-ck" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
-</svg>
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-row">
+    <div class="loader-name">Pedro Henrique<small>NEW CORP, sites e sistemas</small></div>
+    <div class="loader-pct" id="pct">0%</div>
+  </div>
+  <div class="loader-bar"><i id="pctbar"></i></div>
+</div>
 
-<header class="top" id="top">
-  <a href="#" class="mark" aria-label="NEW CORP STUDIO, início"><svg class="sym" aria-hidden="true"><use href="#i-logo"/></svg>NEW CORP</a>
-  <nav aria-label="Seções">
-    <a href="#como">Como funciona</a>
-    <a href="#monte">Exemplos</a>
-    <a href="#quem">Quem faz</a>
-    <a href="#precos">Preços</a>
-    <a href="#duvidas">Dúvidas</a>
-  </nav>
-  <button class="theme-t" id="themeT" type="button" aria-label="Mudar para a versão clara"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
-  <a class="btn sm wa" href="https://wa.me/5511988681657?text=Oi%21%20Quero%20a%20amostra%20gr%C3%A1tis%20do%20meu%20site." data-msg="Oi! Quero a amostra grátis do meu site."><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Amostra grátis</a>
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#main">
+      <svg viewBox="-6 -6 112 112" aria-hidden="true"><path d="M4 96 56 4 44 62Z" fill="#E6E9EC"/><path d="M60 22 58.28 63.24 75.55 51.45Z" fill="#8A9097"/><path d="M98 94 79.67 59.27 64.41 73.84Z" fill="#8A9097"/><path d="M12 98 94 42 50 84Z" fill="#C6FF3D"/></svg>
+      Pedro Henrique<span class="brand-co" translate="no">NEW CORP</span><span class="sr">, voltar ao início</span>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#quem">Quem sou</a>
+      <a href="#sites">Sites</a>
+      <a href="#sistemas">Sistemas</a>
+      <a href="#processo">Processo</a>
+      <a href="#planos">Planos</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a class="btn btn-accent nav-cta" data-wa="Oi, Pedro! Quero ver a primeira tela do meu site, sem custo." href="#contato">Primeira tela grátis</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span></button>
+  </div>
+  <div class="menu" id="menu">
+    <nav aria-label="Menu">
+      <a href="#quem">Quem sou</a>
+      <a href="#sites">Sites</a>
+      <a href="#sistemas">Sistemas</a>
+      <a href="#processo">Processo</a>
+      <a href="#planos">Planos</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a class="btn btn-accent" data-wa="Oi, Pedro! Quero ver a primeira tela do meu site, sem custo." href="#contato">Primeira tela grátis</a>
+  </div>
 </header>
 
 <main id="main" tabindex="-1">
-  <!-- 1. Hero: o que é, para quem, a prova e a ação na primeira tela -->
-  <section class="hero" aria-labelledby="h1">
-    <div class="copy">
-      <h1 id="h1" style="--i:0">Seu site pronto <em>antes</em> de você pagar.</h1>
-      <p class="lede" style="--i:2">Fazemos o site de padaria, clínica, oficina, salão e restaurante de São Paulo. <b>Você vê a página inicial pronta, de graça</b>, aprova e o cliente passa a te chamar direto no WhatsApp.</p>
-      <div class="acts" style="--i:3">
-        <a class="btn wa" href="https://wa.me/5511988681657?text=Oi%21%20Vi%20o%20site%20e%20quero%20ver%20a%20amostra%20gr%C3%A1tis%20do%20meu%20neg%C3%B3cio." data-msg="Oi! Vi o site e quero ver a amostra grátis do meu negócio."><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Quero minha amostra grátis</a>
-        <a class="btn ghost" href="#monte">Ver exemplos</a>
-      </div>
-      <ul class="trust" style="--i:4">
-        <li><svg aria-hidden="true"><use href="#i-ck"/></svg>Amostra pronta em 2 dias</li>
-        <li><svg aria-hidden="true"><use href="#i-ck"/></svg>Só paga se gostar</li>
-        <li><svg aria-hidden="true"><use href="#i-ck"/></svg>A partir de R$ 400</li>
-      </ul>
-    </div>
 
-    <div class="hv">
-      <div class="hv-pick" role="group" aria-label="Ver exemplo de outro ramo">
-        <span>Veja outro ramo:</span>
-        <button type="button" aria-pressed="true" data-h="padaria">Padaria</button>
-        <button type="button" aria-pressed="false" data-h="clinica">Clínica</button>
-        <button type="button" aria-pressed="false" data-h="oficina">Oficina</button>
-        <button type="button" aria-pressed="false" data-h="salao">Salão</button>
-        <button type="button" aria-pressed="false" data-h="restaurante">Restaurante</button>
-      </div>
-      <div class="hv-browser" data-ui>
-        <div class="bar" aria-hidden="true"><i></i><i></i><i></i><div class="url" id="hvUrl">padariatrigobom.com.br</div></div>
-        <div class="hv-page" id="hvPage" role="img" aria-label="Exemplo de site feito pela NEW CORP STUDIO para uma padaria">
-          <div class="hv-nav"><b id="hvName">Padaria Trigo Bom</b><span class="hv-pill"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</span></div>
-          <div class="hv-main">
-            <div><div class="ht" id="hvTitle">Pão quentinho desde cedo.</div><p id="hvLede">Fornada nova às 6h e às 16h. Encomende bolos e salgados pelo WhatsApp e retire sem fila.</p><span class="hv-pill" id="hvCta">Encomendar pelo WhatsApp</span><small>Nota 4,9 no Google · exemplo</small></div>
-            <div class="hv-photo"><img id="hvImg" src="assets/padaria.jpg" alt="" width="960" height="540" fetchpriority="high"></div>
+  <!-- hero de scroll (desktop) -->
+  <section class="hero" id="hero" aria-label="Apresentação">
+    <div class="stage" id="stage">
+      <div class="poster" aria-hidden="true"></div>
+      <video id="video" preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
+      <video id="videoHi" class="hi" preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
+      <video id="videoHi" class="hi" preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
+      <div class="scrim" aria-hidden="true"></div>
+      <svg class="ring" id="ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-opacity=".2" stroke-width="2"/><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="126" transform="rotate(-90 24 24)" style="stroke-dashoffset:var(--ld,126)"/></svg>
+      <div class="bands">
+        <div class="band band-l e-blur" data-a="0" data-b="0.30">
+          <div class="bw"><p class="big soft" aria-hidden="true">Oi, eu sou o Pedro.</p><p class="big sharp">Oi, eu sou o Pedro.</p></div>
+          <p class="small sharp">Faço sites para barbearia, clínica, loja e quem presta serviço.</p>
+        </div>
+        <div class="band band-r e-down" data-a="0.34" data-b="0.62" data-split>
+          <p class="big">Primeiro eu te mostro.</p>
+          <p class="small">A primeira tela do seu site fica pronta em até 72 horas. Você vê antes de pagar.</p>
+        </div>
+        <div class="band band-bl e-rise" data-a="0.68" data-b="1" data-ramp="0.06" data-split>
+          <h1 class="big hero-h">Sites que trazem cliente. Sistemas que poupam tempo.</h1>
+          <p class="small stage2">No ar em até 10 dias úteis, com Google e WhatsApp configurados.</p>
+          <div class="acts stage3">
+            <a class="btn btn-accent" data-wa="Oi, Pedro! Quero ver a primeira tela do meu site." href="#contato">Ver minha primeira tela grátis <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+            <a class="btn btn-ghost" href="#quem">Quem é o Pedro</a>
           </div>
-          <div class="hv-items" id="hvItems"><span>Pão francês (kg)<b>R$ 18,90</b></span><span>Bolo de chocolate inteiro<b>R$ 65</b></span></div>
         </div>
       </div>
-      <div class="hv-phone" aria-hidden="true">
-        <div class="hv-ph-top"><span class="av"><svg><use href="#i-wa"/></svg></span><div><b>Novo cliente</b><small>veio pelo seu site</small></div></div>
-        <div class="hv-bub" id="hvMsg">Oi! Vi o site. Dá para encomendar 2 bolos para sábado?</div>
-        <small class="hv-time">agora · mensagem de exemplo</small>
+      <div class="cue" id="cue" aria-hidden="true">Role<i></i></div>
+    </div>
+  </section>
+
+  <!-- hero estático (celular e movimento reduzido) -->
+  <section class="static-hero" aria-label="Apresentação">
+    <div class="in">
+      <h1>Sites que trazem cliente.</h1>
+      <p>E sistemas que poupam seu tempo. A primeira tela do seu site fica pronta em até 72 horas, e você vê antes de pagar.</p>
+      <a class="btn btn-accent" data-wa="Oi, Pedro! Quero ver a primeira tela do meu site, sem custo." href="#contato">Ver minha primeira tela grátis</a>
+    </div>
+  </section>
+
+  <!-- 01. quem sou -->
+  <section class="sec about has-bg" id="quem" aria-labelledby="t-quem">
+    <div class="sec-bg" aria-hidden="true"><img src="assets/bg-quem.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async"></div>
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <h2 id="t-quem" class="rv">Prazer, Pedro. Dono da NEW CORP.</h2>
+        <p class="lead rv">Pedro Henrique, de Cajamar. A NEW CORP é a minha empresa. Aqui ela faz uma coisa só: sites e sistemas para pequenos negócios que querem ser encontrados e chamados.</p>
+        <p class="about-p rv">Venho das vendas. Sei, na prática, o que faz alguém parar, confiar e chamar no WhatsApp. É isso que eu coloco em cada página que monto.</p>
+        <dl class="facts rv">
+          <div><dt>Base</dt><dd>Cajamar, SP</dd></div>
+          <div><dt>Atende</dt><dd>Todo o Brasil</dd></div>
+          <div><dt>Você fala com</dt><dd>Comigo, direto</dd></div>
+        </dl>
+      </div>
+      <div class="about-media" aria-hidden="true">
+        <div class="vid-card" data-depth="0.05">
+          <video class="scrub" data-src="assets/v-estudio.mp4" poster="assets/v-estudio.jpg" muted playsinline preload="none"></video>
+          <span class="vid-tag"><i></i>Do rascunho ao site pronto</span>
+        </div>
+        <div class="co-card" data-ui data-depth="-0.12">
+          <svg viewBox="-6 -6 112 112"><path d="M4 96 56 4 44 62Z" fill="#E6E9EC"/><path d="M60 22 58.28 63.24 75.55 51.45Z" fill="#8A9097"/><path d="M98 94 79.67 59.27 64.41 73.84Z" fill="#8A9097"/><path d="M12 98 94 42 50 84Z" fill="#C6FF3D"/></svg>
+          <b>NEW CORP</b>
+          <span>Sites e sistemas</span>
+          <dl><div><dt>Desde</dt><dd>2026</dd></div><div><dt>Dono</dt><dd>Pedro Henrique</dd></div></dl>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Para quem -->
-  <div class="who-for" aria-label="Ramos que atendemos">
-    <span>Fazemos sites para</span>
-    <a href="#monte" data-pick="padaria">Padaria</a><a href="#monte" data-pick="clinica">Clínica</a><a href="#monte" data-pick="oficina">Oficina</a><a href="#monte" data-pick="salao">Salão</a><a href="#monte" data-pick="restaurante">Restaurante</a>
-    <i>Barbearia</i><i>Pet shop</i><i>Academia</i><i>e outros comércios do bairro</i>
-  </div>
-
-  <!-- 3. O que chega no WhatsApp -->
-  <section class="chat sec" id="conversa" aria-labelledby="h-chat">
-    <div class="txt">
-      <h2 id="h-chat" class="rv">O que chega no seu celular.</h2>
-      <p class="big rv" style="--d:1">Quem acha você no Google não liga para perguntar se você existe. Manda mensagem já querendo comprar.</p>
-      <ul class="facts rv" style="--d:2">
-        <li><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>O botão abre o seu WhatsApp</b><span>O cliente toca e a conversa começa com você, sem formulário.</span></div></li>
-        <li><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>Preço e horário já no site</b><span>Ele chega sabendo o que quer. Você responde menos perguntas repetidas.</span></div></li>
-        <li><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>Aparece para quem está perto</b><span>Cadastro no Google para quem busca o seu ramo no bairro.</span></div></li>
-      </ul>
-    </div>
-    <div class="ph-wrap">
-      <div class="phone" id="phone" role="img" aria-label="Simulação de conversa no WhatsApp entre uma cliente e uma padaria, iniciada pelo site">
-        <div class="ph-scr" aria-hidden="true">
-          <div class="ph-top"><span class="av">MS</span><div><b>Marina Souza</b><small>veio pelo seu site</small></div></div>
-          <div class="ph-body">
-            <span class="ph-day" style="--k:0">Hoje</span>
-            <div class="msg in" style="--k:1">Oi! Achei vocês no Google. Fazem bolo para 20 pessoas?<time>09:12</time></div>
-            <div class="msg in" style="--k:2">É para sábado, aniversário da minha filha.<time>09:12</time></div>
-            <div class="msg out" style="--k:3">Bom dia, Marina! Fazemos sim. O de chocolate com morango sai por R$ 120.<time>09:15 <svg viewBox="0 0 16 11"><path d="M1 6l3 3 6-7M6 8l1 1 6-7"/></svg></time></div>
-            <div class="msg in" style="--k:4">Perfeito. Pode reservar no meu nome?<time>09:16</time></div>
-            <div class="msg out" style="--k:5">Reservado! Retirada no sábado a partir das 8h.<time>09:16 <svg viewBox="0 0 16 11"><path d="M1 6l3 3 6-7M6 8l1 1 6-7"/></svg></time></div>
-          </div>
-        </div>
+  <!-- faixa de ramos -->
+  <section class="ramos" aria-label="Para quem eu faço">
+    <div class="marquee" aria-hidden="true">
+      <div class="mq-track" id="mq">
+        <span><svg class="ri" aria-hidden="true"><use href="#r-tesoura"/></svg>Barbearia</span><i></i><span><svg class="ri" aria-hidden="true"><use href="#r-estetoscopio"/></svg>Clínica</span><i></i><span><svg class="ri" aria-hidden="true"><use href="#r-camiseta"/></svg>Loja de roupa</span><i></i><span><svg class="ri" aria-hidden="true"><use href="#r-rolo"/></svg>Pintor</span><i></i><span><svg class="ri" aria-hidden="true"><use href="#r-remedio"/></svg>Farmácia</span><i></i><span><svg class="ri" aria-hidden="true"><use href="#r-talheres"/></svg>Restaurante</span><i></i><span><svg class="ri" aria-hidden="true"><use href="#r-brilho"/></svg>Estética</span><i></i><span><svg class="ri" aria-hidden="true"><use href="#r-chave"/></svg>Oficina</span><i></i>
+        <span><svg class="ri" aria-hidden="true"><use href="#r-tesoura"/></svg>Barbearia</span><i></i><span><svg class="ri" aria-hidden="true"><use href="#r-estetoscopio"/></svg>Clínica</span><i></i><span><svg class="ri" aria-hidden="true"><use href="#r-camiseta"/></svg>Loja de roupa</span><i></i><span><svg class="ri" aria-hidden="true"><use href="#r-rolo"/></svg>Pintor</span><i></i><span><svg class="ri" aria-hidden="true"><use href="#r-remedio"/></svg>Farmácia</span><i></i><span><svg class="ri" aria-hidden="true"><use href="#r-talheres"/></svg>Restaurante</span><i></i><span><svg class="ri" aria-hidden="true"><use href="#r-brilho"/></svg>Estética</span><i></i><span><svg class="ri" aria-hidden="true"><use href="#r-chave"/></svg>Oficina</span><i></i>
       </div>
-      <p class="ph-cap">Simulação de uma conversa de padaria. Nome e preço são exemplo.</p>
     </div>
+    <p class="sr">Barbearia, clínica, loja de roupa, pintor, farmácia, restaurante, estética e oficina.</p>
   </section>
 
-  <!-- 4. Como funciona -->
-  <section class="how sec" id="como" aria-labelledby="h-how">
-    <div class="sec-head">
-      <h2 id="h-how" class="rv">Três conversas e pronto.</h2>
-      <p class="rv" style="--d:1">Sem formulário, sem reunião longa, sem você precisar entender de site. Tudo acontece pelo WhatsApp, no seu tempo.</p>
-    </div>
-    <div class="flow rv" style="--d:2">
-      <ol class="f-steps">
-        <li><button class="f-step" type="button" aria-current="step"><span class="num" aria-hidden="true">1</span><span class="f-t"><b>Você conta</b><em>Hoje</em></span><span class="f-d"><span>Manda uma mensagem falando do seu negócio: o que vende, onde fica e o que te faz diferente do vizinho. A gente anota tudo.</span></span><span class="f-bar" aria-hidden="true"><i></i></span></button></li>
-        <li><button class="f-step" type="button" aria-current="false"><span class="num" aria-hidden="true">2</span><span class="f-t"><b>A gente mostra</b><em>Em 2 dias</em></span><span class="f-d"><span>Você recebe o link da página inicial pronta, olha no celular e pede ajuste. Só segue se gostar. Até aqui, nada pago.</span></span><span class="f-bar" aria-hidden="true"><i></i></span></button></li>
-        <li><button class="f-step" type="button" aria-current="false"><span class="num" aria-hidden="true">3</span><span class="f-t"><b>Vai para o ar</b><em>Em até 10 dias</em></span><span class="f-d"><span>Publicamos o site com o botão do WhatsApp e cadastramos você no Google. O cliente procura, acha e chama.</span></span><span class="f-bar" aria-hidden="true"><i></i></span></button></li>
-      </ol>
-      <div class="f-stage" aria-hidden="true">
-        <div class="sc on"><div class="sc-in">
-          <div class="wa-chat x" style="--t:.05s">
-            <div class="wa-hd"><span class="av">TB</span><span><b>Padaria Trigo Bom</b><small>conversando com a NEW CORP</small></span></div>
-            <div class="wa-bd">
-              <span class="dots"><i></i><i></i><i></i></span>
-              <p class="bub x" style="--t:1.3s">Oi! Tenho uma padaria na Mooca. Abro às 6h e faço bolo sob encomenda.<small>09:12</small></p>
-              <p class="bub x" style="--t:2s">Te mando as fotos do balcão?<small>09:13</small></p>
-              <p class="bub me x" style="--t:2.7s">Manda sim! Já estou anotando.<small>09:13</small></p>
+  <!-- 02. sites: o site se montando em 3D -->
+  <section class="build" id="sites" aria-labelledby="t-sites">
+    <div class="build-pin has-bg">
+    <div class="sec-bg" aria-hidden="true"><img src="assets/bg-sites.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async"></div>
+      <div class="wrap build-grid">
+        <div class="build-copy">
+          <h2 id="t-sites">Você vê o seu site nascer.</h2>
+          <ol class="build-steps" id="buildSteps">
+            <li data-i="0"><div><b>Estrutura</b><span>O que o seu cliente precisa ver primeiro.</span></div></li>
+            <li data-i="1"><div><b>Texto</b><span>Escrito nas palavras de quem compra de você.</span></div></li>
+            <li data-i="2"><div><b>Identidade</b><span>Cor, foto e letra com a cara do seu negócio.</span></div></li>
+            <li data-i="3"><div><b>No ar</b><span>No Google, no celular e com o WhatsApp tocando.</span></div></li>
+          </ol>
+          <div class="build-bar" aria-hidden="true"><i id="buildBar"></i></div>
+        </div>
+        <div class="build-scene" id="buildScene" data-ui aria-hidden="true">
+          <div class="b3d" id="b3d" data-step="0">
+            <div class="lay l-base" style="--z:0">
+              <div class="w-bar"><i></i><i></i><i></i><span>navalhaeco.com.br</span></div>
             </div>
-          </div>
-          <div class="anot x" style="--t:3.3s">
-            <span class="note-h"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>O que a gente anotou</span>
-            <span class="chips"><span class="x" style="--t:3.7s">Padaria</span><span class="x" style="--t:3.95s">Mooca</span><span class="x" style="--t:4.2s">Abre às 6h</span><span class="x" style="--t:4.45s">Bolo sob encomenda</span><span class="x" style="--t:4.7s">Fotos do balcão</span></span>
-          </div>
-        </div></div>
-        <div class="sc"><div class="sc-in">
-          <div class="mini x" style="--t:.05s">
-            <div class="mini-bar"><i></i><i></i><i></i><span>padariatrigobom.com.br</span></div>
-            <div class="mini-pg">
-              <div class="mini-nav"><b class="fill" style="--t:.8s">Padaria Trigo Bom</b><span class="mpill fill" style="--t:1s">WhatsApp</span></div>
-              <div class="mini-hero">
-                <div><h5 role="presentation" class="fill" style="--t:1.3s">Pão quentinho desde as 6h.</h5><p class="fill" style="--t:1.6s">Bolo sob encomenda na Mooca. Peça pelo WhatsApp e retire sem fila.</p><span class="mpill fill" style="--t:1.9s">Encomendar bolo</span></div>
-                <div class="mph fill" style="--t:2.2s"></div>
+            <div class="lay l-nav" style="--z:1">
+              <b class="logo"><em>Navalha &amp; Co.</em></b>
+              <span class="links"><i></i><i></i><i></i></span>
+              <span class="pill"><em>Agendar</em></span>
+            </div>
+            <div class="lay l-hero" style="--z:2">
+              <div class="hero-txt">
+                <span class="t1"><em>Corte com hora marcada.</em></span>
+                <span class="t2"><em>Horários, preços e endereço num lugar só.</em></span>
+                <span class="cta"><em>Chamar no WhatsApp</em></span>
               </div>
-              <div class="mini-row"><span class="fill" style="--t:2.5s">Pão de fermentação natural<b>R$ 18,90</b></span><span class="fill" style="--t:2.7s">Bolo de chocolate<b>R$ 65</b></span></div>
+              <div class="hero-img"></div>
             </div>
-          </div>
-          <p class="bub x" style="--t:3.4s;max-width:72%">Gostei! Só troca a foto do bolo e pode seguir.<small>14:40</small></p>
-          <div class="ok-row x" style="--t:4.1s"><span class="okb"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Amostra aprovada</span></div>
-        </div></div>
-        <div class="sc"><div class="sc-in">
-          <div class="gs x" style="--t:.05s">
-            <span class="gbar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span class="typed">padaria na mooca</span><i class="caret"></i></span>
-            <div class="gres x" style="--t:2s">
-              <span class="gu">padariatrigobom.com.br</span>
-              <b>Padaria Trigo Bom · Pão e bolo na Mooca</b>
-              <span class="g5"><i>★★★★★</i> 4,9 · Aberto agora · Abre às 6h</span>
-              <span class="gbtns"><span>WhatsApp</span><span>Rotas</span><span>Ligar</span></span>
+            <div class="lay l-cards" style="--z:3">
+              <span><em>Corte · R$ 45</em></span><span><em>Barba · R$ 35</em></span><span><em>Combo · R$ 70</em></span>
             </div>
+            <div class="lay l-wa" style="--z:5">
+              <div class="wa"><b>WhatsApp</b>Oi! Vi o site. Tem horário amanhã às 18h?</div>
+            </div>
+            <div class="lay l-g" style="--z:4"><span class="g-pin">Google</span><span class="g-txt">Navalha &amp; Co. · Barbearia em Cajamar</span></div>
           </div>
-          <div class="ntf x" style="--t:3.4s"><span class="wic"><svg><use href="#i-wa"/></svg></span><span><b>Novo cliente</b><small>Oi! Achei vocês no Google. Fazem bolo para sábado?</small></span><time>agora</time></div>
-        </div></div>
-        <span class="f-cap">Exemplo com uma padaria fictícia</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. Monte o seu: o momento interativo -->
-  <section class="build sec" id="monte" aria-labelledby="h-build" style="padding-top:0">
-    <div class="ctrl">
-      <h2 id="h-build" class="rv">Monte o seu agora.</h2>
-      <p class="rv" style="--d:1">Escolha o ramo e digite o nome do seu negócio. O site de exemplo se monta na hora. Role dentro da tela para ver a página inteira.</p>
-      <div class="ramos rv" style="--d:2" role="radiogroup" aria-label="Ramo do seu negócio">
-        <button type="button" role="radio" aria-checked="true" data-k="padaria">Padaria</button>
-        <button type="button" role="radio" aria-checked="false" data-k="clinica">Clínica</button>
-        <button type="button" role="radio" aria-checked="false" data-k="oficina">Oficina</button>
-        <button type="button" role="radio" aria-checked="false" data-k="salao">Salão</button>
-        <button type="button" role="radio" aria-checked="false" data-k="restaurante">Restaurante</button>
+  <!-- 03. sistemas -->
+  <section class="sec sys light has-bg" id="sistemas" aria-labelledby="t-sys">
+    <div class="sec-bg" aria-hidden="true"><img src="assets/bg-sys.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async"></div>
+    <div class="wrap sys-grid">
+      <div class="sys-scene" id="sysScene" data-ui aria-hidden="true">
+        <div class="s3d" id="s3d">
+          <div class="tile t-chat" data-n="0">
+            <p class="t-h"><span class="dot"></span>WhatsApp · Navalha &amp; Co.</p>
+            <div class="bub in">Oi! Tem horário sábado às 10h?</div>
+            <div class="bub out">Tenho sim. Já deixei marcado para você.</div>
+          </div>
+          <div class="tile t-cal" data-n="1">
+            <p class="t-h"><span class="dot"></span>Agenda</p>
+            <div class="cal"><i></i><i></i><i></i><i></i><i></i><i class="hit"><em>Sáb 10:00</em></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="tile t-sheet" data-n="2">
+            <p class="t-h"><span class="dot"></span>Planilha</p>
+            <div class="row"><span>Marcos</span><span>Corte</span><span>R$ 45</span></div>
+            <div class="row"><span>Diego</span><span>Barba</span><span>R$ 35</span></div>
+            <div class="row new"><span>Rafael</span><span>Combo</span><span>R$ 70</span></div>
+          </div>
+          <svg class="s-wires" viewBox="0 0 100 100" preserveAspectRatio="none"><path class="wp" d="M30 30 C 45 30, 40 52, 55 52" pathLength="1"/><path class="wp" d="M62 60 C 72 60, 66 80, 78 80" pathLength="1"/></svg>
+        </div>
       </div>
-      <label class="rv" style="--d:3" for="bizname">Nome do seu negócio</label>
-      <input class="rv" style="--d:3" id="bizname" type="text" maxlength="30" autocomplete="organization" placeholder="Padaria Trigo Bom">
-      <a class="btn rv" style="--d:4" id="wantit" href="https://wa.me/5511988681657?text=Oi!%20Quero%20a%20amostra%20gr%C3%A1tis%20do%20meu%20site." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Quero este site</a>
-      <p class="fine rv" style="--d:4">Demonstração com nomes, preços e endereço de exemplo. O seu sai com as suas fotos, os seus preços e o seu endereço.</p>
-    </div>
-    <div class="device rv" style="--d:1" data-ui>
-      <div class="bar" aria-hidden="true"><i></i><i></i><i></i><div class="url" id="murl">padariatrigobom.com.br</div></div>
-      <div class="msite" id="msite" data-lenis-prevent tabindex="0" role="region" aria-label="Prévia do site de exemplo" aria-live="polite"></div>
-    </div>
-  </section>
-
-  <!-- Quem faz -->
-  <section class="sec" id="quem" aria-labelledby="h-who" style="padding-top:0">
-    <div class="who rv">
-      <div class="who-ph"><img src="assets/pedro.jpg" alt="Pedro Henrique, fundador da NEW CORP STUDIO" width="864" height="1080" loading="lazy"></div>
-      <div>
-        <h2 id="h-who">Quem faz o seu site.</h2>
-        <blockquote>“Eu atendo, eu monto e eu coloco no ar. Se precisar mudar alguma coisa, você fala direto comigo.”</blockquote>
-        <p class="sig"><b>Pedro Henrique</b>, fundador da NEW CORP STUDIO, São Paulo</p>
-        <ul><li>Amostra grátis em 2 dias</li><li>Site no ar em até 10 dias</li><li>WhatsApp (11) 98868-1657</li></ul>
-        <a class="btn wa" href="https://wa.me/5511988681657?text=Oi%2C%20Pedro%21%20Vi%20o%20site%20e%20quero%20conversar%20sobre%20um%20site%20para%20o%20meu%20neg%C3%B3cio." data-msg="Oi, Pedro! Vi o site e quero conversar sobre um site para o meu negócio."><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Falar com o Pedro</a>
+      <div class="sys-copy">
+        <h2 id="t-sys" class="rv">O trabalho repetido sai da sua mão.</h2>
+        <p class="lead rv">Pequenas automações que rodam sozinhas enquanto você atende.</p>
+        <ul class="sys-list rv-group">
+          <li class="rv"><b>Pedido vira agendamento</b><span>A mensagem chega e o horário já fica reservado.</span></li>
+          <li class="rv"><b>Agendamento vira registro</b><span>Cliente, serviço e valor na planilha, sem copiar nada.</span></li>
+          <li class="rv"><b>Resposta para o de sempre</b><span>Preço, endereço e horário respondidos na hora.</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- 6. Preços -->
-  <section class="price sec" id="precos" aria-labelledby="h-price" style="padding-top:0">
-    <div class="sec-head">
-      <h2 id="h-price" class="rv">Preço na mesa.</h2>
-      <p class="rv" style="--d:1">Você sabe quanto vai pagar antes de começar. A amostra é grátis em qualquer plano e você só paga se aprovar.</p>
-    </div>
-    <div class="plans">
-      <article class="plan rv">
-        <h3>Essencial</h3>
-        <p class="for">Para aparecer no Google e receber pedido pelo WhatsApp.</p>
-        <div class="v">R$ 400<small>pagamento único</small></div>
-        <ul class="ck"><li>Site de uma página</li><li>Botão de WhatsApp</li><li>Cadastro no Google</li><li>Funciona no celular e no computador</li></ul>
-        <a class="btn ghost wa" href="https://wa.me/5511988681657?text=Oi%21%20Tenho%20interesse%20no%20plano%20Essencial%20%28R%24%20400%29.%20Pode%20montar%20a%20amostra%20gr%C3%A1tis%3F" data-msg="Oi! Tenho interesse no plano Essencial (R$ 400). Pode montar a amostra grátis?">Quero o Essencial</a>
-      </article>
-      <article class="plan hot rv" style="--d:1">
-        <span class="flag">Mais completo</span>
-        <h3>Premium</h3>
-        <p class="for">Para vender mais, com páginas, fotos e textos prontos.</p>
-        <div class="v">R$ 1.300<small>pagamento único</small></div>
-        <ul class="ck"><li>Até cinco páginas</li><li>Textos escritos para vender</li><li>Aparecer nas buscas do bairro</li><li>Fotos e vídeos do seu negócio</li><li>Botão de WhatsApp em cada página</li></ul>
-        <a class="btn wa" href="https://wa.me/5511988681657?text=Oi%21%20Tenho%20interesse%20no%20plano%20Premium%20%28R%24%201.300%29.%20Pode%20montar%20a%20amostra%20gr%C3%A1tis%3F" data-msg="Oi! Tenho interesse no plano Premium (R$ 1.300). Pode montar a amostra grátis?">Quero o Premium</a>
-      </article>
-    </div>
-    <div class="addon">
-      <div><h3>Manutenção <span>opcional</span></h3><p>Troca de texto e foto, site sempre no ar e ajuda pelo WhatsApp. Entra depois que o site está no ar.</p></div>
-      <div class="v">R$ 99<small>/mês</small></div>
-      <a class="btn ghost wa" href="https://wa.me/5511988681657?text=Oi%21%20Quero%20saber%20da%20Manuten%C3%A7%C3%A3o%20de%20R%24%2099%20por%20m%C3%AAs." data-msg="Oi! Quero saber da Manutenção de R$ 99 por mês.">Quero a Manutenção</a>
-    </div>
-  </section>
-
-  <!-- 7. Dúvidas -->
-  <section class="faq sec" id="duvidas" aria-labelledby="h-faq" style="padding-top:0">
-    <h2 id="h-faq">Perguntas de dono.</h2>
-    <div class="list">
-      <details name="faq" class="rv" open><summary>E se eu não gostar da amostra?<span class="plus" aria-hidden="true"></span></summary><p>Você não paga nada. A amostra é grátis e não te prende a nada.</p></details>
-      <details name="faq" class="rv"><summary>Preciso entender de site?<span class="plus" aria-hidden="true"></span></summary><p>Não. Você conta como é o seu negócio pelo WhatsApp. O resto é com a gente.</p></details>
-      <details name="faq" class="rv"><summary>Quanto tempo leva?<span class="plus" aria-hidden="true"></span></summary><p>A amostra da sua página inicial fica pronta em 2 dias, de graça. Aprovou, o site completo entra no ar em até 10 dias corridos. Você acompanha cada etapa pelo WhatsApp.</p></details>
-      <details name="faq" class="rv"><summary>Tem mensalidade?<span class="plus" aria-hidden="true"></span></summary><p>Só se você quiser a Manutenção, de R$ 99 por mês. Sem ela, você paga uma vez.</p></details>
-      <details name="faq" class="rv"><summary>Já tenho Instagram. Preciso de site?<span class="plus" aria-hidden="true"></span></summary><p>O Instagram fala com quem já te segue. O site aparece para quem procura no Google e ainda não te conhece.</p></details>
-      <details name="faq" class="rv"><summary>Já paguei site que nunca ficou pronto.<span class="plus" aria-hidden="true"></span></summary><p>É a reclamação mais comum de quem contrata site. Por isso aqui você vê a página inicial pronta antes de pagar qualquer coisa.</p></details>
+  <!-- 04. antes e depois -->
+  <section class="sec compare-sec has-bg" aria-labelledby="t-cmp">
+    <div class="sec-bg" aria-hidden="true"><img src="assets/bg-cmp.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async"></div>
+    <div class="wrap cmp-grid">
+      <div class="cmp-copy">
+        <h2 id="t-cmp" class="rv">As perguntas, respondidas antes.</h2>
+        <p class="lead rv">Preço, horário, endereço: o cliente pergunta as mesmas coisas todo dia. Arraste a linha e compare o seu WhatsApp sem site e com site.</p>
+      </div>
+      <div class="cmp rv" id="cmp" data-ui style="--x:40%">
+        <div class="cmp-side cmp-before" aria-hidden="true">
+          <span class="cmp-tag">Sem site</span>
+          <div class="chat">
+            <div class="bub in">Qual o preço do corte?</div>
+            <div class="bub in">Vocês abrem domingo?</div>
+            <div class="bub in">Onde fica?</div>
+            <div class="bub in">Tem horário hoje?</div>
+            <div class="bub in">Qual o preço da barba?</div>
+            <div class="unread">23 mensagens sem resposta</div>
+          </div>
+        </div>
+        <div class="cmp-side cmp-after" aria-hidden="true">
+          <span class="cmp-tag">Com site</span>
+          <div class="mini-site">
+            <b class="ms-logo">Navalha &amp; Co.</b>
+            <p class="ms-t">Corte com hora marcada.</p>
+            <div class="ms-grid"><span>Corte<em>R$ 45</em></span><span>Barba<em>R$ 35</em></span><span>Ter a sáb<em>9h às 20h</em></span><span>Endereço<em>Centro, Cajamar</em></span></div>
+            <span class="ms-btn">Agendar pelo WhatsApp</span>
+          </div>
+        </div>
+        <div class="cmp-handle" aria-hidden="true"><i></i></div>
+        <label class="sr" for="cmpRange">Comparar sem site e com site</label>
+        <input class="cmp-range" id="cmpRange" type="range" min="0" max="100" value="40">
+      </div>
     </div>
   </section>
 
-  <!-- 8. Ação -->
-  <section class="cta-band" aria-labelledby="h-cta">
-    <div><h2 id="h-cta">Quer ver o seu site antes de pagar?</h2><p>Abre uma conversa no WhatsApp. A gente responde com o próximo passo e monta a sua amostra grátis.</p></div>
-    <a class="btn wa" href="https://wa.me/5511988681657?text=Oi%21%20Li%20as%20d%C3%BAvidas%20no%20site%20e%20quero%20a%20amostra%20gr%C3%A1tis%20do%20meu%20site." data-msg="Oi! Li as dúvidas no site e quero a amostra grátis do meu site."><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp</a>
+  <!-- 05. promessas -->
+  <section class="sec light has-bg" aria-labelledby="t-prom">
+    <div class="sec-bg" aria-hidden="true"><img src="assets/bg-prom.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async"></div>
+    <div class="wrap">
+      <div class="promises">
+        <div class="rv">
+          <h2 id="t-prom">Pronto no prazo e no seu nome.</h2>
+          <p class="lead">Muita gente já pagou metade adiantado e ficou esperando um site que nunca chegou. Comigo você vê a primeira tela antes de pagar qualquer coisa.</p>
+        </div>
+        <ul class="promise-list rv-group">
+          <li class="rv"><div><b>Você vê antes de pagar.</b><span>A primeira tela chega no seu celular em até 72 horas. Gostou, a gente segue.</span></div></li>
+          <li class="rv"><div><b>Cada etapa com data escrita.</b><span>Cada etapa tem data. Você acompanha tudo pelo WhatsApp, comigo.</span></div></li>
+          <li class="rv"><div><b>Tudo no seu nome.</b><span>Domínio, arquivos e acessos ficam com você. Se um dia quiser sair, leva tudo.</span></div></li>
+        </ul>
+      </div>
+      <div class="numbers rv-group">
+        <div class="rv"><strong><span data-count="72">72</span> h</strong><span>para ver a primeira tela</span></div>
+        <div class="rv"><strong><span data-count="10">10</span> dias</strong><span>úteis até o site no ar</span></div>
+        <div class="rv"><strong>R$ <span data-count="0">0</span></strong><span>para ver antes de decidir</span></div>
+        <div class="rv"><strong><span data-count="100">100</span>%</strong><span>do site no seu nome</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- método: vídeo largo preso ao scroll -->
+  <section class="reel" aria-labelledby="t-reel">
+    <div class="reel-pin">
+      <video class="scrub reel-v" data-src="assets/v-pecas.mp4" poster="assets/v-pecas.jpg" muted playsinline preload="none" aria-hidden="true"></video>
+      <div class="reel-shade" aria-hidden="true"></div>
+      <div class="wrap reel-copy">
+        <h2 id="t-reel">Testado no seu celular antes de ir ao ar.</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06. como funciona -->
+  <section class="sec has-bg" id="processo" aria-labelledby="t-proc">
+    <div class="sec-bg" aria-hidden="true"><img src="assets/bg-proc.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async"></div>
+    <svg class="trace" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 2 100"><path id="tracePath" d="M1 0 V100" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg>
+    <div class="wrap">
+      <div class="proc-head">
+        <div class="rv">
+          <h2 id="t-proc">Três passos. Você só aprova.</h2>
+        </div>
+      </div>
+      <div class="steps rv-group">
+        <article class="card step rv">
+          <figure><video class="scrub" data-src="assets/v-passo1.mp4" poster="assets/v-passo1.jpg" muted playsinline preload="none" aria-hidden="true"></video></figure>
+          <div class="in"><h3>Conversa</h3><p class="when">20 minutos</p><p>Você me conta pelo WhatsApp o que vende, para quem e o que não está funcionando hoje. Pode ser por áudio.</p></div>
+        </article>
+        <article class="card step rv">
+          <figure><video class="scrub" data-src="assets/v-passo2.mp4" poster="assets/v-passo2.jpg" muted playsinline preload="none" aria-hidden="true"></video></figure>
+          <div class="in"><h3>Primeira tela</h3><p class="when">Até 72 horas</p><p>Monto a primeira tela com o seu nome e os seus serviços. Você abre no celular e decide se segue, sem custo.</p></div>
+        </article>
+        <article class="card step rv">
+          <figure><video class="scrub" data-src="assets/v-passo3.mp4" poster="assets/v-passo3.jpg" muted playsinline preload="none" aria-hidden="true"></video></figure>
+          <div class="in"><h3>No ar</h3><p class="when">Até 10 dias úteis</p><p>Construo o site completo, você aprova cada etapa e eu publico no seu endereço com Google e WhatsApp configurados.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 08. planos -->
+  <section class="sec has-bg" id="planos" aria-labelledby="t-planos">
+    <div class="sec-bg" aria-hidden="true"><img src="assets/bg-planos.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async"></div>
+    <div class="wrap">
+      <div class="plans-head">
+        <div class="rv">
+          <h2 id="t-planos">Preço na mesa, antes da conversa.</h2>
+        </div>
+        <p class="lead rv">Valor fechado, combinado antes de começar. Em qualquer plano você vê a primeira tela antes e só paga se gostar.</p>
+      </div>
+      <div class="quiz rv" id="quiz" hidden>
+        <h3 class="quiz-t">Qual plano é pra você? Três toques e eu te digo.</h3>
+        <div class="quiz-qs">
+          <fieldset><legend>Você já tem site?</legend><div class="quiz-op"><button type="button" data-q="1" data-v="0" aria-pressed="false">Ainda não</button><button type="button" data-q="1" data-v="0" aria-pressed="false">Tenho, mas não traz cliente</button></div></fieldset>
+          <fieldset><legend>O que pesa mais agora?</legend><div class="quiz-op"><button type="button" data-q="2" data-v="0" aria-pressed="false">Ser achado e chamado logo</button><button type="button" data-q="2" data-v="1" aria-pressed="false">Ficar acima dos concorrentes</button></div></fieldset>
+          <fieldset><legend>O texto do site, quem escreve?</legend><div class="quiz-op"><button type="button" data-q="3" data-v="0" aria-pressed="false">Eu já sei o que falar</button><button type="button" data-q="3" data-v="1" aria-pressed="false">Prefiro que você escreva</button></div></fieldset>
+        </div>
+        <div class="quiz-res" id="quizRes" aria-live="polite"></div>
+      </div>
+      <div class="plans rv-group">
+        <article class="card plan rv" data-plan="essencial">
+          <h3>Essencial</h3><p>Para quem precisa ser encontrado e chamado, rápido.</p>
+          <div class="price"><strong>R$ 400</strong><small>pagamento único</small></div>
+          <ul><li>Uma página completa e rápida</li><li>Botão de WhatsApp com mensagem pronta</li><li>Feito primeiro para celular</li><li>Pronto para Google e prévia de link</li></ul>
+          <a class="btn btn-ghost" data-wa="Oi, Pedro! Tenho interesse no plano Essencial." href="#contato">Começar pelo Essencial</a>
+        </article>
+        <article class="card plan feat rv" data-plan="premium">
+          <h3>Premium</h3><p>O que eu recomendo. Para quem quer se destacar de todos os concorrentes da rua.</p>
+          <div class="price"><strong>R$ 1.300</strong><small>pagamento único</small></div>
+          <ul><li>Tudo do Essencial</li><li>Visual exclusivo da sua marca</li><li>Animações ao rolar a página</li><li>Texto de venda escrito para o seu negócio</li><li>Velocidade medida antes da entrega</li></ul>
+          <a class="btn btn-accent" data-wa="Oi, Pedro! Tenho interesse no plano Premium." href="#contato">Quero o Premium</a>
+        </article>
+        <article class="card plan rv">
+          <h3>Manutenção</h3><p>Opcional. Para quem prefere que eu cuide de tudo depois.</p>
+          <div class="price"><strong>R$ 99</strong><small>por mês</small></div>
+          <ul><li>Ajustes de texto e foto</li><li>Acompanhamento do site</li><li>Suporte direto comigo no WhatsApp</li><li>Cancela quando quiser</li></ul>
+          <a class="btn btn-ghost" data-wa="Oi, Pedro! Quero saber da manutenção mensal." href="#contato">Saber mais</a>
+        </article>
+      </div>
+      <aside class="fundador rv" id="fundador" aria-labelledby="t-fund">
+        <div class="fund-copy">
+          <h3 id="t-fund">Site Fundador: 5 vagas para os primeiros negócios.</h3>
+          <p>Eu atendo, monto e entrego sozinho, então pego 5 negócios por vez. Quem entra agora leva o plano Essencial, pelo mesmo R$ 400, com dois presentes:</p>
+          <ul><li>1 mês de manutenção sem custo, que vale R$ 99</li><li>Cartaz com QR code para o balcão, pronto para imprimir</li></ul>
+          <p class="fund-deal">Em troca, no fim eu tiro uma foto sua no negócio e você me conta em uma frase o que mudou. Ela entra aqui como o primeiro caso real.</p>
+        </div>
+        <div class="fund-act">
+          <p class="fund-count"><strong>5</strong> vagas abertas</p>
+          <a class="btn btn-accent" data-wa="Oi, Pedro! Quero uma das 5 vagas de Site Fundador." href="#contato">Quero uma vaga de fundador</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 09. projetos -->
+  <section class="sec light has-bg" id="projetos" aria-labelledby="t-proj">
+    <div class="sec-bg" aria-hidden="true"><img src="assets/bg-proj.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async"></div>
+    <div class="wrap">
+      <div class="proj-head">
+        <div class="rv">
+          <h2 id="t-proj">Cada ramo pede um site diferente.</h2>
+        </div>
+        <p class="lead rv" style="margin:0">Exemplos completos do que monto para cada tipo de negócio. Clique e navegue como se fosse o seu cliente.</p>
+      </div>
+      <div class="proj-grid">
+        <article class="proj rv" data-tilt>
+          <div class="site" data-ui style="--b:#D9DDD8;--i:#161616" aria-hidden="true"><div class="pv-bar"><i></i><i></i><i></i><span>navalhaeco.com.br</span></div><div class="pv-body"><div class="pv-top"><b>Navalha &amp; Co.</b><em style="background:#B3261E;color:#fff">Agendar</em></div><div class="pv-title">Corte com hora marcada.</div><div class="pv-btn" style="background:#B3261E;color:#fff">Chamar no WhatsApp</div></div></div>
+          <div class="meta"><div><h3>Navalha &amp; Co.</h3><p>Barbearia em Cajamar, SP</p></div><span class="tag">projeto-exemplo</span></div>
+        <a class="proj-link" href="exemplos/navalha/">Ver o site completo</a></article>
+        <article class="proj rv" data-tilt>
+          <div class="site" data-ui style="--b:#E6E4DF;--i:#231F20" aria-hidden="true"><div class="pv-bar"><i></i><i></i><i></i><span>atelielume.com.br</span></div><div class="pv-body"><div class="pv-top"><b>Ateliê Lume</b><em style="background:#5B2E4A;color:#F1F0EC">Catálogo</em></div><div class="pv-title">Peças que vestem a semana inteira.</div><div class="pv-btn" style="background:#5B2E4A;color:#F1F0EC">Pedir pelo WhatsApp</div></div></div>
+          <div class="meta"><div><h3>Ateliê Lume</h3><p>Loja de roupas em Jundiaí, SP</p></div><span class="tag">projeto-exemplo</span></div>
+        <a class="proj-link" href="exemplos/atelie-lume/">Ver o site completo</a></article>
+        <article class="proj rv" data-tilt>
+          <div class="site" data-ui style="--b:#F5FAF7;--i:#0F3D2E" aria-hidden="true"><div class="pv-bar"><i></i><i></i><i></i><span>clinicamovere.com.br</span></div><div class="pv-body"><div class="pv-top"><b>Clínica Movere</b><em style="background:#1A7F52;color:#F5FAF7">Consulta</em></div><div class="pv-title">Fisioterapia perto de casa.</div><div class="pv-btn" style="background:#1A7F52;color:#F5FAF7">Marcar pelo WhatsApp</div></div></div>
+          <div class="meta"><div><h3>Clínica Movere</h3><p>Fisioterapia em Osasco, SP</p></div><span class="tag">projeto-exemplo</span></div>
+        <a class="proj-link" href="exemplos/clinica-movere/">Ver o site completo</a></article>
+        <article class="proj rv" data-tilt>
+          <div class="site" data-ui style="--b:#0E1A2B;--i:#F2F4F7" aria-hidden="true"><div class="pv-bar"><i></i><i></i><i></i><span>fonsecapinturas.com.br</span></div><div class="pv-body"><div class="pv-top"><b>Fonseca Pinturas</b><em style="background:#3D8BFF;color:#0E1A2B">Orçamento</em></div><div class="pv-title">Parede pronta, casa limpa no fim do dia.</div><div class="pv-btn" style="background:#3D8BFF;color:#0E1A2B">Mandar foto do cômodo</div></div></div>
+          <div class="meta"><div><h3>Fonseca Pinturas</h3><p>Pintor residencial em Campinas, SP</p></div><span class="tag">projeto-exemplo</span></div>
+        <a class="proj-link" href="exemplos/fonseca-pinturas/">Ver o site completo</a></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. depoimentos -->
+  <section class="sec quotes-sec has-bg" aria-labelledby="t-dep">
+    <div class="sec-bg" aria-hidden="true"><img src="assets/bg-dep.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async"></div>
+    <div class="wrap">
+      <div class="rv">
+        <h2 id="t-dep">O que um bom site muda na rotina.</h2>
+        <p class="note">Depoimentos ilustrativos, marcados como exemplo. Os reais entram aqui conforme os projetos forem entregues.</p>
+      </div>
+      <div class="quotes rv-group">
+        <figure class="card quote rv"><blockquote>Antes eu mandava foto de tabela no WhatsApp para cada cliente. Agora mando o link e a pessoa já chega sabendo o corte e o preço.</blockquote><figcaption><span class="av" aria-hidden="true">RM</span><span>Rafael Moura<small>Barbearia, Cajamar, SP</small></span><span class="tag">exemplo</span></figcaption></figure>
+        <figure class="card quote rv"><blockquote>Vi a primeira tela antes de pagar e mostrei para minha sócia no mesmo dia.</blockquote><figcaption><span class="av" aria-hidden="true">JP</span><span>Juliana Prado<small>Loja de roupas, Jundiaí, SP</small></span><span class="tag">exemplo</span></figcaption></figure>
+        <figure class="card quote rv"><blockquote>O cliente manda a foto da parede pelo site e eu já respondo com valor.</blockquote><figcaption><span class="av" aria-hidden="true">CF</span><span>Carlos Fonseca<small>Pintor, Campinas, SP</small></span><span class="tag">exemplo</span></figcaption></figure>
+        <figure class="card quote rv"><blockquote>Os pedidos de horário caem direto na agenda. Parei de anotar em papel.</blockquote><figcaption><span class="av" aria-hidden="true">ML</span><span>Marina Lopes<small>Fisioterapia, Osasco, SP</small></span><span class="tag">exemplo</span></figcaption></figure>
+        <figure class="card quote rv"><blockquote>O horário de plantão ficou na primeira tela. Diminuiu muito ligação só para perguntar.</blockquote><figcaption><span class="av" aria-hidden="true">AS</span><span>Anderson Silva<small>Farmácia, Santana de Parnaíba, SP</small></span><span class="tag">exemplo</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. dúvidas -->
+  <section class="sec light faq-sec has-bg" id="duvidas" aria-labelledby="t-faq">
+    <div class="sec-bg" aria-hidden="true"><img src="assets/bg-faq.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async"></div>
+    <div class="wrap faq">
+      <div class="faq-side rv">
+        <h2 id="t-faq">O que todo mundo pergunta antes.</h2>
+        <p class="lead">Ficou alguma de fora? <a class="hl" data-wa="Oi, Pedro! Tenho uma dúvida sobre o site." href="#contato">Pergunte direto para mim.</a></p>
+      </div>
+      <div class="faq-list" id="faqList">
+        <div class="qa open"><button aria-expanded="true">A primeira tela é mesmo sem custo?<i aria-hidden="true"></i></button><div class="ans"><div><p>É. Você me conta do negócio, eu monto a primeira tela e te mando o link. Se não gostar, a conversa termina ali e você não deve nada.</p></div></div></div>
+        <div class="qa"><button aria-expanded="false">Quanto tempo leva para ficar pronto?<i aria-hidden="true"></i></button><div class="ans"><div><p>A primeira tela sai em até 72 horas. O site completo fica no ar em até 10 dias úteis contados do primeiro papo, desde que textos e fotos cheguem no prazo combinado.</p></div></div></div>
+        <div class="qa"><button aria-expanded="false">Tem mensalidade?<i aria-hidden="true"></i></button><div class="ans"><div><p>Não é obrigatória. Essencial e Premium são pagamento único. A manutenção de R$ 99 por mês é opcional, para quem prefere que eu cuide das alterações.</p></div></div></div>
+        <div class="qa"><button aria-expanded="false">Como eu pago?<i aria-hidden="true"></i></button><div class="ans"><div><p>Por Pix. Você só paga depois de ver e aprovar a primeira tela. Se precisar de outra forma, a gente combina no WhatsApp.</p></div></div></div>
+        <div class="qa"><button aria-expanded="false">Quem paga o domínio e a hospedagem?<i aria-hidden="true"></i></button><div class="ans"><div><p>O domínio fica no seu nome e é pago direto por você, uma vez por ano. Eu te ajudo a registrar e configuro tudo.</p></div></div></div>
+        <div class="qa"><button aria-expanded="false">Não tenho fotos boas nem texto pronto. Dá para fazer?<i aria-hidden="true"></i></button><div class="ans"><div><p>Dá. No Premium eu escrevo o texto de venda. Para fotos, te passo um roteiro simples para fazer com o celular.</p></div></div></div>
+        <div class="qa"><button aria-expanded="false">Já tenho Instagram ou um site antigo. Serve?<i aria-hidden="true"></i></button><div class="ans"><div><p>Serve como ponto de partida. Eu olho o que você tem e digo com franqueza se vale refazer ou só melhorar.</p></div></div></div>
+        <div class="qa"><button aria-expanded="false">E o sistema, funciona para o meu negócio?<i aria-hidden="true"></i></button><div class="ans"><div><p>Se você repete a mesma tarefa todo dia (anotar pedido, marcar horário, passar para planilha), provavelmente dá para automatizar. Me conta a rotina e eu digo o que dá.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. chamada final -->
+  <section class="cta" id="contato" aria-labelledby="t-cta">
+    <div class="cta-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="rv">
+        <h2 id="t-cta">O seu vai ser o melhor da rua.</h2>
+        <p class="lead">Seu concorrente já tem site. Me conta do seu negócio em uma mensagem. Em até 72 horas você abre a primeira tela no celular.</p>
+        <p class="sign">Pedro Henrique<small>dono da NEW CORP</small></p>
+      </div>
+      <form class="card rv" id="leadForm">
+        <div class="field"><label for="fName">Seu nome</label><input id="fName" name="nome" required autocomplete="name"></div>
+        <div class="field"><label for="fBiz">Nome do negócio</label><input id="fBiz" name="negocio" required autocomplete="organization"></div>
+        <div class="field"><label for="fRamo">O que você precisa</label>
+          <select id="fRamo" name="ramo"><option>Um site novo</option><option>Melhorar o site que já tenho</option><option>Um sistema ou automação</option><option>Ainda não sei, quero conversar</option></select>
+        </div>
+        <button class="btn btn-accent" type="submit">Pedir minha primeira tela <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <p class="form-note">Abre o seu WhatsApp com a mensagem pronta para mim. Sem custo e sem compromisso; nada fica salvo neste site.</p>
+      </form>
+    </div>
   </section>
 </main>
 
 <footer>
-  <div class="f-top">
-    <div class="inv">
-      <span class="mark"><svg class="sym" aria-hidden="true"><use href="#i-logo"/></svg>NEW CORP</span>
-      <p>Sites para padaria, clínica, oficina, salão e restaurante de São Paulo.</p>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#main"><svg viewBox="-6 -6 112 112" aria-hidden="true"><path d="M4 96 56 4 44 62Z" fill="#E6E9EC"/><path d="M60 22 58.28 63.24 75.55 51.45Z" fill="#8A9097"/><path d="M98 94 79.67 59.27 64.41 73.84Z" fill="#8A9097"/><path d="M12 98 94 42 50 84Z" fill="#C6FF3D"/></svg>Pedro Henrique<span class="brand-co" translate="no">NEW CORP</span></a>
+        <p>Sites e sistemas para comércio e prestador de serviço. Quem atende, monta e entrega sou eu.</p>
+      </div>
+      <nav aria-label="Rodapé"><h3 class="foot-h">Navegar</h3><a href="#quem">Quem sou</a><a href="#sites">Sites</a><a href="#sistemas">Sistemas</a><a href="#processo">Processo</a><a href="#planos">Planos</a><a href="#duvidas">Dúvidas</a></nav>
+      <div class="col"><h3 class="foot-h">Planos</h3><a href="#planos">Essencial · R$ 400</a><a href="#planos">Premium · R$ 1.300</a><a href="#planos">Manutenção · R$ 99/mês</a></div>
+      <div class="col"><h3 class="foot-h">Contato</h3><a data-wa="Oi, Pedro!" href="#contato">WhatsApp (11) 98868-1657</a><a href="mailto:contato.newcorpst@gmail.com">contato.newcorpst@gmail.com</a><a href="https://www.instagram.com/orickksilv__/" target="_blank" rel="noopener">Instagram @orickksilv__</a><span style="color:var(--text-secondary)">Cajamar, SP · atendo todo o Brasil</span></div>
     </div>
-    <nav class="links" aria-label="Rodapé">
-      <b>Contato e páginas</b>
-      <a class="wa" href="https://wa.me/5511988681657?text=Oi%21%20Vim%20pelo%20site%20da%20NEW%20CORP%20STUDIO." data-msg="Oi! Vim pelo site da NEW CORP STUDIO.">WhatsApp (11) 98868-1657</a>
-      <a href="#como">Como funciona</a>
-      <a href="#monte">Exemplos</a>
-      <a href="#precos">Preços</a>
-      <a href="#duvidas">Dúvidas</a>
-    </nav>
+    <div class="legal"><span>© 2026 Pedro Henrique. Dados da empresa enviados sob pedido, pelo WhatsApp ou e-mail.</span><!-- CNPJ fora do site por decisão do Pedro em 20/10/2026 --><span><a href="privacidade.html">Privacidade</a>. Projetos e depoimentos marcados como exemplo são ilustrativos. Imagens do topo geradas com IA a partir de fotos reais.</span></div>
   </div>
-  <div class="legal"><span>© 2026 NEW CORP STUDIO · 69.461.424 Pedro Henrique Carvalho da Silva · CNPJ 69.461.424/0001-50 · Cajamar, SP</span><span>Nomes, preços e imagens dos exemplos são demonstração</span></div>
 </footer>
 
-<a class="fab wa" href="https://wa.me/5511988681657?text=Oi%21%20Vim%20pelo%20site%20e%20quero%20tirar%20uma%20d%C3%BAvida." data-msg="Oi! Vim pelo site e quero tirar uma dúvida." aria-label="Falar no WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+<div class="dock" id="dock" aria-hidden="true">
+  <span>Pedro Henrique, da NEW CORP</span>
+  <a class="btn btn-accent" data-wa="Oi, Pedro! Quero ver a primeira tela do meu site, sem custo." href="#contato" tabindex="-1">Primeira tela grátis</a>
+</div>
 
-<script src="https://cdn.jsdelivr.net/npm/motion@13.5.1/dist/motion.js"></script>
-<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-<script>
-(() => {
-  const WA = 'https://wa.me/5511988681657?text=' + encodeURIComponent('Oi! Quero a amostra grátis do meu site.');
-  document.querySelectorAll('.wa').forEach(a => { a.href = a.dataset.msg ? 'https://wa.me/5511988681657?text=' + encodeURIComponent(a.dataset.msg) : WA; a.target = '_blank'; a.rel = 'noopener' });
-
-  const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
-  const smooth = (p, e0, e1) => { const t = clamp((p - e0) / (e1 - e0), 0, 1); return t * t * (3 - 2 * t) };
-  const RM = matchMedia('(prefers-reduced-motion: reduce)');
-  const $ = id => document.getElementById(id);
-  const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-
-  /* ---------- Motion (motion.dev): conduz as entradas e trocas do site todo ---------- */
-  // sem Motion (falha no carregamento) ou com movimento reduzido, o CSS assume como antes
-  const M = !RM.matches && window.Motion ? Motion : null;
-  if (M) document.documentElement.classList.add('mo');
-  const mola = { type: 'spring', visualDuration: .7, bounce: .18 };
-  const surge = { duration: .5, ease: [.22, 1, .36, 1] };
-  // ao terminar, devolve o elemento ao CSS (hover e estados voltam a funcionar)
-  // espera a última mola de cada elemento terminar (a de transform dura mais que a de opacity)
-  const solta = els => {
-    const arr = els.length !== undefined ? [...els] : [els];
-    Promise.all(arr.flatMap(e => e.getAnimations().map(a => a.finished.catch(() => {}))))
-      .then(() => requestAnimationFrame(() => arr.forEach(e => { e.style.opacity = ''; e.style.transform = '' })));
-  };
-
-  /* ---------- Cabeçalho ganha fundo depois do topo ---------- */
-  const top = $('top');
-  const onTop = () => top.classList.toggle('scrolled', scrollY > 24);
-  addEventListener('scroll', onTop, { passive: true }); onTop();
-
-  /* ---------- Dados dos ramos: um lugar só para hero, história e Monte o seu ---------- */
-  const RAMOS = {
-    padaria: { ramo: 'padaria', name: 'Padaria Trigo Bom', theme: ['#F3EEE7', '#2B1D12', '#E9E1D5', '#B5541C', '#fff'], nav: 'Cardápio',
-      title: 'Pão quentinho desde cedo.', lede: 'Fornada nova às 6h e às 16h. Encomende bolos e salgados pelo WhatsApp e retire sem fila.',
-      cta: 'Encomendar pelo WhatsApp', img: 'assets/padaria.jpg', img2: 'assets/padaria-balcao.jpg',
-      msg: 'Oi! Vi o site. Dá para encomendar 2 bolos para sábado?',
-      servTitle: 'Do forno para a sua mesa', items: [['Pão francês (kg)', 'R$ 18,90'], ['Bolo de chocolate inteiro', 'R$ 65'], ['Café da manhã completo', 'R$ 29'], ['Pão de queijo (100 g)', 'R$ 6']],
-      aboutTitle: 'Feito aqui, todo dia', about: 'Massa de fermentação natural, receita da família e balcão aberto desde as 6h. Quem passa uma vez volta no dia seguinte.',
-      hours: 'Seg a sáb, 6h às 20h · Dom, 6h às 13h', rev: [['Encomendei o bolo pelo site e chegou certinho no aniversário.', 'Marina'], ['O pão de queijo sai quente às 16h. Já virou rotina.', 'Carlos']] },
-    clinica: { ramo: 'clínica', name: 'Clínica Sorriso Vivo', theme: ['#EEF3F5', '#0F2A33', '#DDE8EC', '#1F7A8C', '#fff'], nav: 'Tratamentos',
-      title: 'Seu sorriso em boas mãos.', lede: 'Tratamento explicado sem termo difícil. Marque sua avaliação pelo WhatsApp e escolha o melhor horário.',
-      cta: 'Agendar avaliação', img: 'assets/clinica.jpg', img2: 'assets/clinica-recepcao.jpg',
-      msg: 'Oi! Tem horário para avaliação na quinta à tarde?',
-      servTitle: 'Tratamentos', items: [['Avaliação', 'Grátis'], ['Limpeza', 'R$ 180'], ['Clareamento', 'a partir de R$ 890'], ['Aparelho invisível', 'sob consulta']],
-      aboutTitle: 'Um consultório tranquilo', about: 'Recepção calma, horário marcado de verdade e retorno pelo WhatsApp. Você sai sabendo o que vai ser feito e quanto custa.',
-      hours: 'Seg a sex, 8h às 19h · Sáb, 8h às 12h', rev: [['Explicaram tudo antes de começar. Nada de surpresa no preço.', 'Patrícia'], ['Marquei pelo WhatsApp e fui atendido no horário.', 'Rafael']] },
-    oficina: { ramo: 'oficina', name: 'Auto Center Pista', theme: ['#17181A', '#F1F1F1', '#232427', '#F2C230', '#17181A'], nav: 'Serviços',
-      title: 'Revisão completa em um dia.', lede: 'Diga o modelo do carro no WhatsApp e receba o orçamento antes de trazer. Sem surpresa na hora de pagar.',
-      cta: 'Pedir orçamento', img: 'assets/oficina.jpg', img2: 'assets/oficina-box.jpg',
-      msg: 'Quanto fica a revisão de um Onix 2019? Posso levar amanhã?',
-      servTitle: 'Serviços', items: [['Troca de óleo', 'a partir de R$ 159'], ['Alinhamento e balanceamento', 'R$ 120'], ['Revisão de freios', 'a partir de R$ 220'], ['Diagnóstico eletrônico', 'R$ 90']],
-      aboutTitle: 'Oficina aberta para você ver', about: 'Elevador, ferramenta certa e mecânico que mostra a peça trocada. Seu carro sai no prazo combinado.',
-      hours: 'Seg a sex, 8h às 18h · Sáb, 8h às 13h', rev: [['Mandaram foto da peça antes de trocar. Confiança total.', 'Eduardo'], ['Orçamento pelo WhatsApp em 20 minutos.', 'Juliana']] },
-    salao: { ramo: 'salão', name: 'Studio Bela Rosa', theme: ['#F6EEF0', '#2A1520', '#EEDFE3', '#A23B5C', '#fff'], nav: 'Serviços',
-      title: 'Cabelo do jeito que você pediu.', lede: 'Veja os horários livres e reserve pelo WhatsApp. Atendimento com hora marcada, sem espera.',
-      cta: 'Reservar horário', img: 'assets/salao.jpg', img2: 'assets/salao-detalhe.jpg',
-      msg: 'Oi! Tem horário para corte e escova amanhã de manhã?',
-      servTitle: 'Serviços e preços', items: [['Corte feminino', 'R$ 90'], ['Escova', 'R$ 60'], ['Coloração', 'a partir de R$ 180'], ['Manicure', 'R$ 35']],
-      aboutTitle: 'Um salão de bairro, com capricho', about: 'Produtos bons, cadeira confortável e a mesma profissional cuidando de você toda vez.',
-      hours: 'Ter a sáb, 9h às 20h', rev: [['Saí com o corte exatamente da foto que mostrei.', 'Fernanda'], ['Reservar pelo WhatsApp é muito mais fácil.', 'Bruna']] },
-    restaurante: { ramo: 'restaurante', name: 'Cantina da Esquina', theme: ['#F1EEE8', '#1E1E1E', '#E3DED3', '#2F6B3A', '#fff'], nav: 'Cardápio',
-      title: 'Comida de casa, todo dia.', lede: 'Prato feito, marmita e feijoada no sábado. Veja o cardápio do dia e peça pelo WhatsApp para retirar.',
-      cta: 'Ver cardápio e pedir', img: 'assets/restaurante.jpg', img2: 'assets/restaurante-salao.jpg',
-      msg: 'Quero 3 marmitas para retirar ao meio-dia. Pode separar?',
-      servTitle: 'Cardápio de hoje', items: [['Prato feito do dia', 'R$ 28'], ['Feijoada (sábado)', 'R$ 42'], ['Marmita para viagem', 'R$ 25'], ['Suco natural', 'R$ 9']],
-      aboutTitle: 'Tempero de quem cozinha para a família', about: 'Cozinha aberta, comida feita na hora e mesa para almoçar sem pressa no meio do expediente.',
-      hours: 'Seg a sáb, 11h às 15h', rev: [['Melhor PF do bairro. Peço a marmita toda semana.', 'Roberto'], ['A feijoada de sábado vale a fila.', 'Ana']] }
-  };
-  const slug = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '') || 'seunegocio';
-  const themeVars = d => { const [bg, ink, surf, acc, accInk] = d.theme; return `--mbg:${bg};--mink:${ink};--msurf:${surf};--macc:${acc};--macc-ink:${accInk}` };
-
-  /* ---------- Hero: o exemplo troca de ramo sozinho; o visitante também pode escolher ---------- */
-  const HKEYS = Object.keys(RAMOS);
-  const hvPage = $('hvPage'), hvMsg = $('hvMsg'), hvBtns = [...document.querySelectorAll('.hv-pick button')];
-  HKEYS.forEach(k => { const im = new Image(); im.src = RAMOS[k].poster || RAMOS[k].img });   // fotos leves, já prontas para a troca
-  let hk = 0, hTimer = null, hAuto = true, hHover = false, hTok = 0;
-  function heroShow(k) {
-    const d = RAMOS[k];
-    hvBtns.forEach(b => b.setAttribute('aria-pressed', b.dataset.h === k));
-    const apply = () => {
-      hvPage.style.cssText = themeVars(d);
-      $('hvUrl').textContent = slug(d.name) + '.com.br';
-      $('hvName').textContent = d.name; $('hvTitle').textContent = d.title; $('hvLede').textContent = d.lede; $('hvCta').textContent = d.cta;
-      $('hvImg').src = d.poster || d.img;
-      $('hvItems').innerHTML = d.items.slice(0, 2).map(([a, b]) => `<span>${esc(a)}<b>${esc(b)}</b></span>`).join('');
-      hvMsg.textContent = d.msg;
-      hvPage.setAttribute('aria-label', 'Exemplo de site feito pela NEW CORP STUDIO para ' + (d.ramo === 'oficina' || d.ramo === 'clínica' || d.ramo === 'padaria' ? 'uma ' : 'um ') + d.ramo);
-      hvPage.classList.remove('swap');
-    };
-    if (RM.matches) { apply(); return }
-    if (M) {
-      // a página some de leve e volta com mola já no ramo novo; troca atropelada por outra é ignorada
-      const tok = ++hTok;
-      M.animate(hvPage, { opacity: 0, transform: 'translateY(8px) scale(.985)' }, { duration: .24, ease: 'easeIn' }).then(() => {
-        if (tok !== hTok) return;
-        apply(); M.animate(hvPage, { opacity: [0, 1], transform: ['translateY(8px) scale(.985)', 'translateY(0px) scale(1)'] }, { ...mola, opacity: surge });
-      });
-      return;
-    }
-    hvPage.classList.add('swap'); setTimeout(apply, 280);
-  }
-  // fora da tela o exemplo do topo para de trocar: nada anima onde ninguém vê
-  let hVis = true;
-  new IntersectionObserver(es => hVis = es[0].isIntersecting).observe(hvPage);
-  const heroNext = () => { if (!hAuto || hHover || !hVis || document.hidden) return; hk = (hk + 1) % HKEYS.length; heroShow(HKEYS[hk]) };
-  const heroLoop = () => { clearInterval(hTimer); if (!RM.matches) hTimer = setInterval(heroNext, 4200) };
-  hvBtns.forEach(b => b.addEventListener('click', () => { hAuto = false; clearInterval(hTimer); hk = HKEYS.indexOf(b.dataset.h); heroShow(b.dataset.h) }));
-  const hv = document.querySelector('.hv');
-  hv.addEventListener('pointerenter', () => hHover = true); hv.addEventListener('pointerleave', () => hHover = false);
-  hv.addEventListener('focusin', () => hHover = true); hv.addEventListener('focusout', () => hHover = false);
-  heroLoop(); RM.addEventListener('change', heroLoop);
-
-  const isLight = () => document.documentElement.getAttribute('data-theme') === 'light';
-  const metaTheme = document.querySelector('meta[name=theme-color]');
-  const syncTheme = () => {
-    metaTheme.setAttribute('content', getComputedStyle(document.documentElement).getPropertyValue('--bg').trim());
-    $('themeT').setAttribute('aria-label', isLight() ? 'Mudar para a versão escura' : 'Mudar para a versão clara');
-  };
-  syncTheme();
-  // botão claro/escuro: guarda a escolha neste aparelho
-  $('themeT').addEventListener('click', () => {
-    const light = !isLight();
-    light ? document.documentElement.setAttribute('data-theme', 'light') : document.documentElement.removeAttribute('data-theme');
-    try { localStorage.setItem('nc-tema', light ? 'claro' : 'escuro') } catch (e) {}
-    syncTheme(); glColors();
-  });
-
-  /* ---------- Fundo WebGL: aço líquido que corre com a rolagem ---------- */
-  const cv = $('gl');
-  const gl = cv.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'low-power', preserveDrawingBuffer: false });
-  let glColors = () => {}, glFrame = () => {};
-  if (gl) {
-    const vs = 'attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
-    const fs = `precision mediump float;
-uniform vec2 uR;uniform float uT,uS,uV;uniform vec2 uM;uniform vec3 uB,uSt,uA;uniform float uL;
-float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
-float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
-float fb(vec2 p){float v=0.,a=.5;mat2 m=mat2(1.6,1.2,-1.2,1.6);for(int i=0;i<4;i++){v+=a*n(p);p=m*p;a*=.5;}return v;}
-void main(){
-  vec2 uv=gl_FragCoord.xy/uR;float asp=uR.x/uR.y;vec2 p=vec2(uv.x*asp,uv.y);
-  float t=uT*.035+uV*.25;
-  vec2 q=vec2(fb(p*1.4+vec2(0.,t)),fb(p*1.4+vec2(5.2,-t)));
-  vec2 r=vec2(fb(p*1.4+2.6*q+vec2(1.7,9.2)+uS*1.8),fb(p*1.4+2.6*q+vec2(8.3,2.8)-uS*1.3));
-  float f=fb(p*1.4+2.8*r);
-  float silk=smoothstep(.42,.95,f)*(.55+.45*q.y);
-  vec3 col=mix(uB,uSt,silk*(uL>.5?.26:.085));
-  vec2 c=vec2((.78-.46*sin(uS*3.1416))*asp,.72-.5*uS)+(uM-.5)*vec2(.18,.12);
-  float d=length(p-c);
-  float g=exp(-d*d*2.4)*smoothstep(.3,.85,f);
-  col=mix(col,uA,g*(uL>.5?.15:.13));
-  float gr=h(gl_FragCoord.xy+fract(uT)*91.);
-  col+=(gr-.5)*.018;
-  gl_FragColor=vec4(col,1.);
-}`;
-    const sh = (type, src) => { const o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o); return o };
-    const pr = gl.createProgram();
-    gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(pr);
-    if (gl.getProgramParameter(pr, gl.LINK_STATUS)) {
-      gl.useProgram(pr);
-      const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
-      const loc = gl.getAttribLocation(pr, 'a'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-      const U = k => gl.getUniformLocation(pr, k);
-      const uR = U('uR'), uT = U('uT'), uS = U('uS'), uV = U('uV'), uM = U('uM'), uB = U('uB'), uSt = U('uSt'), uA = U('uA'), uL = U('uL');
-      const hex = v => { v = v.trim().replace('#', ''); return [0, 2, 4].map(i => parseInt(v.slice(i, i + 2), 16) / 255) };
-      glColors = () => {
-        const cs = getComputedStyle(document.documentElement);
-        gl.uniform3fv(uB, hex(cs.getPropertyValue('--gl-base'))); gl.uniform3fv(uSt, hex(cs.getPropertyValue('--gl-steel'))); gl.uniform3fv(uA, hex(cs.getPropertyValue('--gl-acc')));
-        gl.uniform1f(uL, isLight() ? 1 : 0); glFrame(performance.now(), true);
-      };
-      // resolução reduzida: o fundo é suave, e assim custa pouco no celular
-      const coarse = matchMedia('(pointer: coarse)').matches, SCALE = coarse ? .25 : .5;
-      const size = () => { cv.width = Math.max(2, Math.round(innerWidth * SCALE)); cv.height = Math.max(2, Math.round(innerHeight * SCALE)); gl.viewport(0, 0, cv.width, cv.height); gl.uniform2f(uR, cv.width, cv.height) };
-      size(); addEventListener('resize', () => { size(); glFrame(performance.now(), true) });
-      let sTarget = 0, sNow = 0, vNow = 0, vel = 0, mx = .5, my = .5, mxN = .5, myN = .5, lastY = scrollY, lastT = performance.now(), running = false, t0 = performance.now();
-      addEventListener('pointermove', e => { mx = e.clientX / innerWidth; my = 1 - e.clientY / innerHeight }, { passive: true });
-      const readScroll = () => {
-        const max = document.documentElement.scrollHeight - innerHeight || 1;
-        sTarget = scrollY / max;
-        const now = performance.now(), dy = Math.abs(scrollY - lastY), dt = Math.max(16, now - lastT);
-        vel = Math.min(1, dy / dt / 3); lastY = scrollY; lastT = now;
-      };
-      addEventListener('scroll', readScroll, { passive: true }); readScroll(); sNow = sTarget;
-      glFrame = (now, once) => {
-        sNow += (sTarget - sNow) * .06; vNow += (vel - vNow) * .08; vel *= .92;
-        mxN += (mx - mxN) * .04; myN += (my - myN) * .04;
-        gl.uniform1f(uT, (now - t0) / 1000); gl.uniform1f(uS, sNow); gl.uniform1f(uV, vNow); gl.uniform2f(uM, mxN, myN);
-        gl.drawArrays(gl.TRIANGLES, 0, 3);
-        if (!once && running) requestAnimationFrame(glFrame);
-      };
-      // no celular o fundo não anima a cada quadro (é o que travava a rolagem): desenha parado e só atualiza quando a rolagem para
-      let idle = 0;
-      if (coarse) addEventListener('scroll', () => { clearTimeout(idle); idle = setTimeout(() => { sNow = sTarget; vNow = 0; glFrame(performance.now(), true) }, 180) }, { passive: true });
-      const glStart = () => { if (coarse) { glFrame(performance.now(), true); return } if (running || RM.matches || document.hidden) return; running = true; requestAnimationFrame(glFrame) };
-      const glStop = () => { running = false };
-      document.addEventListener('visibilitychange', () => document.hidden ? glStop() : glStart());
-      RM.addEventListener('change', () => RM.matches ? (glStop(), glFrame(performance.now(), true)) : glStart());
-      glColors(); glStart();
-    }
-  }
-
-  /* ---------- Motion (motion.dev) + Lenis: profundidade ao rolar ---------- */
-  // profundidade ao rolar só no computador; no celular a rolagem fica nativa e leve
-  if (window.Motion && !RM.matches && matchMedia('(pointer: fine)').matches) {
-    const { animate, scroll, frame } = Motion;
-    // rolagem macia só com mouse; no toque fica a rolagem nativa do celular
-    if (window.Lenis) {
-      const lenis = new Lenis({ lerp: .1, autoRaf: false });
-      // links internos rolam macio até a seção, descontando o menu fixo
-      document.addEventListener('click', e => {
-        const a = e.target.closest('a[href^="#"]'); if (!a) return;
-        const id = a.getAttribute('href'); const el = id.length > 1 ? document.querySelector(id) : null;
-        e.preventDefault(); lenis.scrollTo(el || 0, { offset: el ? -88 : 0, duration: 1.2 });
-        if (el) history.replaceState(null, '', id);
-      });
-      window.lenis = lenis;
-      // o laço de quadros do Motion move o Lenis antes de medir a rolagem, tudo no mesmo quadro
-      frame.setup(({ timestamp }) => lenis.raf(timestamp), true);
-    }
-    // liga uma animação à rolagem; transform e opacity rodam na placa de vídeo quando o navegador deixa
-    const ligar = (alvo, quadros, target, offset) => {
-      const el = typeof alvo === 'string' ? document.querySelector(alvo) : alvo;
-      const tr = typeof target === 'string' ? document.querySelector(target) : target;
-      if (el && tr) scroll(animate(el, quadros, { ease: 'linear' }), { target: tr, offset });
-    };
-    const saindo = ['start start', 'end start'];
-    // topo: o exemplo e o texto se afastam em ritmos diferentes ao sair
-    ligar('.hv-browser', { transform: ['translateY(0%) scale(1)', 'translateY(-10%) scale(.96)'] }, '.hero', saindo);
-    ligar('.hv-phone', { transform: ['translateY(0%)', 'translateY(-45%)'] }, '.hero', saindo);
-    ligar('.hero .copy', { transform: ['translateY(0px)', 'translateY(-60px)'], opacity: [1, .25] }, '.hero', saindo);
-    // celular sobe devagar enquanto a conversa aparece
-    ligar('#phone', { transform: ['translateY(60px)', 'translateY(-30px)'] }, '.chat', ['start end', 'end start']);
-    // planos chegam em camadas
-    document.querySelectorAll('.plans, .addon').forEach((el, i) =>
-      ligar(el, { transform: [`translateY(${70 + i * 30}px)`, 'translateY(0px)'] }, el, ['start end', 'start 0.55']));
-    // faixa final cresce até o tamanho real
-    ligar('.cta-band', { transform: ['translateY(40px) scale(.92)', 'translateY(0px) scale(1)'] }, '.cta-band', ['start end', 'start 0.6']);
-    ligar('footer .f-top', { transform: ['translateY(60px)', 'translateY(0px)'] }, 'footer', ['start end', 'start 0.5']);
-  }
-
-  /* ---------- Monte o seu: mini site por ramo, com o nome do visitante ---------- */
-  const msite = $('msite'), murl = $('murl'), bizname = $('bizname'), wantit = $('wantit');
-  const WA_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>';
-  let ramoKey = 'padaria';
-  const currentName = () => (bizname.value.trim() || RAMOS[ramoKey].name);
-  function paintName() {
-    const n = esc(currentName());
-    msite.querySelectorAll('[data-name]').forEach(el => el.innerHTML = n);
-    murl.textContent = slug(currentName()) + '.com.br';
-    wantit.href = 'https://wa.me/5511988681657?text=' + encodeURIComponent('Oi! Montei no site o exemplo com o nome ' + currentName() + ' (' + RAMOS[ramoKey].ramo + '). Pode montar a amostra grátis do meu?');
-  }
-  function buildSite(k) {
-    ramoKey = k;
-    const d = RAMOS[k];
-    bizname.placeholder = d.name;
-    msite.style.cssText = themeVars(d);
-    const media = d.video
-      ? `<video src="${d.video}" poster="${d.poster}" muted loop playsinline preload="none" aria-hidden="true"></video>`
-      : `<img src="${d.img}" alt="" width="1200" height="675">`;
-    let j = 0; const J = () => `style="--j:${j++}"`;
-    msite.classList.remove('on');
-    msite.querySelectorAll('video').forEach(o => vio.unobserve(o));
-    msite.innerHTML = `
-      <header class="m-nav mp" ${J()}><b data-name></b><nav><span>Início</span><span>${esc(d.nav)}</span><span>Contato</span></nav><span class="m-btn">${WA_ICON.replace('<svg', '<svg width="16" height="16" fill="currentColor"')} WhatsApp</span></header>
-      <section class="m-hero"><div class="mp" ${J()}><h3 role="presentation">${esc(d.title)}</h3><p>${esc(d.lede)}</p><span class="m-btn big">${esc(d.cta)}</span><small>Nota 4,9 no Google · exemplo</small></div><div class="m-media mp" ${J()}>${media}</div></section>
-      <section class="m-serv mp" ${J()}><h4 role="presentation">${esc(d.servTitle)}</h4><ul>${d.items.map(([a, b]) => `<li><span>${esc(a)}</span><span>${esc(b)}</span></li>`).join('')}</ul></section>
-      <section class="m-split mp" ${J()}><img src="${d.img2}" alt="" width="1200" height="900" loading="lazy"><div><h4 role="presentation">${esc(d.aboutTitle)}</h4><p>${esc(d.about)}</p></div></section>
-      <section class="m-info mp" ${J()}><div><h4 role="presentation">Horário</h4><p>${esc(d.hours)}</p></div><div><h4 role="presentation">Onde fica</h4><p>Rua de exemplo, 123 · São Paulo</p></div><div><h4 role="presentation">Fale com a gente</h4><p>Resposta rápida pelo WhatsApp</p></div></section>
-      <section class="m-rev mp" ${J()}><h4 role="presentation">Quem já veio</h4><div class="qs">${d.rev.map(([q, a]) => `<blockquote>“${esc(q)}”<cite>${esc(a)}, depoimento de exemplo</cite></blockquote>`).join('')}</div></section>
-      <footer class="m-foot"><span><b data-name></b> · São Paulo</span><span>Site feito pela NEW CORP STUDIO</span></footer>
-      <span class="m-bubble">${WA_ICON}</span>`;
-    msite.scrollTop = 0;
-    paintName();
-    if (M) {
-      // as partes do mini site entram em sequência, cada uma com mola
-      const mps = msite.querySelectorAll('.mp');
-      M.animate(mps, { opacity: [0, 1], transform: ['translateY(22px)', 'translateY(0px)'] }, { ...mola, delay: M.stagger(.07), opacity: surge })
-        .then(() => { msite.classList.add('on'); solta(mps) });
-    } else requestAnimationFrame(() => requestAnimationFrame(() => msite.classList.add('on')));
-    const v = msite.querySelector('video'); if (v) queueMicrotask(() => vio.observe(v));   // vio nasce mais abaixo no script
-  }
-  document.querySelectorAll('.ramos button').forEach(b => b.addEventListener('click', () => {
-    document.querySelectorAll('.ramos button').forEach(x => x.setAttribute('aria-checked', x === b));
-    buildSite(b.dataset.k);
-  }));
-  // setas do teclado no grupo de ramos
-  document.querySelector('.ramos').addEventListener('keydown', e => {
-    if (!['ArrowRight', 'ArrowLeft'].includes(e.key)) return;
-    const bs = [...document.querySelectorAll('.ramos button')], i = bs.findIndex(x => x.getAttribute('aria-checked') === 'true');
-    const n = bs[(i + (e.key === 'ArrowRight' ? 1 : bs.length - 1)) % bs.length]; n.focus(); n.click();
-  });
-  bizname.addEventListener('input', paintName);
-  buildSite('padaria');
-
-  /* ---------- Botões magnéticos (Magnetic Button do 21st.dev, versão sem React) ---------- */
-  if (matchMedia('(pointer: fine)').matches) {
-    const mags = document.querySelectorAll('.hero .btn, .settle-cta .btn, .plan .btn, .inv .btn, .cta-band .btn');
-    mags.forEach(el => {
-      el.classList.add('mag');
-      if (M) {
-        // mola do Motion: o botão segue o mouse e, ao sair, volta com um pequeno balanço
-        const pos = { x: 0, y: 0 }, lim = 10, strength = 0.25;
-        const to = (x, y) => M.animate(pos, { x, y }, { type: 'spring', stiffness: 320, damping: 18, mass: .5,
-          onUpdate: () => el.style.translate = pos.x.toFixed(2) + 'px ' + pos.y.toFixed(2) + 'px' });
-        el.addEventListener('pointermove', e => {
-          const r = el.getBoundingClientRect();
-          to(clamp((e.clientX - (r.left + r.width / 2)) * strength, -lim, lim), clamp((e.clientY - (r.top + r.height / 2)) * strength, -lim, lim));
-        });
-        el.addEventListener('pointerleave', () => to(0, 0));
-        return;
-      }
-      let tx = 0, ty = 0, x = 0, y = 0, raf = null;
-      const big = false, strength = 0.25;
-      const step = () => {
-        x += (tx - x) * 0.2; y += (ty - y) * 0.2;
-        el.style.translate = x.toFixed(2) + 'px ' + y.toFixed(2) + 'px';
-        if (Math.abs(tx - x) > 0.1 || Math.abs(ty - y) > 0.1) raf = requestAnimationFrame(step);
-        else { raf = null; if (!tx && !ty) el.style.translate = '' }
-      };
-      const kick = () => { if (!raf) raf = requestAnimationFrame(step) };
-      const host = el;
-      host.addEventListener('pointermove', e => {
-        if (RM.matches) return;
-        const r = el.getBoundingClientRect();
-        tx = (e.clientX - (r.left + r.width / 2)) * strength; ty = (e.clientY - (r.top + r.height / 2)) * strength;
-        const lim = big ? 40 : 10; tx = clamp(tx, -lim, lim); ty = clamp(ty, -lim, lim);
-        kick();
-      });
-      host.addEventListener('pointerleave', () => { tx = 0; ty = 0; kick() });
-    });
-  }
-  /* faixa de ramos: clicar no ramo já monta o site dele */
-  document.querySelectorAll('[data-pick]').forEach(a => a.addEventListener('click', () => {
-    const b = document.querySelector('.ramos [data-k="' + a.dataset.pick + '"]'); if (b) b.click();
-  }));
-
-  /* ---------- Como funciona: sanfona ---------- */
-  // cada etapa mostra a cena dela; com movimento ligado, avança sozinha enquanto a seção está na tela
-  const flow = document.querySelector('.flow');
-  const fst = [...flow.querySelectorAll('.f-step')], scs = [...flow.querySelectorAll('.sc')];
-  let cur = 0;
-  const go = i => {
-    cur = i;
-    fst.forEach(b => b.setAttribute('aria-current', 'false')); scs.forEach(c => c.classList.remove('on'));
-    void flow.offsetWidth;   // reinicia as animações da cena
-    fst[i].setAttribute('aria-current', 'step'); scs[i].classList.add('on');
-  };
-  fst.forEach((b, i) => {
-    b.addEventListener('click', () => { if (i !== cur) go(i) });
-    b.querySelector('.f-bar i').addEventListener('animationend', () => go((cur + 1) % fst.length));
-  });
-  const pause = on => flow.classList.toggle('paused', on);
-  flow.addEventListener('pointerenter', e => e.pointerType === 'mouse' && pause(true));
-  flow.addEventListener('pointerleave', () => pause(false));
-  flow.addEventListener('focusin', () => pause(true)); flow.addEventListener('focusout', () => pause(false));
-  new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting && !flow.classList.contains('live')) { flow.classList.add('live'); go(cur) }
-    else if (!e.isIntersecting) flow.classList.remove('live');
-  }), { threshold: .35 }).observe(flow);
-
-  /* ---------- Entradas, vídeos dos exemplos, rua ---------- */
-  if (M) {
-    // cada bloco sobe com mola ao entrar na tela, respeitando a ordem marcada em --d
-    M.inView('.rv', el => {
-      const d = parseFloat(el.style.getPropertyValue('--d')) || 0;
-      M.animate(el, { opacity: [0, 1], transform: ['translateY(16px)', 'translateY(0px)'] }, { ...mola, delay: d * .08, opacity: surge })
-        .then(() => { el.classList.add('in'); solta(el) });
-    }, { amount: .15 });
-  } else {
-    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } }), { threshold: 0.15 });
-    document.querySelectorAll('.rv').forEach(el => io.observe(el));
-  }
-  const vio = new IntersectionObserver(es => es.forEach(e => { if (RM.matches) return; e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause() }), { threshold: 0.3 });
-  // a conversa aparece mensagem por mensagem quando o celular entra na tela
-  const phone = $('phone');
-  if (M) {
-    // balões estouram do canto de onde saem, um depois do outro, como no WhatsApp
-    M.inView(phone, () => {
-      const ms = phone.querySelectorAll('.ph-day, .msg');
-      M.animate(ms, { opacity: [0, 1], transform: ['translateY(12px) scale(.9)', 'translateY(0px) scale(1)'] }, { type: 'spring', visualDuration: .5, bounce: .3, delay: M.stagger(.42), opacity: { duration: .3 } })
-        .then(() => { phone.classList.add('in'); solta(ms) });
-    }, { amount: .35 });
-  } else new IntersectionObserver((es, ob) => es.forEach(e => { if (e.isIntersecting) { phone.classList.add('in'); ob.disconnect() } }), { threshold: .35 }).observe(phone);
-  // dúvidas: a resposta desliza ao abrir
-  if (M) document.querySelectorAll('.faq details').forEach(dt => dt.addEventListener('toggle', () => {
-    const p = dt.querySelector('p'); if (!dt.open || !p) return;
-    M.animate(p, { opacity: [0, 1], transform: ['translateY(-6px)', 'translateY(0px)'] }, { duration: .35, ease: [.22, 1, .36, 1] }).then(() => solta(p));
-  }));
-  // botão flutuante do WhatsApp só depois do topo
-  const fab = document.querySelector('.fab');
-  const onFab = () => fab.classList.toggle('on', scrollY > innerHeight * .8);
-  addEventListener('scroll', onFab, { passive: true }); onFab();
-
-  document.addEventListener('visibilitychange', () => document.body.classList.toggle('paused', document.hidden));
-})();
-</script>
+<script type="speculationrules">{"prerender":[{"where":{"href_matches":"/exemplos/*"},"eagerness":"moderate"}]}</script>
+<script src="assets/app.js" defer></script>
 </body>
 </html>

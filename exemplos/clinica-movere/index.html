@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clínica Movere · Fisioterapia em Osasco (site de exemplo)</title>
+<meta name="description" content="Site de exemplo feito por Pedro Henrique, NEW CORP: clínica de fisioterapia com tratamentos, convênios e agendamento pelo WhatsApp.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Funnel+Sans:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../demo.css">
+<style>
+:root{--bg:#F5FAF7;--bg2:#E8F3ED;--card:#FFFFFF;--ink:#0F3D2E;--ink2:#4C6B60;--green:#1A7F52;--green2:#156B45;--mint:#BFE5D0;--ph:#CFE6D9}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 'Plus Jakarta Sans',system-ui,sans-serif}
+h1,h2,h3{font-weight:700;letter-spacing:-.03em;line-height:1.02;margin:0}
+.w{max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 26px;border-radius:14px;background:var(--green);color:#fff;font-weight:600;font-size:15px;transition:background-color .3s,transform .4s}
+.btn:hover{background:var(--green2);transform:translateY(-2px)}
+.btn.soft{background:var(--mint);color:var(--ink)}
+.btn.soft:hover{background:#A9DBC0}
+
+.top{position:sticky;top:48px;z-index:50;background:rgba(245,250,247,.95)}
+.top .w{display:flex;align-items:center;gap:28px;min-height:74px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px}
+.logo i{width:30px;height:30px;border-radius:9px;background:var(--green);display:grid;place-items:center}
+.logo i::before{content:"";width:12px;height:12px;border-radius:50%;box-shadow:0 0 0 3px #fff}
+.top nav{display:flex;gap:4px;margin-left:auto}
+.top nav a{padding:10px 14px;border-radius:10px;font-size:15px;color:var(--ink2)}
+.top nav a:hover{background:var(--bg2);color:var(--ink)}
+.top .btn{min-height:44px;padding:0 18px}
+@media (max-width:860px){.top nav{display:none}.top .btn{margin-left:auto}}
+
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center;padding:clamp(40px,6vw,88px) 0 clamp(64px,8vw,112px)}
+.hero h1{font-size:clamp(48px,6.6vw,100px)}
+.hero h1 span{color:var(--green)}
+.hero p{margin:22px 0 0;max-width:42ch;font-size:19px;color:var(--ink2)}
+.hero .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.hero .media{position:relative}
+.hero .ph{aspect-ratio:4/5;border-radius:28px;--img:url(foto-hero.webp)}
+.badge{position:absolute;left:-24px;bottom:32px;padding:18px 20px;border-radius:18px;background:var(--card);max-width:240px}
+.badge b{display:block;font-size:30px;color:var(--green);letter-spacing:-.03em}
+.badge span{font-size:14px;color:var(--ink2)}
+.ticks{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:32px;font-size:15px;color:var(--ink2)}
+.ticks span::before{content:"✓ ";color:var(--green);font-weight:700}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.hero .ph{aspect-ratio:4/3}.badge{left:12px;bottom:12px}}
+
+.sec{padding:clamp(80px,11vw,140px) 0}
+.sec.alt{background:var(--bg2)}
+.head{max-width:640px;margin-bottom:44px}
+.head h2{font-size:clamp(38px,5vw,68px)}
+.head p{margin:16px 0 0;color:var(--ink2)}
+
+.treat{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.t{padding:30px 28px;border-radius:22px;background:var(--card);transition:transform .4s}
+.t:hover{transform:translateY(-4px)}
+.t h3{font-size:23px;letter-spacing:-.02em}
+.t p{margin:10px 0 0;color:var(--ink2);font-size:16px}
+.t.big{grid-row:span 2;background:var(--green);color:#fff;display:flex;flex-direction:column;justify-content:flex-end}
+.t.big p{color:#D4EEDF}
+.t.big h3{font-size:34px}
+@media (max-width:860px){.treat{grid-template-columns:1fr}.t.big{grid-row:auto;min-height:260px}}
+
+.first{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,5vw,80px);align-items:center}
+.first .ph{aspect-ratio:1;border-radius:28px;--img:url(foto-sala.webp)}
+.first ol{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:14px;counter-reset:s}
+.first li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:16px;padding:20px;border-radius:18px;background:var(--card)}
+.first li::before{content:counter(s);width:44px;height:44px;border-radius:12px;background:var(--mint);display:grid;place-items:center;font-weight:700}
+.first li b{display:block;font-size:18px}
+.first li span{color:var(--ink2);font-size:16px}
+@media (max-width:860px){.first{grid-template-columns:1fr}}
+
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.plan{padding:34px 30px;border-radius:22px;background:var(--card)}
+.plan h3{font-size:26px}
+.plan .v{font-size:44px;font-weight:700;letter-spacing:-.04em;margin:14px 0 4px;color:var(--green)}
+.plan p{margin:0;color:var(--ink2)}
+.conv{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.conv span{padding:8px 14px;border-radius:999px;background:var(--bg2);font-size:14px;font-weight:500}
+@media (max-width:760px){.plans{grid-template-columns:1fr}}
+
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pro .ph{aspect-ratio:4/5;border-radius:22px}
+.pro h3{font-size:21px;margin-top:16px}
+.pro p{margin:2px 0 0;color:var(--ink2);font-size:15px}
+@media (max-width:760px){.team{grid-template-columns:1fr 1fr}}
+
+.faq{display:grid;gap:10px;max-width:860px}
+.faq details{padding:22px 26px;border-radius:18px;background:var(--card)}
+.faq summary{cursor:pointer;font-weight:600;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:20px}
+.faq summary::after{content:"+";color:var(--green);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq p{margin:12px 0 0;color:var(--ink2)}
+
+.where{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.box{padding:34px 30px;border-radius:22px;background:var(--card)}
+.box h3{font-size:26px;margin-bottom:12px}
+.box dl{display:grid;grid-template-columns:auto 1fr;gap:8px 28px;margin:0}
+.box dt{color:var(--ink2)}
+.box dd{margin:0}
+@media (max-width:760px){.where{grid-template-columns:1fr}}
+
+.final{padding:clamp(56px,7vw,96px) clamp(24px,5vw,72px);border-radius:32px;background:var(--green);color:#fff}
+.final h2{font-size:clamp(40px,5.5vw,80px);max-width:14ch}
+.final p{color:#D4EEDF;max-width:44ch}
+.final .btn{background:#fff;color:var(--ink);margin-top:20px}
+footer{padding:40px 0 64px;color:var(--ink2);font-size:14px}
+footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.float{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:#fff}
+.float svg{width:28px;height:28px}
+/* a foto é lida aqui, na página, para o caminho relativo funcionar */
+.ph{background-image:var(--img)}
+</style>
+</head>
+<body data-demo="Clínica Movere (fisioterapia)">
+
+<div class="demo-bar">
+  <div class="who"><svg viewBox="-6 -6 112 112" aria-hidden="true"><path d="M4 96 56 4 44 62Z" fill="#E6E9EC"/><path d="M60 22 58.28 63.24 75.55 51.45Z" fill="#8A9097"/><path d="M98 94 79.67 59.27 64.41 73.84Z" fill="#8A9097"/><path d="M12 98 94 42 50 84Z" fill="#C6FF3D"/></svg><span><b>Site de exemplo</b> feito por Pedro Henrique, da NEW CORP</span></div>
+  <a class="back" href="../../#projetos">Voltar</a>
+  <a class="want" data-cta href="#">Quero um site assim</a>
+</div>
+
+<header class="top">
+  <div class="w">
+    <a class="logo" href="#inicio"><i aria-hidden="true"></i>Clínica Movere</a>
+    <nav aria-label="Principal"><a href="#tratamentos">Tratamentos</a><a href="#primeira">Primeira consulta</a><a href="#valores">Valores</a><a href="#duvidas">Dúvidas</a></nav>
+    <a class="btn" data-cta href="#">Marcar consulta</a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="w hero">
+    <div>
+      <h1 class="r">Fisioterapia perto de casa.</h1>
+      <p class="r d1">Dor nas costas, lesão no esporte ou recuperação de cirurgia. Atendimento individual, com o mesmo fisioterapeuta do começo ao fim.</p>
+      <div class="acts r d2"><a class="btn" data-cta href="#">Marcar pelo WhatsApp</a><a class="btn soft" href="#tratamentos">Ver tratamentos</a></div>
+      <div class="ticks r d3"><span>Sessão de 50 minutos</span><span>Horário às 7h e às 20h</span><span>Aceita convênios</span></div>
+    </div>
+    <div class="media r d1">
+      <div class="ph" role="img" aria-label="Sala de fisioterapia clara com maca e equipamentos"></div>
+      <div class="badge"><b>1 a 1</b><span>Você não divide o fisioterapeuta com outros pacientes.</span></div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="tratamentos">
+    <div class="w">
+      <div class="head"><h2 class="r">Tratamentos</h2><p class="r d1">Cada plano começa por uma avaliação. Nada de pacote igual para todo mundo.</p></div>
+      <div class="treat">
+        <div class="t big r"><h3>Ortopédica</h3><p>Coluna, joelho, ombro e quadril. Para dor que não passa e movimento que travou.</p></div>
+        <div class="t r d1"><h3>Pilates clínico</h3><p>Fortalecimento com acompanhamento, em turmas de até 3 pessoas.</p></div>
+        <div class="t r d2"><h3>Pós-operatório</h3><p>Recuperação depois de cirurgia, no ritmo que o médico liberou.</p></div>
+        <div class="t r d1"><h3>Esportiva</h3><p>Volta ao treino com segurança, depois de lesão ou entorse.</p></div>
+        <div class="t r d2"><h3>RPG</h3><p>Reeducação postural para quem passa o dia sentado.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="primeira">
+    <div class="w first">
+      <div class="ph r" role="img" aria-label="Fisioterapeuta avaliando o joelho de um paciente"></div>
+      <div>
+        <h2 class="r" style="font-size:clamp(38px,5vw,64px)">Como é a primeira consulta</h2>
+        <ol>
+          <li class="r d1"><div><b>Conversa</b><span>Onde dói, desde quando e o que piora.</span></div></li>
+          <li class="r d2"><div><b>Avaliação</b><span>Testes de força, movimento e postura.</span></div></li>
+          <li class="r d3"><div><b>Plano por escrito</b><span>Quantas sessões, o que vamos fazer e o que você faz em casa.</span></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="valores">
+    <div class="w">
+      <div class="head"><h2 class="r">Valores</h2><p class="r d1">Particular ou convênio. Você sabe o valor antes de começar.</p></div>
+      <div class="plans">
+        <div class="plan r"><h3>Particular</h3><div class="v">R$ 120</div><p>por sessão · pacote de 10 sessões por R$ 1.000</p></div>
+        <div class="plan r d1"><h3>Convênios</h3><p style="margin-top:14px">Atendemos pelos planos abaixo. Traga a guia e a carteirinha.</p><div class="conv"><span>Unimed</span><span>Bradesco Saúde</span><span>SulAmérica</span><span>Amil</span><span>Porto Saúde</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="w">
+      <div class="head"><h2 class="r">Equipe</h2></div>
+      <div class="team">
+        <div class="pro r"><div class="ph" role="img" aria-label="Equipamento de pilates" style="--img:url(foto-pilates.webp)"></div><h3>Dra. Marina Lopes</h3><p>Ortopedia e RPG · Crefito 3/000000-F</p></div>
+        <div class="pro r d1"><div class="ph" role="img" aria-label="Faixas elásticas e halteres leves" style="--img:url(foto-equipamento.webp)"></div><h3>Dr. Felipe Ramos</h3><p>Esportiva · Crefito 3/000000-F</p></div>
+        <div class="pro r d2"><div class="ph" role="img" aria-label="Recepção da clínica" style="--img:url(foto-recepcao.webp)"></div><h3>Dra. Ana Prado</h3><p>Pilates clínico · Crefito 3/000000-F</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt" id="duvidas">
+    <div class="w">
+      <div class="head"><h2 class="r">Dúvidas</h2></div>
+      <div class="faq">
+        <details class="r"><summary>Preciso de pedido médico?</summary><p>Para particular, não. Para convênio, sim: o plano pede a guia com o pedido.</p></details>
+        <details class="r"><summary>Quantas sessões vou precisar?</summary><p>Depende da avaliação. Você sai da primeira consulta com o número estimado por escrito.</p></details>
+        <details class="r"><summary>O que levo na primeira consulta?</summary><p>Roupa confortável, exames recentes e a carteirinha do convênio, se tiver.</p></details>
+        <details class="r"><summary>Tem estacionamento?</summary><p>Sim, duas vagas na frente da clínica e estacionamento conveniado ao lado.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="w where">
+      <div class="box r"><h3>Onde fica</h3><p style="margin:0;color:var(--ink2)">Av. dos Autonomistas, 2100 · sala 12<br>Centro · Osasco, SP<br>A 5 minutos da estação Osasco.</p></div>
+      <div class="box r d1"><h3>Horários</h3><dl><dt>Segunda a sexta</dt><dd>7h às 21h</dd><dt>Sábado</dt><dd>8h às 13h</dd></dl></div>
+    </div>
+  </section>
+
+  <section class="w" style="padding-bottom:clamp(64px,8vw,112px)">
+    <div class="final r">
+      <h2>A dor não precisa ser rotina.</h2>
+      <p>Mande uma mensagem com o que está sentindo. A gente responde com o primeiro horário livre.</p>
+      <a class="btn" data-cta href="#">Marcar pelo WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer><div class="w"><span>© <span id="ano">2026</span> Clínica Movere · Osasco, SP · Responsável técnica: Dra. Marina Lopes</span><span>Exemplo de site feito por Pedro Henrique, da NEW CORP</span></div></footer>
+<a class="float" data-cta href="#" aria-label="Marcar pelo WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.1Z"/></svg></a>
+<script src="../demo.js" defer></script>
+</body>
+</html>

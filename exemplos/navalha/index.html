@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Navalha &amp; Co. · Barbearia em Cajamar (site de exemplo)</title>
+<meta name="description" content="Site de exemplo feito por Pedro Henrique, NEW CORP: barbearia com horário marcado, preços e agendamento pelo WhatsApp.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Manrope:wght@400;500;600;700&family=Funnel+Sans:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../demo.css">
+<style>
+:root{--bg:#D9DDD8;--bg2:#CDD2CC;--bg3:#E7EAE5;--ink:#161616;--ink2:#4A4F4C;--gold:#B3261E;--gold2:#CC3A31;--ph:#BFC5BF}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 'Manrope',system-ui,sans-serif}
+h1,h2,h3{font-family:'Big Shoulders Display',Impact,sans-serif;font-weight:800;letter-spacing:-.005em;line-height:.9;margin:0}
+.w{max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;background:var(--gold);color:#fff;font-weight:700;font-size:15px;transition:background-color .3s,transform .4s}
+.btn:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn.alt{background:var(--bg3);color:var(--ink)}
+.btn.alt:hover{background:#F3F5F1}
+
+/* topo */
+.top{position:sticky;top:48px;z-index:50;background:rgba(217,221,216,.95)}
+.top .w{display:flex;align-items:center;gap:28px;min-height:72px}
+.logo{font-family:'Big Shoulders Display',Impact,sans-serif;font-size:28px;font-weight:900;letter-spacing:.01em;text-transform:uppercase}
+.logo em{font-style:normal;color:var(--gold)}
+.top nav{display:flex;gap:4px;margin-left:auto}
+.top nav a{padding:10px 14px;border-radius:999px;font-size:15px;color:var(--ink2)}
+.top nav a:hover{color:var(--ink)}
+.top .btn{min-height:44px;padding:0 20px}
+@media (max-width:860px){.top nav{display:none}.top .btn{margin-left:auto}}
+
+/* entrada */
+.hero{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(32px,5vw,72px);align-items:end;padding:clamp(40px,7vw,96px) 0 clamp(56px,8vw,112px)}
+.hero h1{font-size:clamp(64px,8.4vw,140px);line-height:.86}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p{margin:24px 0 0;max-width:40ch;font-size:19px;color:var(--ink2)}
+.hero .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.hero .ph{aspect-ratio:4/5;border-radius:6px;--img:url(foto-hero.webp)}
+.facts{display:flex;flex-wrap:wrap;gap:12px 36px;margin-top:40px;font-size:15px;color:var(--ink2)}
+.facts b{display:block;font-size:22px;color:var(--ink);font-family:'Big Shoulders Display',Impact,sans-serif;font-weight:500}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.hero .ph{aspect-ratio:4/3;order:-1}}
+
+/* serviços */
+.sec{padding:clamp(80px,11vw,150px) 0}
+.sec.alt{background:var(--bg2)}
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:48px}
+.head h2{font-size:clamp(48px,6.5vw,96px)}
+.head p{margin:0;max-width:38ch;color:var(--ink2)}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:6px 64px}
+.item{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:22px 0}
+.item h3{font-size:26px}
+.item .price{font-family:'Big Shoulders Display',Impact,sans-serif;font-size:26px;color:var(--gold)}
+.item p{grid-column:1/-1;margin:0;color:var(--ink2);font-size:16px}
+@media (max-width:760px){.menu{grid-template-columns:1fr}}
+
+/* ambiente */
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,80px);align-items:center}
+.split .ph{aspect-ratio:5/4;border-radius:6px;--img:url(foto-ambiente.webp)}
+.split h2{font-size:clamp(38px,5vw,64px)}
+.split p{color:var(--ink2);max-width:46ch}
+.split ul{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:12px}
+.split li{display:flex;gap:12px;align-items:baseline}
+.split li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--gold);transform:translateY(-2px)}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+
+/* agendar em 3 passos */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{padding:32px 28px;border-radius:6px;background:var(--bg3)}
+.step b{display:block;font-family:'Big Shoulders Display',Impact,sans-serif;font-size:56px;line-height:1;color:var(--gold);font-weight:500}
+.step h3{font-size:24px;margin:20px 0 8px}
+.step p{margin:0;color:var(--ink2);font-size:16px}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+
+/* equipe */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.barber .ph{aspect-ratio:3/4;border-radius:6px}
+.barber h3{font-size:24px;margin-top:16px}
+.barber p{margin:2px 0 0;color:var(--ink2);font-size:15px}
+@media (max-width:760px){.team{grid-template-columns:1fr 1fr}}
+
+/* depoimentos */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.quote{margin:0;padding:30px 28px;border-radius:6px;background:var(--bg3)}
+.quote blockquote{margin:0;font-size:19px;font-weight:500;line-height:1.45}
+.quote figcaption{margin-top:20px;color:var(--ink2);font-size:15px}
+.stars{color:var(--gold);letter-spacing:2px;font-size:15px;margin-bottom:14px}
+@media (max-width:860px){.quotes{grid-template-columns:1fr}}
+
+/* onde fica */
+.where{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px)}
+.where h2{font-size:clamp(40px,5vw,64px)}
+.hours{margin:28px 0 0;display:grid;grid-template-columns:auto 1fr;gap:10px 32px;font-size:17px}
+.hours dt{color:var(--ink2)}
+.hours dd{margin:0}
+.map{position:relative;min-height:340px;border-radius:6px;overflow:hidden;background:#C6CCC5}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.map .pin{position:absolute;left:52%;top:44%;transform:translate(-50%,-100%);padding:10px 16px;border-radius:999px;background:var(--gold);color:#fff;font-weight:700;font-size:14px;white-space:nowrap}
+@media (max-width:860px){.where{grid-template-columns:1fr}}
+
+/* chamada */
+.final{text-align:left}
+.final h2{font-size:clamp(56px,8vw,128px);max-width:12ch}
+.final p{color:var(--ink2);max-width:44ch;font-size:19px}
+.final .btn{margin-top:28px}
+footer{padding:40px 0 64px;color:var(--ink2);font-size:14px}
+footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.float{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:#fff}
+.float svg{width:28px;height:28px}
+/* a foto é lida aqui, na página, para o caminho relativo funcionar */
+.ph{background-image:var(--img)}
+</style>
+</head>
+<body data-demo="Navalha &amp; Co. (barbearia)">
+
+<div class="demo-bar">
+  <div class="who"><svg viewBox="-6 -6 112 112" aria-hidden="true"><path d="M4 96 56 4 44 62Z" fill="#E6E9EC"/><path d="M60 22 58.28 63.24 75.55 51.45Z" fill="#8A9097"/><path d="M98 94 79.67 59.27 64.41 73.84Z" fill="#8A9097"/><path d="M12 98 94 42 50 84Z" fill="#C6FF3D"/></svg><span><b>Site de exemplo</b> feito por Pedro Henrique, da NEW CORP</span></div>
+  <a class="back" href="../../#projetos">Voltar</a>
+  <a class="want" data-cta href="#">Quero um site assim</a>
+</div>
+
+<header class="top">
+  <div class="w">
+    <a class="logo" href="#inicio">Navalha <em>&amp;</em> Co.</a>
+    <nav aria-label="Principal"><a href="#servicos">Serviços</a><a href="#casa">A casa</a><a href="#equipe">Equipe</a><a href="#onde">Onde fica</a></nav>
+    <a class="btn" data-cta href="#">Agendar</a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="w hero">
+    <div>
+      <h1 class="r">Corte com hora marcada.</h1>
+      <p class="r d1">Barbearia no centro de Cajamar. Você escolhe o horário pelo WhatsApp e chega na hora de sentar na cadeira.</p>
+      <div class="acts r d2"><a class="btn" data-cta href="#">Agendar pelo WhatsApp</a><a class="btn alt" href="#servicos">Ver preços</a></div>
+      <div class="facts r d3"><div><b>Ter a sáb</b>9h às 20h</div><div><b>3 cadeiras</b>sem fila</div><div><b>Centro</b>Cajamar, SP</div></div>
+    </div>
+    <div class="ph r d1" role="img" aria-label="Barbeiro finalizando um corte"></div>
+  </section>
+
+  <section class="sec alt" id="servicos">
+    <div class="w">
+      <div class="head"><h2 class="r">Serviços e preços</h2><p class="r d1">Preço na parede e aqui. Sem surpresa na hora de pagar: Pix, cartão ou dinheiro.</p></div>
+      <div class="menu">
+        <div class="item r"><h3>Corte</h3><span class="price">R$ 45</span><p>Máquina e tesoura, lavagem e finalização. 40 minutos.</p></div>
+        <div class="item r d1"><h3>Barba</h3><span class="price">R$ 35</span><p>Toalha quente, navalha e hidratação. 30 minutos.</p></div>
+        <div class="item r"><h3>Corte + barba</h3><span class="price">R$ 70</span><p>O combo completo, com desconto. 1 hora.</p></div>
+        <div class="item r d1"><h3>Pezinho</h3><span class="price">R$ 15</span><p>Acabamento entre um corte e outro. 10 minutos.</p></div>
+        <div class="item r"><h3>Sobrancelha</h3><span class="price">R$ 15</span><p>Na navalha ou na pinça. 10 minutos.</p></div>
+        <div class="item r d1"><h3>Pigmentação</h3><span class="price">R$ 30</span><p>Cobre falhas na barba ou no cabelo. 20 minutos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="casa">
+    <div class="w split">
+      <div class="ph r" role="img" aria-label="Interior da barbearia com cadeiras de couro"></div>
+      <div>
+        <h2 class="r">Uma cadeira esperando por você.</h2>
+        <p class="r d1">Aqui ninguém fica uma hora na fila olhando o celular. Você marca, chega e senta. Café passado na hora e o jogo na TV.</p>
+        <ul class="r d2"><li>Ar-condicionado e Wi-Fi</li><li>Estacionamento na rua de trás</li><li>Atende criança a partir de 4 anos</li><li>Produtos de barba à venda no balcão</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <div class="w">
+      <div class="head"><h2 class="r">Agendar leva um minuto</h2></div>
+      <div class="steps">
+        <div class="step r"><b>1</b><h3>Chama no WhatsApp</h3><p>Diz o serviço e o dia que prefere.</p></div>
+        <div class="step r d1"><b>2</b><h3>Escolhe o horário</h3><p>A gente manda os horários livres e reserva o seu.</p></div>
+        <div class="step r d2"><b>3</b><h3>Recebe o lembrete</h3><p>Uma mensagem uma hora antes, para não esquecer.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="equipe">
+    <div class="w">
+      <div class="head"><h2 class="r">Quem corta</h2><p class="r d1">Três barbeiros, cada um com a sua mão. Pode pedir pelo nome.</p></div>
+      <div class="team">
+        <div class="barber r"><div class="ph" role="img" aria-label="Mãos do barbeiro com tesoura" style="--img:url(foto-detalhe.webp)"></div><h3>Léo</h3><p>Degradê e navalhado</p></div>
+        <div class="barber r d1"><div class="ph" role="img" aria-label="Ferramentas de barbeiro na bancada" style="--img:url(foto-ferramentas.webp)"></div><h3>Diego</h3><p>Barba desenhada</p></div>
+        <div class="barber r d2"><div class="ph" role="img" aria-label="Cadeira de barbeiro vazia" style="--img:url(foto-cadeira.webp)"></div><h3>Rafa</h3><p>Corte clássico e infantil</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <div class="w">
+      <div class="head"><h2 class="r">Quem senta, volta</h2></div>
+      <div class="quotes">
+        <figure class="quote r"><div class="stars" aria-label="5 de 5">★★★★★</div><blockquote>Marquei pelo WhatsApp no almoço e às 18h já estava na cadeira. Sem fila nenhuma.</blockquote><figcaption>Marcos, cliente desde 2024</figcaption></figure>
+        <figure class="quote r d1"><div class="stars" aria-label="5 de 5">★★★★★</div><blockquote>O Léo acertou o degradê de primeira. Agora só corto aqui.</blockquote><figcaption>Thiago, Jordanésia</figcaption></figure>
+        <figure class="quote r d2"><div class="stars" aria-label="5 de 5">★★★★★</div><blockquote>Levo meu filho e corto junto. Ele adora o lugar.</blockquote><figcaption>André, pai do Davi</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="onde">
+    <div class="w where">
+      <div>
+        <h2 class="r">Onde fica</h2>
+        <p class="r d1" style="color:var(--ink2)">Rua das Acácias, 120 · Centro · Cajamar, SP<br>Na esquina da praça, ao lado da padaria.</p>
+        <dl class="hours r d2"><dt>Terça a sexta</dt><dd>9h às 20h</dd><dt>Sábado</dt><dd>8h às 18h</dd><dt>Domingo e segunda</dt><dd>Fechado</dd></dl>
+        <a class="btn r d3" data-cta href="#" style="margin-top:28px">Como chegar</a>
+      </div>
+      <div class="map r d1" aria-hidden="true">
+        <svg viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="#B2B9B1" stroke-width="14"><path d="M-10 120 H410"/><path d="M-10 250 H410"/><path d="M90 -10 V350"/><path d="M290 -10 V350"/></g><g fill="none" stroke="#BBC1BA" stroke-width="6"><path d="M-10 40 L410 190"/><path d="M190 -10 V350"/></g><rect x="200" y="132" width="78" height="104" fill="#A9B8A4"/></svg>
+        <span class="pin">Navalha &amp; Co.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <div class="w final">
+      <h2 class="r">Seu próximo corte já tem horário.</h2>
+      <p class="r d1">Manda uma mensagem e a gente reserva a cadeira para você.</p>
+      <a class="btn r d2" data-cta href="#">Agendar pelo WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer><div class="w"><span>© <span id="ano">2026</span> Navalha &amp; Co. · Barbearia em Cajamar</span><span>Exemplo de site feito por Pedro Henrique, da NEW CORP</span></div></footer>
+<a class="float" data-cta href="#" aria-label="Agendar pelo WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.1Z"/></svg></a>
+<script src="../demo.js" defer></script>
+</body>
+</html>
