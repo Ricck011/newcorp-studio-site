@@ -31,7 +31,15 @@ function iniciar() {
   const fill = new THREE.DirectionalLight(0xdfe7ff, 0.6); fill.position.set(-4, 1, 2); scene.add(fill);
 
   const camera = new THREE.PerspectiveCamera(26, 1, 0.1, 60);
-  const { conjunto, gira, giraFreio, pecas } = montarPecas(THREE);
+  const { conjunto, gira, giraFreio, pecas, emblema } = montarPecas(THREE);
+  const marca = new Image();
+  marca.onload = () => {
+    const w = 170, h = w * marca.height / marca.width;
+    emblema.cx.drawImage(marca, 128 - w / 2, 128 - h / 2 - 4, w, h);
+    emblema.textura.needsUpdate = true;
+    pedir();
+  };
+  marca.src = new URL('./emblema-mp.webp', import.meta.url).href;
   scene.add(conjunto);
 
   // sombra de contato no chão, para a peça não flutuar no vazio
@@ -98,6 +106,8 @@ function iniciar() {
     caixa.w = b.width; caixa.h = b.height;
     renderer.setSize(b.width, b.height, false);
     camera.aspect = b.width / Math.max(1, b.height);
+    // a cena anda um pouco para a direita, para a calota não encostar no texto
+    camera.setViewOffset(b.width, b.height, -b.width * 0.07, 0, b.width, b.height);
     camera.updateProjectionMatrix();
     pedir();
   }

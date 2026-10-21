@@ -9,7 +9,7 @@ export function montarPecas(THREE) {
     banda: new THREE.MeshStandardMaterial({ color: 0x111214, metalness: 0, roughness: 0.95 }),
     disco: new THREE.MeshStandardMaterial({ color: 0x9a9fa5, metalness: 1, roughness: 0.42 }),
     chapeu: new THREE.MeshStandardMaterial({ color: 0x5d6268, metalness: 0.9, roughness: 0.55 }),
-    pinca: new THREE.MeshPhysicalMaterial({ color: 0xa3171c, metalness: 0.2, roughness: 0.38, clearcoat: 1, clearcoatRoughness: 0.1 }),
+    pinca: new THREE.MeshPhysicalMaterial({ color: 0x3b4046, metalness: 0.5, roughness: 0.34, clearcoat: 1, clearcoatRoughness: 0.1 }),
     cubo: new THREE.MeshStandardMaterial({ color: 0x6f757b, metalness: 1, roughness: 0.4 }),
     prisioneiro: new THREE.MeshStandardMaterial({ color: 0xb8bdc2, metalness: 1, roughness: 0.25 }),
     aluminio: new THREE.MeshStandardMaterial({ color: 0xdfe3e6, metalness: 1, roughness: 0.18 }),
@@ -110,10 +110,9 @@ export function montarPecas(THREE) {
   calota.add(new THREE.Mesh(lathe([[0, 0.034], [0.055, 0.034], [0.075, 0.026], [0.088, 0.012], [0.092, 0], [0.07, -0.01]], 96), M.cromo));
   const tela = document.createElement('canvas'); tela.width = tela.height = 256;
   const cx = tela.getContext('2d');
-  cx.fillStyle = '#1b2025'; cx.beginPath(); cx.arc(128, 128, 126, 0, Math.PI * 2); cx.fill();
-  cx.strokeStyle = '#3a63e0'; cx.lineWidth = 12; cx.beginPath(); cx.arc(128, 128, 104, 0, Math.PI * 2); cx.stroke();
-  cx.strokeStyle = '#ffffff'; cx.lineWidth = 20; cx.lineJoin = 'round'; cx.lineCap = 'round';
-  cx.beginPath(); cx.moveTo(84, 168); cx.lineTo(84, 92); cx.lineTo(128, 140); cx.lineTo(172, 92); cx.lineTo(172, 168); cx.stroke();
+  // emblema: disco carvão com aro laranja; o símbolo mp da logo entra por cima quando a imagem carrega
+  cx.fillStyle = '#1c1d20'; cx.beginPath(); cx.arc(128, 128, 126, 0, Math.PI * 2); cx.fill();
+  cx.strokeStyle = '#f7941d'; cx.lineWidth = 10; cx.beginPath(); cx.arc(128, 128, 112, 0, Math.PI * 2); cx.stroke();
   const emb = new THREE.CanvasTexture(tela); emb.colorSpace = THREE.SRGBColorSpace; emb.anisotropy = 8;
   const emblema = new THREE.Mesh(new THREE.CircleGeometry(0.052, 64), new THREE.MeshPhysicalMaterial({ map: emb, metalness: 0.3, roughness: 0.25, clearcoat: 1 }));
   emblema.position.z = 0.0345; calota.add(emblema);
@@ -132,5 +131,5 @@ export function montarPecas(THREE) {
   ];
   pecas.forEach((pc) => (pc.fixo ? conjunto : gira).add(pc.obj));
   // o disco gira com a roda; a pinça fica parada
-  return { conjunto, gira, giraFreio, pecas, M };
+  return { conjunto, gira, giraFreio, pecas, M, emblema: { tela, cx, textura: emb } };
 }
