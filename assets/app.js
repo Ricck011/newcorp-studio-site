@@ -1,4 +1,4 @@
-/* Pedro Henrique · sites e sistemas. JavaScript puro, sem dependências. */
+/* NEW CORP · sites e automação de atendimento. JavaScript puro, sem dependências. */
 (() => {
   const WA = '5511988681657';
   const waLink = (msg) => `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
@@ -202,7 +202,8 @@
   }).observe(mq);
 
   /* ---------- 02. o site se montando em 3D ---------- */
-  const build = $('#sites');
+  const build = $('.build');
+  if (build) {
   const buildPin = $('.build-pin', build);
   const b3d = $('#b3d');
   const bSteps = $$('#buildSteps li');
@@ -238,6 +239,7 @@
   paintBuild(0);
   updateBuild();
   mouseTilt($('#buildScene'), b3d);
+  }
 
   /* ---------- 03. o sistema funcionando (em loop só quando visível) ---------- */
   const s3d = $('#s3d');
@@ -315,7 +317,7 @@
   const makeLink = $('[data-wa-make]');
   const updateMakeLink = () => {
     const n = nameIn.value.trim();
-    makeLink.href = waLink(`Oi, Pedro! Montei uma prévia no seu site${n ? ' para ' + n : ''} (${$('.chips [aria-pressed="true"]').textContent}). Quero ver a primeira tela de verdade.`);
+    makeLink.href = waLink(`Oi, Pedro! Montei uma prévia no seu site${n ? ' para ' + n : ''} (${$('.chips [aria-pressed="true"]').textContent}). Quero agendar o briefing.`);
     makeLink.target = '_blank'; makeLink.rel = 'noopener';
   };
   makeLink.addEventListener('pointerdown', updateMakeLink);
@@ -456,9 +458,9 @@
       p.append(porque);
       const a = document.createElement('a');
       a.className = 'btn btn-accent';
-      a.href = waLink(`Oi, Pedro! Fiz o teste no site e deu plano ${nome}. Quero ver a primeira tela.`);
+      a.href = waLink(`Oi, Pedro! Fiz o teste no site e deu plano ${nome}. Quero agendar o briefing.`);
       a.target = '_blank'; a.rel = 'noopener';
-      a.textContent = `Quero o ${nome}, primeira tela grátis`;
+      a.textContent = `Quero o ${nome}, agendar briefing`;
       res.append(p, a);
       cards.forEach((c) => c.classList.toggle('pick', c.dataset.plan === nome.toLowerCase()));
     }));
@@ -713,7 +715,7 @@
 
   /* ---------- movimento reduzido ao vivo ---------- */
   function pinToFinalStates() {
-    paintBuild(1);
+    if (build) paintBuild(1);
     counters.forEach((c) => { c.textContent = c.dataset.count; });
     clearInterval(sysTimer); sysTimer = null; s3d.dataset.ph = 4; tiles.forEach((t) => t.classList.add('on'));
     $$('.rv, .h-split').forEach((el) => el.classList.add('in'));
@@ -723,7 +725,7 @@
   }
   function unpinFinalStates() {
     if (RM.matches) return;
-    bLast = -1; updateBuild(); updateTrace(); updateAbout();
+    if (build) { bLast = -1; updateBuild(); } updateTrace(); updateAbout();
   }
   RM.addEventListener('change', (e) => { if (e.matches) pinToFinalStates(); applyHeroMode(); });
   if (RM.matches) pinToFinalStates();

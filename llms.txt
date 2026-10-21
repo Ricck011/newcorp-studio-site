@@ -1,6 +1,6 @@
-# Pedro Henrique, da NEW CORP
+# NEW CORP
 
-> Sites e sistemas para comércio e prestador de serviço (barbearia, clínica, loja, pintor e parecidos). Base em Cajamar, SP; atende todo o Brasil. A primeira tela do site fica pronta em até 72 horas e o cliente vê antes de pagar. Site completo no ar em até 10 dias úteis.
+> Sites e automação de atendimento para comércio e prestador de serviço (barbearia, clínica, loja, pintor e parecidos). Fundador: Pedro Henrique, que faz os sites; a NEW CORP faz a automação de atendimento no WhatsApp (respostas, agendamento, registro em planilha). Base em Cajamar, SP; atende todo o Brasil. Protótipo em até 72 horas depois do briefing; site completo no ar em até 10 dias úteis.
 
 ## Planos
 - Essencial: R$ 400, pagamento único. Uma página completa, feita primeiro para celular, botão de WhatsApp com mensagem pronta, pronta para Google.
@@ -9,15 +9,16 @@
 - Site Fundador: 2 vagas para os primeiros negócios, plano Premium (R$ 1.300) por R$ 400, com 1 mês de manutenção sem custo e cartaz com QR code para o balcão.
 
 ## Como funciona
-1. Conversa pelo WhatsApp sobre o negócio.
-2. Primeira tela em até 72 horas, sem custo.
-3. Site completo em até 10 dias úteis, publicado com Google e WhatsApp configurados.
+1. Fechamento com entrada; o briefing é marcado no mesmo dia.
+2. Dados iniciais: serviços, preços, horários, fotos e tom do negócio.
+3. Primeiro protótipo em até 72 horas depois do briefing.
+4. Site completo em até 10 dias úteis, publicado com Google e WhatsApp configurados.
 
 ## Contato
 - WhatsApp: +55 11 98868-1657
 - E-mail: contato.newcorpst@gmail.com
 - Instagram: https://www.instagram.com/orickksilv__/
-- Pagamento: Pix
+- Pagamento: Pix, com entrada no fechamento
 
 ## Páginas
 - [Início](https://studio.corpstorehub.com/)
