@@ -6,7 +6,7 @@
 - Essencial: R$ 400, pagamento único. Uma página completa, feita primeiro para celular, botão de WhatsApp com mensagem pronta, pronta para Google.
 - Premium: R$ 1.300, pagamento único. Tudo do Essencial, visual exclusivo da marca, texto de venda e animações.
 - Manutenção: R$ 99 por mês, opcional. Ajustes de texto e foto e suporte pelo WhatsApp.
-- Site Fundador: 5 vagas para os primeiros negócios, plano Essencial com 1 mês de manutenção sem custo e cartaz com QR code para o balcão.
+- Site Fundador: 2 vagas para os primeiros negócios, plano Premium (R$ 1.300) por R$ 400, com 1 mês de manutenção sem custo e cartaz com QR code para o balcão.
 
 ## Como funciona
 1. Conversa pelo WhatsApp sobre o negócio.
