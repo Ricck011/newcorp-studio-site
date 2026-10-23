@@ -18,10 +18,16 @@
 
   if (CLARITY_ID) {
     window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
-    const s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.clarity.ms/tag/' + CLARITY_ID;
-    document.head.append(s);
+    // carrega no primeiro gesto (rolar, tocar, clicar, teclar): a página abre sem cookie de terceiro
+    const GESTOS = ['scroll', 'wheel', 'pointerdown', 'touchstart', 'keydown'];
+    const carregar = () => {
+      GESTOS.forEach((g) => removeEventListener(g, carregar, true));
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.clarity.ms/tag/' + CLARITY_ID;
+      document.head.append(s);
+    };
+    GESTOS.forEach((g) => addEventListener(g, carregar, { capture: true, passive: true, once: true }));
   }
 
   // cada clique em WhatsApp vira um evento com a origem do botão (página e texto), para saber qual botão vende
