@@ -1,4 +1,5 @@
-/* NEW CORP · sites e automação de atendimento. JavaScript puro, sem dependências. */
+/* NEW CORP · sites e automação de atendimento. JavaScript puro, sem dependências.
+   v2: o mesmo arquivo serve as 4 páginas; cada bloco só roda se a peça existir na página. */
 (() => {
   const WA = '5511988681657';
   const waLink = (msg) => `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
@@ -27,15 +28,18 @@
   /* ---------- abertura (no máximo 3 s) ---------- */
   const loader = $('#loader');
   const pctEl = $('#pct');
+  const hasLoader = !!loader;
   const bar = $('#pctbar');
   const t0 = performance.now();
   let real = 0;          // progresso real dos recursos críticos
   const marks = { fonts: false, poster: false };
   const bump = () => { real = (marks.fonts ? 0.5 : 0) + (marks.poster ? 0.5 : 0); };
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { marks.fonts = true; bump(); });
-  const preload = new Image();
-  preload.onload = preload.onerror = () => { marks.poster = true; bump(); };
-  preload.src = matchMedia('(max-width: 720px)').matches ? 'assets/hero-mobile.jpg' : 'assets/hero-poster.jpg';
+  if (hasLoader) {
+    const preload = new Image();
+    preload.onload = preload.onerror = () => { marks.poster = true; bump(); };
+    preload.src = matchMedia('(max-width: 720px)').matches ? 'assets/cena-hero.jpg' : 'assets/hero-poster.jpg';
+  }
 
   let loaded = false;
   let loadK = 0;          // rampa única de montagem da faixa 1
@@ -48,12 +52,17 @@
     const s = performance.now();
     const ramp = (now) => {
       loadK = clamp((now - s - 350) / 1100, 0, 1);
-      updateCaptions(shown, true);
+      if (updateCaptions) updateCaptions(shown, true);
       if (loadK < 1) requestAnimationFrame(ramp);
     };
     requestAnimationFrame(ramp);
   }
-  if (RM.matches) { loader.remove(); document.body.classList.remove('loading'); loaded = true; loadK = 1; }
+  let updateCaptions = null, shown = 0;
+  let seen = false;
+  try { seen = sessionStorage.getItem('nc-visto') === '1'; } catch (e) { /* sem armazenamento */ }
+  if (!hasLoader) { loaded = true; loadK = 1; }
+  else if (seen) { loader.remove(); document.body.classList.remove('loading'); loaded = true; loadK = 1; }
+  else if (RM.matches) { loader.remove(); document.body.classList.remove('loading'); loaded = true; loadK = 1; }
   else {
     let shownPct = 0;
     const tickLoad = (now) => {
@@ -92,9 +101,9 @@
     const hide = y > 500 && y > lastY && !nav.classList.contains('open');
     if (solid !== navSolid) { nav.classList.toggle('solid', solid); navSolid = solid; }
     if (hide !== navHide) { nav.classList.toggle('hide', hide); navHide = hide; }
-    const heroEl = getComputedStyle($('#hero')).display !== 'none' ? $('#hero') : $('.static-hero');
-    const heroEnd = heroEl.offsetTop + heroEl.offsetHeight - innerHeight * 0.4;
-    const cr = contato.getBoundingClientRect();
+    const heroEl = ($('#hero') && getComputedStyle($('#hero')).display !== 'none') ? $('#hero') : ($('.static-hero') || $('.page-hero'));
+    const heroEnd = heroEl ? heroEl.offsetTop + heroEl.offsetHeight - innerHeight * 0.4 : innerHeight * 0.6;
+    const cr = contato ? contato.getBoundingClientRect() : { top: Infinity };
     const on = y > heroEnd && cr.top > innerHeight * 0.6;
     if (on !== dockOn) {
       dock.classList.toggle('show', on);
@@ -172,9 +181,9 @@
 
   /* ---------- 01. fotos com profundidade ---------- */
   const about = $('#quem');
-  const depthEls = $$('[data-depth]', about);
+  const depthEls = about ? $$('[data-depth]', about) : [];
   function updateAbout() {
-    if (RM.matches) return;
+    if (RM.matches || !about) return;
     const r = about.getBoundingClientRect();
     if (r.bottom < 0 || r.top > innerHeight) return;
     const off = (r.top + r.height / 2) - innerHeight / 2;
@@ -185,6 +194,7 @@
 
   /* ---------- faixa de ramos: anda sozinha e acelera com o scroll ---------- */
   const mq = $('#mq');
+  if (mq) {
   let mqX = 0, mqV = 0, mqLastY = scrollY, mqOn = false, mqRaf = null, mqT = 0;
   function mqTick(now) {
     const dt = Math.min(50, now - (mqT || now)); mqT = now;
@@ -200,6 +210,7 @@
     mqOn = e.isIntersecting && !RM.matches;
     if (mqOn && !mqRaf) { mqT = 0; mqLastY = scrollY; mqRaf = requestAnimationFrame(mqTick); }
   }).observe(mq);
+  }
 
   /* ---------- 02. o site se montando em 3D ---------- */
   const build = $('.build');
@@ -243,8 +254,9 @@
 
   /* ---------- 03. o sistema funcionando (em loop só quando visível) ---------- */
   const s3d = $('#s3d');
-  const tiles = $$('.tile', s3d);
+  const tiles = s3d ? $$('.tile', s3d) : [];
   let sysTimer = null, sysPh = 0;
+  if (s3d) {
   const sysTick = () => {
     sysPh = (sysPh + 1) % 6;
     const ph = Math.min(sysPh, 4);
@@ -256,11 +268,13 @@
     else { clearInterval(sysTimer); sysTimer = null; }
   }).observe(s3d);
   mouseTilt($('#sysScene'), s3d);
+  }
 
   /* ---------- 04. antes e depois ---------- */
   const cmp = $('#cmp');
   const cmpRange = $('#cmpRange');
   let cmpTouched = false;
+  if (cmp) {
   const setCmp = (v) => cmp.style.setProperty('--x', v + '%');
   cmpRange.addEventListener('input', () => { cmpTouched = true; setCmp(cmpRange.value); });
   new IntersectionObserver(([e], obs) => {
@@ -276,55 +290,6 @@
     };
     requestAnimationFrame(hint);
   }, { threshold: 0.6 }).observe(cmp);
-
-  /* ---------- monte o seu ---------- */
-  const RAMOS = {
-    barbearia: { bg: '#141210', ink: '#E8DCC8', acc: '#C8963E', cta: 'Agendar', t: 'Corte com hora marcada.', s: 'Horários, preços e localização num lugar só.' },
-    clinica: { bg: '#F5FAF7', ink: '#0F3D2E', acc: '#1A7F52', cta: 'Consulta', t: 'Cuidado perto de você.', s: 'Especialidades, convênios e horários livres da semana.' },
-    loja: { bg: '#F3EEE8', ink: '#2B2420', acc: '#9A4F37', cta: 'Catálogo', t: 'As novidades da semana chegaram.', s: 'Veja as peças e peça direto pelo WhatsApp.' },
-    servico: { bg: '#0E1A2B', ink: '#F2F4F7', acc: '#3D8BFF', cta: 'Orçamento', t: 'Serviço bem feito, no dia combinado.', s: 'Mande uma foto e receba o orçamento no mesmo dia.' },
-    comida: { bg: '#1A0F0B', ink: '#F6E7D8', acc: '#E0582B', cta: 'Pedir', t: 'Do forno para a sua mesa.', s: 'Cardápio do dia, horário e entrega no bairro.' },
-  };
-  const pv = $('#preview');
-  // seção retirada do site em 20/10/2026; o código fica para se ela voltar
-  if (pv) {
-  const nameIn = $('#bizName');
-  let ramo = 'barbearia';
-  const slug = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '') || 'seunegocio';
-  function paint(animate) {
-    const r = RAMOS[ramo];
-    const name = nameIn.value.trim() || 'Seu negócio';
-    const apply = () => {
-      pv.style.setProperty('--pv-bg', r.bg);
-      pv.style.setProperty('--pv-ink', r.ink);
-      pv.style.setProperty('--pv-acc', r.acc);
-      $('#pvName').textContent = name;
-      $('#pvCta').textContent = r.cta;
-      $('#pvTitle').textContent = r.t;
-      $('#pvSub').textContent = r.s;
-      $('#pvUrl').textContent = slug(nameIn.value.trim()) + '.com.br';
-      pv.classList.remove('swap');
-    };
-    if (animate && !RM.matches) { pv.classList.add('swap'); setTimeout(apply, 260); } else apply();
-  }
-  $$('.chips button').forEach((b) => b.addEventListener('click', () => {
-    ramo = b.dataset.ramo;
-    $$('.chips button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-    paint(true);
-  }));
-  let typeT;
-  nameIn.addEventListener('input', () => { clearTimeout(typeT); typeT = setTimeout(() => paint(false), 120); });
-  const makeLink = $('[data-wa-make]');
-  const updateMakeLink = () => {
-    const n = nameIn.value.trim();
-    makeLink.href = waLink(`Oi, Pedro! Montei uma prévia no seu site${n ? ' para ' + n : ''} (${$('.chips [aria-pressed="true"]').textContent}). Quero agendar o briefing.`);
-    makeLink.target = '_blank'; makeLink.rel = 'noopener';
-  };
-  makeLink.addEventListener('pointerdown', updateMakeLink);
-  makeLink.addEventListener('focus', updateMakeLink);
-  updateMakeLink();
-  paint(false);
-  mouseTilt($('.preview-wrap'), pv);
   }
 
   /* ---------- mini vídeos que andam com o scroll ---------- */
@@ -365,7 +330,7 @@
       const vo = (1 - 0.65 * smooth(p, 0.5, 1)).toFixed(3);
       if (vo !== s.vo) { s.v.style.setProperty('--vo', vo); s.vo = vo; }
       const target = p * s.v.duration * 0.999;
-      s.shown += (target - s.shown) * (1 - Math.pow(1 - 0.3, dt / 16.667));
+      s.shown += (target - s.shown) * (1 - Math.pow(1 - 0.2, dt / 16.667)) /* o Lenis já dá a inércia; aqui só o último degrau entre quadros */;
       if (Math.abs(target - s.shown) > 0.004) moving = true; else s.shown = target;
       if (Math.abs(s.v.currentTime - s.shown) > 0.02) seekVid(s, s.shown);
     });
@@ -386,7 +351,7 @@
   updateProgress();
 
   /* ---------- títulos entram palavra por palavra ---------- */
-  $$('main h2').forEach((h) => {
+  $$('main h2, .page-hero h1').forEach((h) => {
     const walk = (node) => {
       [...node.childNodes].forEach((n) => {
         if (n.nodeType === 3) {
@@ -410,7 +375,7 @@
   /* ---------- luz que segue o mouse e botões magnéticos ---------- */
   if (FINE.matches) {
     // borda que acende do lado do mouse (ideia do "Glowing Effect" do 21st.dev, refeita sem React)
-    const glows = $$('.plan, .fundador, .step, .quote, .cta form');
+    const glows = $$('.fundador, .step, .cta form');
     glows.forEach((c) => c.classList.add('glow'));
     let gx = 0, gy = 0, gQueued = false;
     const paintGlow = () => {
@@ -458,9 +423,9 @@
       p.append(porque);
       const a = document.createElement('a');
       a.className = 'btn btn-accent';
-      a.href = waLink(`Oi, Pedro! Fiz o teste no site e deu plano ${nome}. Quero agendar o briefing.`);
+      a.href = waLink(`Oi, Pedro! Fiz o teste no site e deu plano ${nome}. Quero conversar sobre o meu site.`);
       a.target = '_blank'; a.rel = 'noopener';
-      a.textContent = `Quero o ${nome}, agendar briefing`;
+      a.textContent = `Quero o ${nome}`;
       res.append(p, a);
       cards.forEach((c) => c.classList.toggle('pick', c.dataset.plan === nome.toLowerCase()));
     }));
@@ -494,6 +459,7 @@
   const traceSec = $('#processo');
   let traceLast = '';
   function updateTrace() {
+    if (!trace) return;
     const r = traceSec.getBoundingClientRect();
     const p = RM.matches ? 1 : clamp((innerHeight * 0.8 - r.top) / r.height, 0, 1);
     const v = (1 - p).toFixed(3);
@@ -503,7 +469,7 @@
   updateTrace();
 
   /* ---------- formulário final: abre o WhatsApp ---------- */
-  $('#leadForm').addEventListener('submit', (e) => {
+  if ($('#leadForm')) $('#leadForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const f = e.target;
     if (!f.reportValidity()) return;
@@ -513,18 +479,20 @@
 
   /* ================= hero de scroll ================= */
   const hero = $('#hero');
+  let applyHeroMode = () => {};
+  if (hero) {
   const stage = $('#stage');
   const video = $('#video');
   const ring = $('#ring');
   const cue = $('#cue');
   const posterLayer = $('.poster', stage);
-  // tela grande recebe 1600 px; o resto, 1280 px. Acima disso a busca de quadro pesa e a rolagem engasga
+  // camada de rolagem: 1280 px, todo quadro é chave (busca em ~1 ms); a nitidez de tela 2K vem da camada nítida, por cima, quando a rolagem para
   const BIG = innerWidth * (devicePixelRatio || 1) > 1800;
-  const VIDEO_URL = BIG ? 'assets/hero-scrub-1600.mp4' : 'assets/hero-scrub-1280.mp4';
-  const VIDEO_BYTES = BIG ? 6850810 : 4826681;
+  const VIDEO_URL = 'assets/hero-q-hd.mp4'; // travessia refeita no Veo 3.1 Quality (23/10), 1080p do Flow
+  const VIDEO_BYTES = 13667684;
   // versão nítida: só aparece quando a rolagem para, então o peso dela não trava o movimento
   const videoHi = $('#videoHi');
-  const HI_URL = BIG ? 'assets/hero-sharp-2560.mp4' : 'assets/hero-sharp-1920.mp4';
+  const HI_URL = 'assets/hero-q-hi.mp4'; // 1920 px, 20 qps (mesmos quadros da rolagem)
   let hiReady = false, hiTimer = null;
   function hideHi() { clearTimeout(hiTimer); if (videoHi.classList.contains('on')) videoHi.classList.remove('on'); }
   function scheduleHi() {
@@ -580,12 +548,12 @@
   }));
   const first = bands[0], last = bands[bands.length - 1];
 
-  let target = 0, shown = 0, rafId = null, lastTick = 0, heroOnScreen = true, heroVo = '';
+  let target = 0, rafId = null, lastTick = 0, heroOnScreen = true, heroVo = '';
   function heroProgress() {
     const r = hero.getBoundingClientRect();
     return clamp(-r.top / Math.max(1, r.height - innerHeight), 0, 1);
   }
-  function updateCaptions(p, force) {
+  updateCaptions = function (p, force) {
     bands.forEach((bd) => {
       const f = Math.min(0.02, (bd.b - bd.a) / 3);
       let op = (bd === first ? 1 : smooth(p, bd.a, bd.a + f)) * (bd === last ? 1 : 1 - smooth(p, bd.b - f, bd.b));
@@ -597,7 +565,7 @@
     });
     const cueOn = p < 0.04;
     if (cue.dataset.on !== String(cueOn)) { cue.style.opacity = cueOn ? 1 : 0; cue.dataset.on = cueOn; }
-  }
+  };
 
   let seekBusy = false, pendingTime = null, lastSeekT = -1;
   function requestSeek(t) {
@@ -618,7 +586,7 @@
   function tick(now) {
     const dt = Math.min(100, now - (lastTick || now));
     lastTick = now;
-    shown += (target - shown) * (1 - Math.pow(1 - 0.3, dt / 16.667));
+    shown += (target - shown) * (1 - Math.pow(1 - 0.2, dt / 16.667)) /* o Lenis já dá a inércia; aqui só o último degrau entre quadros */;
     if (Math.abs(target - shown) < 0.0005) { shown = target; rafId = null; lastTick = 0; scheduleHi(); }
     else { rafId = requestAnimationFrame(tick); hideHi(); }
     requestSeek(shown * (video.duration || 0) * 0.999);
@@ -709,19 +677,20 @@
     removeEventListener('scroll', onScroll);
     if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
   }
-  function applyHeroMode() { GATES.some((q) => matchMedia(q).matches) ? disableScrub() : enableScrub(); }
+  applyHeroMode = () => { GATES.some((q) => matchMedia(q).matches) ? disableScrub() : enableScrub(); };
   const MQLS = GATES.map((q) => matchMedia(q));
   MQLS.forEach((m) => m.addEventListener('change', applyHeroMode));
+  }
 
   /* ---------- movimento reduzido ao vivo ---------- */
   function pinToFinalStates() {
     if (build) paintBuild(1);
     counters.forEach((c) => { c.textContent = c.dataset.count; });
-    clearInterval(sysTimer); sysTimer = null; s3d.dataset.ph = 4; tiles.forEach((t) => t.classList.add('on'));
+    clearInterval(sysTimer); sysTimer = null; if (s3d) s3d.dataset.ph = 4; tiles.forEach((t) => t.classList.add('on'));
     $$('.rv, .h-split').forEach((el) => el.classList.add('in'));
     scrubVids.forEach((s) => { s.v.pause(); });
     depthEls.forEach((el) => { el.style.transform = ''; });
-    trace.style.strokeDashoffset = 0;
+    if (trace) trace.style.strokeDashoffset = 0;
   }
   function unpinFinalStates() {
     if (RM.matches) return;

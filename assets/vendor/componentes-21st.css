@@ -1,0 +1,28 @@
+/* Componentes do 21st.dev convertidos para HTML puro (sem React, sem Tailwind).
+   Cada cliente troca só as variáveis --c21-*. Origem e licença no LEIA-ME.md da biblioteca. */
+
+/* ---------- Shimmer Button (klyv-ui, MIT) ----------
+   Uso: <a class="c21-brilho" href="#">Texto</a>  (o JS acrescenta as duas camadas)
+   Variantes: .c21-brilho--hover (só brilha com o mouse), .c21-brilho--escuro */
+.c21-brilho { --c21-fundo: var(--c21-acento, #f7941d); --c21-tinta: var(--c21-acento-tinta, #1c1d20); --c21-reflexo: rgba(255,255,255,.7); --c21-luz: rgba(255,255,255,.55); --c21-tempo: 3s;
+  position: relative; isolation: isolate; overflow: hidden; background: var(--c21-fundo); color: var(--c21-tinta); }
+.c21-brilho--escuro { --c21-fundo: #1c1d20; --c21-tinta: #fff; --c21-reflexo: rgba(255,255,255,.35); --c21-luz: rgba(247,148,29,.45); }
+.c21-brilho > .c21-luz { pointer-events: none; position: absolute; z-index: -1; left: var(--glow-x, 50%); top: var(--glow-y, 50%); width: 150px; height: 150px; translate: -50% -50%; border-radius: 50%; background: radial-gradient(circle, var(--c21-luz) 0%, transparent 70%); filter: blur(24px); opacity: var(--glow-opacity, 0); transition: opacity .5s; }
+.c21-brilho > .c21-reflexo { pointer-events: none; position: absolute; z-index: -1; top: 0; bottom: 0; left: 0; width: 33%; background: var(--c21-reflexo); filter: blur(6px); animation: c21-varre var(--c21-tempo) ease-in-out infinite; }
+.c21-brilho--hover > .c21-reflexo { opacity: 0; animation-play-state: paused; }
+.c21-brilho--hover:hover > .c21-reflexo, .c21-brilho--hover:focus-visible > .c21-reflexo { opacity: 1; animation-play-state: running; }
+@keyframes c21-varre { 0% { transform: translateX(-120%) skewX(-18deg); } 60%, 100% { transform: translateX(420%) skewX(-18deg); } }
+
+/* ---------- Spotlight (kevingirelli) ----------
+   Uso: qualquer cartão com class="c21-holofote". Luz segue o mouse; a borda acende do lado dele. */
+.c21-holofote { --c21-raio: 320px; --c21-cor: var(--c21-acento, #f7941d); position: relative; isolation: isolate; }
+.c21-holofote > .c21-holo-luz, .c21-holofote > .c21-holo-anel { pointer-events: none; position: absolute; inset: 0; z-index: -1; border-radius: inherit; opacity: 0; transition: opacity .3s; }
+.c21-holofote > .c21-holo-luz { background: radial-gradient(var(--c21-raio) circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), color-mix(in oklab, var(--c21-cor) 12%, transparent), transparent 70%); }
+.c21-holofote > .c21-holo-anel { inset: -1px; padding: 1px; background: radial-gradient(var(--c21-raio) circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), color-mix(in oklab, var(--c21-cor) 60%, transparent), transparent 60%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; }
+.c21-holofote:hover > .c21-holo-luz, .c21-holofote:hover > .c21-holo-anel, .c21-holofote:focus-within > .c21-holo-luz, .c21-holofote:focus-within > .c21-holo-anel { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .c21-brilho > .c21-reflexo { animation: none; opacity: 0; }
+  .c21-holofote > .c21-holo-luz, .c21-holofote > .c21-holo-anel { transition: none; }
+}
