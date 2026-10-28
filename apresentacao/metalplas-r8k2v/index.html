@@ -158,6 +158,7 @@ html { scroll-behavior: auto; }
 }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","@id":"#fabrica","name":"Metalplas Indústria de Calotas","description":"Fábrica de acessórios para roda: calota de centro, subcalota, anel centralizador, capa de parafuso e espaçador. Venda para lojista, atacadista e distribuidor de todo o Brasil.","logo":"assets/logo-metalplas.webp","telephone":"+55 11 4448-2670","address":{"@type":"PostalAddress","addressLocality":"Cajamar","addressRegion":"SP","addressCountry":"BR"},"areaServed":{"@type":"Country","name":"Brasil"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:30","closes":"18:00"}]},{"@type":"WebSite","@id":"#site","name":"Metalplas","inLanguage":"pt-BR","publisher":{"@id":"#fabrica"}}]}</script>
+<link rel="stylesheet" href="assets/bloco.css">
 </head>
 <body>
 
@@ -181,17 +182,7 @@ html { scroll-behavior: auto; }
       </div>
     </div>
 
-    <figure class="palco" id="palco">
-      <picture>
-        <source media="(min-width: 900px)" srcset="assets/roda-frente.webp">
-        <img class="palco-foto" src="assets/roda-explodida-780.webp" srcset="assets/roda-explodida-780.webp 780w, assets/roda-explodida.webp 1200w" sizes="100vw" width="1200" height="900" alt="Conjunto da roda em vista explodida: cubo, disco e pinça de freio, espaçador, anel centralizador, roda, capas de parafuso e calota de centro" fetchpriority="high">
-      </picture>
-      <span class="cota" data-cota="calota" aria-hidden="true">Calota de centro</span>
-      <span class="cota cota-baixo" data-cota="capas" aria-hidden="true">Capa de parafuso</span>
-      <span class="cota" data-cota="anel" aria-hidden="true">Anel centralizador</span>
-      <span class="cota cota-baixo" data-cota="espacador" aria-hidden="true">Espaçador</span>
-      <figcaption class="palco-dica">Arraste a roda para girar.</figcaption>
-    </figure>
+    <div class="palco" id="palco" data-pouso aria-hidden="true"></div>
 
     <ul class="linha" aria-label="Peças Metalplas na roda">
       <li><button type="button" data-peca="calota" aria-pressed="false"><strong>Calota e subcalota</strong><span>Fecham o centro da roda e protegem o cubo.</span></button></li>
@@ -201,10 +192,40 @@ html { scroll-behavior: auto; }
     </ul>
   </section>
 
+  <section class="trajetoria" id="trajetoria" aria-labelledby="titulo-traj">
+    <div class="traj-palco">
+      <div class="traj-texto">
+        <p class="traj-rotulo">Nossa trajetória</p>
+        <h2 id="titulo-traj">Do primeiro molde a novas possibilidades.</h2>
+        <p>Desde 1997 a Metalplas entende a necessidade do cliente, desenvolve o molde e fabrica a peça. Role para seguir a linha do tempo.</p>
+        <ul class="traj-fatos">
+          <li><strong>1997</strong><span>início da atividade</span></li>
+          <li><strong>2012</strong><span>nasce o nome Metalplas</span></li>
+          <li><strong>540</strong><span>produtos em linha</span></li>
+        </ul>
+        <div class="pouso pouso-tl" data-pouso aria-hidden="true"></div>
+      </div>
+      <div class="traj-bloco" role="group" aria-label="Linha do tempo da Metalplas, de 1997 até hoje">
+        <span class="traj-legenda">1997 até hoje</span>
+        <span class="traj-eixo" aria-hidden="true"><i></i></span>
+        <ol class="traj-trilho">
+          <li class="marco"><strong>1997</strong><p>Um molde desenvolvido para um produto que fazia falta no mercado. Depois da entrega, vem a missão de fabricar as peças.</p></li>
+          <li class="marco"><strong>2000</strong><p>O crescimento pede a primeira sede.</p></li>
+          <li class="marco"><strong>2003</strong><p>Um galpão muito maior dá espaço e estabilidade para a próxima etapa.</p></li>
+          <li class="marco"><strong>2006</strong><p>Aquisição do terreno que abriga a sede atual.</p></li>
+          <li class="marco"><strong>2007</strong><p>Mudança definitiva para a sede atual.</p></li>
+          <li class="marco"><strong>2012</strong><p>A trajetória ganha o nome Metalplas.</p></li>
+          <li class="marco"><strong>Hoje</strong><p>540 produtos em linha e a mesma disposição do começo: entender a necessidade e entregar uma peça da qual a equipe se orgulha.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
   <section class="catalogo" id="catalogo" aria-labelledby="titulo-catalogo">
     <div class="catalogo-topo">
       <h2 id="titulo-catalogo">Catálogo da fábrica</h2>
       <p>Procure pela linha, pela marca ou pelo código. Os mais pedidos aparecem primeiro.</p>
+      <div class="pouso pouso-cat" data-pouso aria-hidden="true"></div>
     </div>
     <div class="filtros">
       <div class="linhas" id="linhas" role="group" aria-label="Linha de produto">
@@ -235,5 +256,6 @@ html { scroll-behavior: auto; }
 
 <script src="assets/abertura.js" defer></script>
 <script src="assets/catalogo.js" defer></script>
+<script type="module" src="assets/bloco.js"></script>
 </body>
 </html>
