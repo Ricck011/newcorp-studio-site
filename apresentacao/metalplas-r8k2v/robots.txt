@@ -1,3 +1,0 @@
-# Protótipo: liberar o Google só quando o site for ao ar no domínio da Metalplas
-User-agent: *
-Disallow: /
