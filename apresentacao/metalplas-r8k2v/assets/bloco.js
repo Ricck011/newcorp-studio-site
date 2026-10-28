@@ -51,7 +51,6 @@ const textoEl = bloco.querySelector('.rb-texto');
 
 /* ---------- pontos de pouso e seções ---------- */
 const pousos = [...document.querySelectorAll('[data-pouso]')];
-const secAbertura = document.querySelector('.abertura');
 const secTraj = document.getElementById('trajetoria');
 
 /* ---------- cena 3D ---------- */
@@ -142,13 +141,15 @@ function desenha(q) {
   legenda(ativa);
 }
 
-/* ---------- movimento do bloco (S entre os pontos de pouso) ---------- */
+/* ---------- movimento do bloco (S entre os pontos de pouso, na ordem em que aparecem na página) ---------- */
 const BW = 520, BH = 640;
+const secDe = (el) => el.closest('section');
 function lerPouso(el) {
   const r = el.getBoundingClientRect();
   const visivel = r.width > 24 && r.height > 24;
   return { cx: r.left + r.width / 2 + scrollX, cy: r.top + r.height / 2 + scrollY, s: visivel ? Math.min(r.width / BW, r.height / BH, 0.92) : 0, on: visivel ? 1 : 0 };
 }
+const docY = (el, bottom) => { const r = el.getBoundingClientRect(); return (bottom ? r.bottom : r.top) + scrollY; };
 
 function quadro(agora) {
   requestAnimationFrame(quadro);
@@ -163,33 +164,45 @@ function quadro(agora) {
     q = Q_HERO;
   } else {
     const W = 0.38 * H;
-    const b1 = secAbertura.getBoundingClientRect().bottom + sy;
-    const b2 = secTraj ? secTraj.getBoundingClientRect().bottom + sy : b1 + 4 * H;
-    const seg = (a, b, B) => {
-      const t = lim((s - (B - W)) / (2 * W));
+    // fronteira entre o ponto i e o i+1: fim da seção do ponto i
+    const B = pousos.slice(0, -1).map((el) => docY(secDe(el), true));
+    const seg = (i) => {
+      const a = pts[i], b = pts[i + 1];
+      const t = lim((s - (B[i] - W)) / (2 * W));
       const e = suave(t);
       const dir = Math.sign(b.cx - a.cx) || 1;
       return {
         cx: mix(a.cx, b.cx, e) + Math.sin(t * Math.PI * 2) * 0.05 * innerWidth * dir * -1, // x suave + ondulação: desenha o S
         cy: mix(a.cy, b.cy, t),
-        s: mix(a.s, b.s, e) * (1 - 0.42 * Math.sin(t * Math.PI)), // encolhe no meio da travessia: passa como uma cobra pelo vão, cobrindo pouco
+        s: mix(a.s, b.s, e) * (1 - 0.42 * Math.sin(t * Math.PI)), // encolhe no meio da travessia, cobre pouco
         on: mix(a.on, b.on, e),
         t,
       };
     };
-    const [a0, a1, a2] = [pts[0], pts[1] || pts[0], pts[2] || pts[1] || pts[0]];
-    if (s < b1 - W) { pos = a0; q = Q_HERO; fase = 'abre'; }
-    else if (s < b1 + W) { pos = seg(a0, a1, b1); q = mix(Q_HERO, Q_TL0, suave((s - (b1 - W)) / (2 * W))); fase = 'abre'; }
-    else if (s < b2 - W) { pos = a1; q = mix(Q_TL0, Q_TL1, (s - (b1 + W)) / ((b2 - W) - (b1 + W))); fase = 'abre'; }
-    else if (s < b2 + W) { pos = seg(a1, a2, b2); q = mix(Q_TL1, Q_FIM, suave((s - (b2 - W)) / (2 * W))); fase = 'fecha'; }
-    else { pos = a2; q = Q_FIM; fase = 'fim'; }
+    pos = pts[pts.length - 1];
+    for (let i = 0; i < pts.length; i++) {
+      if (i === pts.length - 1) { pos = pts[i]; break; }
+      if (s < B[i] - W) { pos = pts[i]; break; }
+      if (s < B[i] + W) { pos = seg(i); break; }
+    }
+    // abertura da roda: começa na 1ª seção "abre", segura na linha do tempo e se fecha ao longo do desenvolvimento
+    const ab = pousos.filter((el) => el.dataset.fase === 'abre').map(secDe);
+    const fe = pousos.find((el) => el.dataset.fase === 'fecha');
+    const t0 = docY(ab[0], false), t1 = docY(ab[ab.length - 1], true);
+    const f0 = fe ? docY(secDe(fe), false) : t1, f1 = fe ? docY(secDe(fe), true) : t1;
+    if (s < t0) q = mix(Q_HERO, Q_TL0, suave((s - (t0 - 1.2 * H)) / (1.2 * H)));
+    else if (s < t1) q = mix(Q_TL0, Q_TL1, (s - t0) / (t1 - t0));
+    else if (s < f0) q = Q_TL1;
+    else if (s < f1) q = mix(Q_TL1, Q_FIM, suave((s - f0) / (f1 - f0)));
+    else q = Q_FIM;
+    fase = s < f0 ? 'abre' : (s < f1 ? 'fecha' : 'fim');
   }
   // entrada: o PNG vira 3D logo que o modelo chega
   if (!RM && cena && introT0) intro = suave((agora - introT0) / 1600);
   alvoQ = q * intro;
   if (Math.abs(alvoQ - atualQ) > 0.0004) { atualQ += (alvoQ - atualQ) * 0.16; sujo = true; } else if (atualQ !== alvoQ) { atualQ = alvoQ; sujo = true; }
 
-  const x = pos.cx - sy * 0 - scrollX - BW / 2;
+  const x = pos.cx - scrollX - BW / 2;
   const y = pos.cy - sy - BH / 2;
   const escala = Math.max(pos.s, 0.001);
   const giro = pos.t !== undefined ? Math.sin(pos.t * Math.PI) * 3 * (Math.sign(pts[1] ? pts[1].cx - pts[0].cx : 1)) : 0;

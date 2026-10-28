@@ -49,11 +49,11 @@
 .traj-trilho { list-style: none; position: absolute; left: 0; top: 0; bottom: 0; display: flex; gap: 0; padding: 0 28px; will-change: transform; }
 .marco { position: relative; flex: 0 0 min(400px, 40vw); padding: calc(var(--h) * .34 + 44px) 28px 28px 0; }
 .marco::before { content: ""; position: absolute; left: 0; top: calc(var(--h) * .34 - 8px); width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 3px solid var(--risco); transition: border-color .3s, background .3s; }
-.marco strong { display: block; font: 700 clamp(52px, 6vw, 92px)/1 var(--largo); letter-spacing: -.03em; color: var(--risco); transition: color .3s; }
-.marco p { margin-top: 16px; font-size: 20px; line-height: 1.5; color: var(--aco); max-width: 18em; opacity: .55; transition: opacity .3s; }
+.marco strong { display: block; font: 700 clamp(52px, 6vw, 92px)/1 var(--largo); letter-spacing: -.03em; color: var(--cota); transition: color .3s; }
+.marco p { margin-top: 16px; font-size: 20px; line-height: 1.5; color: var(--aco); max-width: 18em; transition: color .3s; }
 .marco.ativo::before { border-color: var(--laranja); background: var(--laranja); }
 .marco.ativo strong { color: var(--carvao); }
-.marco.ativo p { opacity: 1; color: var(--carvao); }
+.marco.ativo p { color: var(--carvao); }
 .marco.vista strong { color: var(--aco); }
 .marco.vista::before { border-color: var(--aco); background: var(--aco); }
 .traj-legenda { position: absolute; left: 28px; top: 24px; font: 600 13px/1 var(--texto); letter-spacing: .14em; text-transform: uppercase; color: var(--aco); }
